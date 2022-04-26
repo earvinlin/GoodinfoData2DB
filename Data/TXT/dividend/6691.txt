@@ -1,0 +1,8 @@
+insert into stocks_dividend values ('6691',2022,14,0,14,0,0,0,14,9.51,0,null,null,2022,246,170,196,7.15,0,7.15,2021,15.83,88.4,0,88.4);
+insert into stocks_dividend values ('6691',2021,6.3,0,6.3,4.7,0,4.7,11,2.59,19.3,null,null,null,null,null,null,null,null,null,20Q4,6.05,104,77.7,182);
+insert into stocks_dividend values ('6691',None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,~,None,None,None,None);
+insert into stocks_dividend values ('6691',None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,20Q3,None,None,None,None);
+insert into stocks_dividend values ('6691',2020,10,0,10,0,0,0,10,4.11,0,95,null,null,null,null,null,null,null,null,20Q1,14.13,70.8,0,70.8);
+insert into stocks_dividend values ('6691',None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,~,None,None,None,None);
+insert into stocks_dividend values ('6691',None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,19Q1,None,None,None,None);
+insert into stocks_dividend values ('6691',2019,8,0,8,4,0,4,12,2.35,11.7,null,null,null,null,null,null,null,null,null,2018,19.08,41.9,21,62.9);

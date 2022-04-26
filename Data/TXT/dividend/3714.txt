@@ -1,0 +1,10 @@
+insert into stocks_dividend values ('3714',2022,2,0,2,0,0,0,2,13.7,0,null,null,2022,104,61.6,80.8,2.48,0,2.48,21Q4,2.56,78.1,0,78.1);
+insert into stocks_dividend values ('3714',None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,~,None,None,None,None);
+insert into stocks_dividend values ('3714',None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,21Q3,None,None,None,None);
+insert into stocks_dividend values ('3714',ก่,2,0,2,0,0,0,2,13.7,0,null,null,ก่,null,null,null,2.48,0,2.48,21Q4,0.65,307,0,307);
+insert into stocks_dividend values ('3714',ก่,0,0,0,0,0,0,0,0,0,null,null,ก่,null,null,null,0,0,0,21Q3,1.91,0,0,0);
+insert into stocks_dividend values ('3714',2021,0,0,0,0,0,0,0,0,0,null,null,2021,91.2,57.4,77.8,0,0,0,21Q2,0.65,0,0,0);
+insert into stocks_dividend values ('3714',None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,~,None,None,None,None);
+insert into stocks_dividend values ('3714',None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,21Q1,None,None,None,None);
+insert into stocks_dividend values ('3714',ก่,0,0,0,0,0,0,0,0,0,null,null,ก่,null,null,null,0,0,0,21Q2,1.03,0,0,0);
+insert into stocks_dividend values ('3714',ก่,0,0,0,0,0,0,0,0,0,null,null,ก่,null,null,null,0,0,0,21Q1,-0.38,0,0,0);

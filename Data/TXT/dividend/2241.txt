@@ -1,0 +1,7 @@
+insert into stocks_dividend values ('2241',2022,0,0,0,0,0,0,0,0,0,null,null,2022,52.6,40.5,46.5,0,0,0,2021,-1.23,0,0,0);
+insert into stocks_dividend values ('2241',2021,0.06,0.54,0.6,0,0,0,0.6,0.54,0,1,null,2021,79,48.2,57.2,1.05,0,1.05,2020,0.08,750,0,750);
+insert into stocks_dividend values ('2241',2020,0.88,0,0.88,0,0,0,0.88,0.66,0,1,null,2020,68.2,50.2,54.8,1.6,0,1.6,2019,1.01,87.1,0,87.1);
+insert into stocks_dividend values ('2241',2019,0,0,0,0.23,0,0.23,0.23,0,1.65,null,4,null,null,null,null,null,null,null,2018,0.65,0,34.8,34.8);
+insert into stocks_dividend values ('2241',2018,0,0,0,0,0,0,0,0,0,null,null,null,null,null,null,null,null,null,2017,-0.38,0,0,0);
+insert into stocks_dividend values ('2241',2017,0,0,0,1.61,0,1.61,1.61,0,9.77,null,10,null,null,null,null,null,null,null,2016,1.8,0,89.5,89.5);
+insert into stocks_dividend values ('2241',2016,0,0,0,1.15,0,1.15,1.15,0,6.24,null,null,null,null,null,null,null,null,null,2015,1.58,0,72.5,72.5);

@@ -1,0 +1,8 @@
+insert into stocks_dividend values ('4177',2019,0,0,0,0,0,0,0,0,0,null,null,2019,12.52,3.68,7.31,0,0,0,2018,-2.43,0,0,0);
+insert into stocks_dividend values ('4177',2018,0,0,0,0,0,0,0,0,0,null,null,2018,20,7.74,12.8,0,0,0,2017,-3.06,0,0,0);
+insert into stocks_dividend values ('4177',2017,0,0,0,0,0,0,0,0,0,null,null,2017,43.87,12.26,24.4,0,0,0,2016,-3.68,0,0,0);
+insert into stocks_dividend values ('4177',2016,0,0,0,0,0,0,0,0,0,null,null,2016,65,32.41,49.3,0,0,0,2015,-3.71,0,0,0);
+insert into stocks_dividend values ('4177',2015,0,0,0,0,0,0,0,0,0,null,null,2015,69.15,31.57,48.7,0,0,0,2014,-4.02,0,0,0);
+insert into stocks_dividend values ('4177',2014,0,0,0,0,0,0,0,0,0,null,null,2014,96.5,48.46,72.7,0,0,0,2013,-4.32,0,0,0);
+insert into stocks_dividend values ('4177',2013,0,0,0,0,0,0,0,0,0,null,null,2013,98,37,58.1,0,0,0,2012,-4.85,0,0,0);
+insert into stocks_dividend values ('4177',2012,null,null,null,null,null,null,null,null,null,null,null,2012,50,35,40.4,null,null,null,null,null,null,null,null);
