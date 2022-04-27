@@ -41,6 +41,7 @@ while (not isFinished):
     driver = webdriver.Firefox(firefox_profile=profile)
     driver.get("https://goodinfo.tw/tw/index.asp")
 
+#    elem = driver.find_element_by_id("txtStockCode")
     elem = driver.find_element(By.ID, "txtStockCode")
     elem.send_keys(stockCode)
     elem.send_keys(Keys.RETURN)
@@ -48,20 +49,31 @@ while (not isFinished):
     try:
         # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
         driver.implicitly_wait(10)
+#        web_element = driver.find_element_by_xpath("[@id='StockDetailMenu']/table/tbody/tr/td[1]/table/tbody/tr[7]/td/a")
+#        web_element = driver.find_element_by_link_text('每月營收')
+#        web_element = driver.find_element_by_link_text('每月營收')
         web_element = driver.find_element(By.LINK_TEXT, '每月營收')
         web_element.click()
         
         driver.implicitly_wait(15)
 
-#       使用firefox瀏灠器        
+# ===   以下這段要測試，firefox一直測不過 ===        
+#       使用firefox瀏灠器，加了這段會導致後續功能無法正常運作，不知道如何處理        
         # 變更select
+    #    select = Select(driver.find_element_by_id('selSaleMonChartPeriod'))
+    #    ele_select = driver.find_element(By.XPATH, "//*[@id='selSaleMonChartPeriod']")
         ele_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
         options = Select(ele_select).options
         time.sleep(5)
-#        options.select_by_value("全部") -- 未測試是否可用…
         options[2].click()
+#        options.select_by_value("全部")
         time.sleep(15)
+# ===   以上這段要測試，firefox一直測不過 ===
 
+        # 這種寫法，有時侯會因為網頁載入太慢(>15秒)而失敗
+    #    driver.implicitly_wait(10)
+#        button = driver.find_element_by_xpath("//*[@id='divSaleMonChartDetail']/table/tbody/tr/td/input[1]")
+#        button = driver.find_element_by_xpath("//input[@type='button' and @value='匯出XLS']")
         button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
         driver.execute_script("arguments[0].click();", button)
         
@@ -86,7 +98,7 @@ while (not isFinished):
         isFinished = True
     else:
         if retryCnt >= maxRetryCnt:
-            # write errorfile
+            # out errorfile
             with open(logFilename, "a") as logFile:
                 logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " failure.\n")
             logFile.close() 
