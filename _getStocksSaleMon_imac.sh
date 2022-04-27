@@ -1,331 +1,331 @@
-python3 getGoodinfoSaleMonData.py 0050
-python3 getGoodinfoSaleMonData.py 0056
-python3 getGoodinfoSaleMonData.py 0061
-python3 getGoodinfoSaleMonData.py 00632
-python3 getGoodinfoSaleMonData.py 0066
-python3 getGoodinfoSaleMonData.py 00667
-python3 getGoodinfoSaleMonData.py 1101
-python3 getGoodinfoSaleMonData.py 1102
-python3 getGoodinfoSaleMonData.py 1210
-python3 getGoodinfoSaleMonData.py 1215
-python3 getGoodinfoSaleMonData.py 1229
-python3 getGoodinfoSaleMonData.py 1232
-python3 getGoodinfoSaleMonData.py 1301
-python3 getGoodinfoSaleMonData.py 1303
-python3 getGoodinfoSaleMonData.py 1304
-python3 getGoodinfoSaleMonData.py 1307
-python3 getGoodinfoSaleMonData.py 1309
-python3 getGoodinfoSaleMonData.py 1312
-python3 getGoodinfoSaleMonData.py 1314
-python3 getGoodinfoSaleMonData.py 1319
-python3 getGoodinfoSaleMonData.py 1323
-python3 getGoodinfoSaleMonData.py 1325
-python3 getGoodinfoSaleMonData.py 1326
-python3 getGoodinfoSaleMonData.py 1342
-python3 getGoodinfoSaleMonData.py 1444
-python3 getGoodinfoSaleMonData.py 1452
-python3 getGoodinfoSaleMonData.py 1455
-python3 getGoodinfoSaleMonData.py 1476
-python3 getGoodinfoSaleMonData.py 1513
-python3 getGoodinfoSaleMonData.py 1514
-python3 getGoodinfoSaleMonData.py 1519
-python3 getGoodinfoSaleMonData.py 1521
-python3 getGoodinfoSaleMonData.py 1533
-python3 getGoodinfoSaleMonData.py 1536
-python3 getGoodinfoSaleMonData.py 1558
-python3 getGoodinfoSaleMonData.py 1580
-python3 getGoodinfoSaleMonData.py 1583
-python3 getGoodinfoSaleMonData.py 1586
-python3 getGoodinfoSaleMonData.py 1589
-python3 getGoodinfoSaleMonData.py 1590
-python3 getGoodinfoSaleMonData.py 1605
-python3 getGoodinfoSaleMonData.py 1611
-python3 getGoodinfoSaleMonData.py 1710
-python3 getGoodinfoSaleMonData.py 1714
-python3 getGoodinfoSaleMonData.py 1718
-python3 getGoodinfoSaleMonData.py 1723
-python3 getGoodinfoSaleMonData.py 1732
-python3 getGoodinfoSaleMonData.py 1802
-python3 getGoodinfoSaleMonData.py 1819
-python3 getGoodinfoSaleMonData.py 1904
-python3 getGoodinfoSaleMonData.py 1909
-python3 getGoodinfoSaleMonData.py 2002
-python3 getGoodinfoSaleMonData.py 2006
-python3 getGoodinfoSaleMonData.py 2014
-python3 getGoodinfoSaleMonData.py 2025
-python3 getGoodinfoSaleMonData.py 2027
-python3 getGoodinfoSaleMonData.py 2030
-python3 getGoodinfoSaleMonData.py 2049
-python3 getGoodinfoSaleMonData.py 2104
-python3 getGoodinfoSaleMonData.py 2207
-python3 getGoodinfoSaleMonData.py 2208
-python3 getGoodinfoSaleMonData.py 2231
-python3 getGoodinfoSaleMonData.py 2241
-python3 getGoodinfoSaleMonData.py 2301
-python3 getGoodinfoSaleMonData.py 2308
-python3 getGoodinfoSaleMonData.py 2311
-python3 getGoodinfoSaleMonData.py 2312
-python3 getGoodinfoSaleMonData.py 2313
-python3 getGoodinfoSaleMonData.py 2314
-python3 getGoodinfoSaleMonData.py 2317
-python3 getGoodinfoSaleMonData.py 2323
-python3 getGoodinfoSaleMonData.py 2324
-python3 getGoodinfoSaleMonData.py 2325
-python3 getGoodinfoSaleMonData.py 2327
-python3 getGoodinfoSaleMonData.py 2330
-python3 getGoodinfoSaleMonData.py 2337
-python3 getGoodinfoSaleMonData.py 2340
-python3 getGoodinfoSaleMonData.py 2344
-python3 getGoodinfoSaleMonData.py 2345
-python3 getGoodinfoSaleMonData.py 2349
-python3 getGoodinfoSaleMonData.py 2352
-python3 getGoodinfoSaleMonData.py 2353
-python3 getGoodinfoSaleMonData.py 2355
-python3 getGoodinfoSaleMonData.py 2356
-python3 getGoodinfoSaleMonData.py 2360
-python3 getGoodinfoSaleMonData.py 2367
-python3 getGoodinfoSaleMonData.py 2376
-python3 getGoodinfoSaleMonData.py 2377
-python3 getGoodinfoSaleMonData.py 2379
-python3 getGoodinfoSaleMonData.py 2383
-python3 getGoodinfoSaleMonData.py 2385
-python3 getGoodinfoSaleMonData.py 2393
-python3 getGoodinfoSaleMonData.py 2395
-python3 getGoodinfoSaleMonData.py 2397
-python3 getGoodinfoSaleMonData.py 2404
-python3 getGoodinfoSaleMonData.py 2408
-python3 getGoodinfoSaleMonData.py 2409
-python3 getGoodinfoSaleMonData.py 2412
-python3 getGoodinfoSaleMonData.py 2419
-python3 getGoodinfoSaleMonData.py 2423
-python3 getGoodinfoSaleMonData.py 2426
-python3 getGoodinfoSaleMonData.py 2439
-python3 getGoodinfoSaleMonData.py 2441
-python3 getGoodinfoSaleMonData.py 2448
-python3 getGoodinfoSaleMonData.py 2449
-python3 getGoodinfoSaleMonData.py 2454
-python3 getGoodinfoSaleMonData.py 2455
-python3 getGoodinfoSaleMonData.py 2458
-python3 getGoodinfoSaleMonData.py 2467
-python3 getGoodinfoSaleMonData.py 2474
-python3 getGoodinfoSaleMonData.py 2480
-python3 getGoodinfoSaleMonData.py 2485
-python3 getGoodinfoSaleMonData.py 2488
-python3 getGoodinfoSaleMonData.py 2492
-python3 getGoodinfoSaleMonData.py 2498
-python3 getGoodinfoSaleMonData.py 2499
-python3 getGoodinfoSaleMonData.py 2603
-python3 getGoodinfoSaleMonData.py 2609
-python3 getGoodinfoSaleMonData.py 2610
-python3 getGoodinfoSaleMonData.py 2614
-python3 getGoodinfoSaleMonData.py 2618
-python3 getGoodinfoSaleMonData.py 2633
-python3 getGoodinfoSaleMonData.py 2634
-python3 getGoodinfoSaleMonData.py 2723
-python3 getGoodinfoSaleMonData.py 2729
-python3 getGoodinfoSaleMonData.py 2801
-python3 getGoodinfoSaleMonData.py 2851
-python3 getGoodinfoSaleMonData.py 2880
-python3 getGoodinfoSaleMonData.py 2881
-python3 getGoodinfoSaleMonData.py 2882
-python3 getGoodinfoSaleMonData.py 2883
-python3 getGoodinfoSaleMonData.py 2884
-python3 getGoodinfoSaleMonData.py 2885
-python3 getGoodinfoSaleMonData.py 2886
-python3 getGoodinfoSaleMonData.py 2887
-python3 getGoodinfoSaleMonData.py 2888
-python3 getGoodinfoSaleMonData.py 2889
-python3 getGoodinfoSaleMonData.py 2890
-python3 getGoodinfoSaleMonData.py 2891
-python3 getGoodinfoSaleMonData.py 2892
-python3 getGoodinfoSaleMonData.py 2897
-python3 getGoodinfoSaleMonData.py 2903
-python3 getGoodinfoSaleMonData.py 2912
-python3 getGoodinfoSaleMonData.py 2915
-python3 getGoodinfoSaleMonData.py 2926
-python3 getGoodinfoSaleMonData.py 3003
-python3 getGoodinfoSaleMonData.py 3004
-python3 getGoodinfoSaleMonData.py 3019
-python3 getGoodinfoSaleMonData.py 3023
-python3 getGoodinfoSaleMonData.py 3030
-python3 getGoodinfoSaleMonData.py 3031
-python3 getGoodinfoSaleMonData.py 3034
-python3 getGoodinfoSaleMonData.py 3035
-python3 getGoodinfoSaleMonData.py 3037
-python3 getGoodinfoSaleMonData.py 3044
-python3 getGoodinfoSaleMonData.py 3045
-python3 getGoodinfoSaleMonData.py 3048
-python3 getGoodinfoSaleMonData.py 3062
-python3 getGoodinfoSaleMonData.py 3078
-python3 getGoodinfoSaleMonData.py 3083
-python3 getGoodinfoSaleMonData.py 3086
-python3 getGoodinfoSaleMonData.py 3088
-python3 getGoodinfoSaleMonData.py 3090
-python3 getGoodinfoSaleMonData.py 3105
-python3 getGoodinfoSaleMonData.py 3168
-python3 getGoodinfoSaleMonData.py 3189
-python3 getGoodinfoSaleMonData.py 3202
-python3 getGoodinfoSaleMonData.py 3227
-python3 getGoodinfoSaleMonData.py 3231
-python3 getGoodinfoSaleMonData.py 3289
-python3 getGoodinfoSaleMonData.py 3293
-python3 getGoodinfoSaleMonData.py 3299
-python3 getGoodinfoSaleMonData.py 3323
-python3 getGoodinfoSaleMonData.py 3324
-python3 getGoodinfoSaleMonData.py 3338
-python3 getGoodinfoSaleMonData.py 3339
-python3 getGoodinfoSaleMonData.py 3356
-python3 getGoodinfoSaleMonData.py 3372
-python3 getGoodinfoSaleMonData.py 3374
-python3 getGoodinfoSaleMonData.py 3377
-python3 getGoodinfoSaleMonData.py 3437
-python3 getGoodinfoSaleMonData.py 3443
-python3 getGoodinfoSaleMonData.py 3454
-python3 getGoodinfoSaleMonData.py 3481
-python3 getGoodinfoSaleMonData.py 3491
-python3 getGoodinfoSaleMonData.py 3498
-python3 getGoodinfoSaleMonData.py 3515
-python3 getGoodinfoSaleMonData.py 3532
-python3 getGoodinfoSaleMonData.py 3545
-python3 getGoodinfoSaleMonData.py 3546
-python3 getGoodinfoSaleMonData.py 3558
-python3 getGoodinfoSaleMonData.py 3563
-python3 getGoodinfoSaleMonData.py 3566
-python3 getGoodinfoSaleMonData.py 3576
-python3 getGoodinfoSaleMonData.py 3591
-python3 getGoodinfoSaleMonData.py 3596
-python3 getGoodinfoSaleMonData.py 3611
-python3 getGoodinfoSaleMonData.py 3630
-python3 getGoodinfoSaleMonData.py 3653
-python3 getGoodinfoSaleMonData.py 3665
-python3 getGoodinfoSaleMonData.py 3679
-python3 getGoodinfoSaleMonData.py 3682
-python3 getGoodinfoSaleMonData.py 3698
-python3 getGoodinfoSaleMonData.py 3702
-python3 getGoodinfoSaleMonData.py 3708
-python3 getGoodinfoSaleMonData.py 3711
-python3 getGoodinfoSaleMonData.py 3714
-python3 getGoodinfoSaleMonData.py 4108
-python3 getGoodinfoSaleMonData.py 4126
-python3 getGoodinfoSaleMonData.py 4159
-python3 getGoodinfoSaleMonData.py 4164
-python3 getGoodinfoSaleMonData.py 4177
-python3 getGoodinfoSaleMonData.py 4205
-python3 getGoodinfoSaleMonData.py 4503
-python3 getGoodinfoSaleMonData.py 4506
-python3 getGoodinfoSaleMonData.py 4527
-python3 getGoodinfoSaleMonData.py 4540
-python3 getGoodinfoSaleMonData.py 4551
-python3 getGoodinfoSaleMonData.py 4568
-python3 getGoodinfoSaleMonData.py 4721
-python3 getGoodinfoSaleMonData.py 4736
-python3 getGoodinfoSaleMonData.py 4738
-python3 getGoodinfoSaleMonData.py 4739
-python3 getGoodinfoSaleMonData.py 4904
-python3 getGoodinfoSaleMonData.py 4906
-python3 getGoodinfoSaleMonData.py 4912
-python3 getGoodinfoSaleMonData.py 4915
-python3 getGoodinfoSaleMonData.py 4919
-python3 getGoodinfoSaleMonData.py 4923
-python3 getGoodinfoSaleMonData.py 4938
-python3 getGoodinfoSaleMonData.py 4943
-python3 getGoodinfoSaleMonData.py 4953
-python3 getGoodinfoSaleMonData.py 4958
-python3 getGoodinfoSaleMonData.py 4966
-python3 getGoodinfoSaleMonData.py 4977
-python3 getGoodinfoSaleMonData.py 4991
-python3 getGoodinfoSaleMonData.py 5215
-python3 getGoodinfoSaleMonData.py 5234
-python3 getGoodinfoSaleMonData.py 5243
-python3 getGoodinfoSaleMonData.py 5264
-python3 getGoodinfoSaleMonData.py 5269
-python3 getGoodinfoSaleMonData.py 5274
-python3 getGoodinfoSaleMonData.py 5349
-python3 getGoodinfoSaleMonData.py 5371
-python3 getGoodinfoSaleMonData.py 5388
-python3 getGoodinfoSaleMonData.py 5425
-python3 getGoodinfoSaleMonData.py 5439
-python3 getGoodinfoSaleMonData.py 5457
-python3 getGoodinfoSaleMonData.py 5478
-python3 getGoodinfoSaleMonData.py 5483
-python3 getGoodinfoSaleMonData.py 5489
-python3 getGoodinfoSaleMonData.py 5536
-python3 getGoodinfoSaleMonData.py 5609
-python3 getGoodinfoSaleMonData.py 5871
-python3 getGoodinfoSaleMonData.py 5880
-python3 getGoodinfoSaleMonData.py 5903
-python3 getGoodinfoSaleMonData.py 6111
-python3 getGoodinfoSaleMonData.py 6114
-python3 getGoodinfoSaleMonData.py 6121
-python3 getGoodinfoSaleMonData.py 6139
-python3 getGoodinfoSaleMonData.py 6141
-python3 getGoodinfoSaleMonData.py 6147
-python3 getGoodinfoSaleMonData.py 6153
-python3 getGoodinfoSaleMonData.py 6168
-python3 getGoodinfoSaleMonData.py 6175
-python3 getGoodinfoSaleMonData.py 6176
-python3 getGoodinfoSaleMonData.py 6180
-python3 getGoodinfoSaleMonData.py 6182
-python3 getGoodinfoSaleMonData.py 6196
-python3 getGoodinfoSaleMonData.py 6202
-python3 getGoodinfoSaleMonData.py 6204
-python3 getGoodinfoSaleMonData.py 6209
-python3 getGoodinfoSaleMonData.py 6214
-python3 getGoodinfoSaleMonData.py 6216
-python3 getGoodinfoSaleMonData.py 6230
-python3 getGoodinfoSaleMonData.py 6231
-python3 getGoodinfoSaleMonData.py 6244
-python3 getGoodinfoSaleMonData.py 6257
-python3 getGoodinfoSaleMonData.py 6261
-python3 getGoodinfoSaleMonData.py 6266
-python3 getGoodinfoSaleMonData.py 6269
-python3 getGoodinfoSaleMonData.py 6271
-python3 getGoodinfoSaleMonData.py 6274
-python3 getGoodinfoSaleMonData.py 6278
-python3 getGoodinfoSaleMonData.py 6279
-python3 getGoodinfoSaleMonData.py 6282
-python3 getGoodinfoSaleMonData.py 6285
-python3 getGoodinfoSaleMonData.py 6411
-python3 getGoodinfoSaleMonData.py 6414
-python3 getGoodinfoSaleMonData.py 6443
-python3 getGoodinfoSaleMonData.py 6449
-python3 getGoodinfoSaleMonData.py 6456
-python3 getGoodinfoSaleMonData.py 6477
-python3 getGoodinfoSaleMonData.py 6494
-python3 getGoodinfoSaleMonData.py 6505
-python3 getGoodinfoSaleMonData.py 6506
-python3 getGoodinfoSaleMonData.py 6509
-python3 getGoodinfoSaleMonData.py 6523
-python3 getGoodinfoSaleMonData.py 6553
-python3 getGoodinfoSaleMonData.py 6556
-python3 getGoodinfoSaleMonData.py 6642
-python3 getGoodinfoSaleMonData.py 6691
-python3 getGoodinfoSaleMonData.py 6803
-python3 getGoodinfoSaleMonData.py 8038
-python3 getGoodinfoSaleMonData.py 8042
-python3 getGoodinfoSaleMonData.py 8044
-python3 getGoodinfoSaleMonData.py 8045
-python3 getGoodinfoSaleMonData.py 8069
-python3 getGoodinfoSaleMonData.py 8070
-python3 getGoodinfoSaleMonData.py 8086
-python3 getGoodinfoSaleMonData.py 8112
-python3 getGoodinfoSaleMonData.py 8215
-python3 getGoodinfoSaleMonData.py 8234
-python3 getGoodinfoSaleMonData.py 8284
-python3 getGoodinfoSaleMonData.py 8341
-python3 getGoodinfoSaleMonData.py 8358
-python3 getGoodinfoSaleMonData.py 8416
-python3 getGoodinfoSaleMonData.py 8422
-python3 getGoodinfoSaleMonData.py 8436
-python3 getGoodinfoSaleMonData.py 8446
-python3 getGoodinfoSaleMonData.py 8489
-python3 getGoodinfoSaleMonData.py 8499
-python3 getGoodinfoSaleMonData.py 9904
-python3 getGoodinfoSaleMonData.py 9907
-python3 getGoodinfoSaleMonData.py 9910
-python3 getGoodinfoSaleMonData.py 9917
-python3 getGoodinfoSaleMonData.py 9925
-python3 getGoodinfoSaleMonData.py 9938
-python3 getGoodinfoSaleMonData.py 9939
-python3 getGoodinfoSaleMonData.py 9945
-python3 getGoodinfoSaleMonData.py 9958
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 0050 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 0056 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 0061 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 00632 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 0066 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 00667 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1101 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1102 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1210 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1215 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1229 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1232 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1301 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1303 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1304 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1307 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1309 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1312 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1314 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1319 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1323 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1325 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1326 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1342 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1444 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1452 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1455 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1476 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1513 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1514 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1519 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1521 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1533 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1536 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1558 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1580 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1583 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1586 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1589 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1590 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1605 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1611 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1710 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1714 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1718 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1723 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1732 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1802 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1819 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1904 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 1909 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2002 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2006 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2014 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2025 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2027 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2030 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2049 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2104 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2207 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2208 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2231 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2241 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2301 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2308 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2311 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2312 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2313 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2314 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2317 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2323 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2324 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2325 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2327 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2330 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2337 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2340 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2344 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2345 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2349 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2352 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2353 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2355 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2356 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2360 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2367 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2376 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2377 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2379 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2383 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2385 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2393 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2395 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2397 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2404 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2408 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2409 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2412 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2419 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2423 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2426 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2439 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2441 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2448 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2449 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2454 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2455 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2458 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2467 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2474 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2480 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2485 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2488 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2492 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2498 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2499 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2603 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2609 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2610 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2614 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2618 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2633 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2634 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2723 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2729 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2801 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2851 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2880 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2881 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2882 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2883 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2884 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2885 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2886 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2887 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2888 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2889 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2890 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2891 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2892 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2897 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2903 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2912 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2915 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 2926 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3003 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3004 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3019 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3023 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3030 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3031 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3034 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3035 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3037 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3044 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3045 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3048 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3062 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3078 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3083 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3086 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3088 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3090 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3105 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3168 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3189 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3202 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3227 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3231 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3289 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3293 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3299 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3323 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3324 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3338 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3339 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3356 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3372 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3374 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3377 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3437 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3443 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3454 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3481 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3491 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3498 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3515 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3532 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3545 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3546 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3558 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3563 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3566 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3576 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3591 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3596 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3611 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3630 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3653 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3665 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3679 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3682 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3698 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3702 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3708 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3711 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 3714 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4108 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4126 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4159 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4164 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4177 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4205 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4503 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4506 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4527 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4540 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4551 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4568 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4721 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4736 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4738 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4739 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4904 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4906 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4912 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4915 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4919 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4923 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4938 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4943 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4953 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4958 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4966 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4977 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 4991 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5215 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5234 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5243 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5264 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5269 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5274 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5349 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5371 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5388 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5425 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5439 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5457 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5478 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5483 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5489 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5536 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5609 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5871 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5880 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 5903 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6111 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6114 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6121 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6139 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6141 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6147 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6153 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6168 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6175 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6176 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6180 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6182 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6196 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6202 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6204 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6209 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6214 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6216 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6230 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6231 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6244 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6257 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6261 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6266 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6269 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6271 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6274 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6278 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6279 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6282 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6285 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6411 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6414 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6443 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6449 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6456 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6477 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6494 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6505 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6506 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6509 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6523 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6553 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6556 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6642 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6691 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 6803 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8038 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8042 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8044 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8045 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8069 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8070 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8086 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8112 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8215 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8234 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8284 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8341 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8358 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8416 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8422 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8436 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8446 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8489 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 8499 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9904 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9907 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9910 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9917 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9925 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9938 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9939 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9945 20220427
+python3 getGoodinfoSaleMonDataV2ForFirefox.py 9958 20220427
