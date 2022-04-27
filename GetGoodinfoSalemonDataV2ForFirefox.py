@@ -75,8 +75,11 @@ while (not isFinished):
         logFile.close() 
 
     finally:
+        time.sleep(10)
         # 關閉browser
 #        driver.close()
+        driver.quit()
+
         if retryCnt > 2:
             isFinished = True
 
