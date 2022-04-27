@@ -37,7 +37,9 @@ fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
 # For imac (linux maybe ok); windows needs other style
-service = Service('geckodriver')
+#service = Service('geckodriver')
+# For windows
+service = Service('geckodriver.exe')
 
 isFinished = False
 retryCnt = 0
@@ -50,7 +52,9 @@ while (not isFinished):
         continue
 
 #    driver = webdriver.Firefox(firefox_profile=profile)
-    driver = webdriver.Firefox(service=service, options=fileOptions)
+#   For imac
+#    driver = webdriver.Firefox(service=service, options=fileOptions)
+    driver = webdriver.Firefox(options=fileOptions)
     driver.get("https://goodinfo.tw/tw/index.asp")
 
     elem = driver.find_element(By.ID, "txtStockCode")
