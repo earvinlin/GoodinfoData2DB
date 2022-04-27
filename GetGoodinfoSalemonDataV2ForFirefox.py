@@ -76,6 +76,7 @@ while (not isFinished):
 
     finally:
         # 關閉browser
+        time.sleep(10)
         driver.close()
         if retryCnt > 2:
             isFinished = True
