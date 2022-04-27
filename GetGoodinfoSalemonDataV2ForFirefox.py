@@ -70,6 +70,11 @@ while (not isFinished):
         selectOptions = Select(ele_select).options
         time.sleep(5)
 
+#       捲動scrollbar
+        js = "var q=document.documentElement.scrollTop=1500"
+        driver.execute_script(js)
+        time.sleep(5)
+
 #        options.select_by_value("全部") -- 未測試是否可用…
         selectOptions[2].click()
         time.sleep(15)
