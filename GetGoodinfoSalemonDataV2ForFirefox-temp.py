@@ -53,7 +53,7 @@ while (not isFinished):
         continue
 
 #    driver = webdriver.Firefox(firefox_profile=profile)
-#   For imac
+#    driver = webdriver.Firefox(options=fileOptions)
 #    driver = webdriver.Firefox(service=service, options=fileOptions)
 #   For windows
 #    driver = webdriver.Firefox(options=fileOptions)
