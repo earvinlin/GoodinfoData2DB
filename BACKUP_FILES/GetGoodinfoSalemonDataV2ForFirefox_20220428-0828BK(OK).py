@@ -53,9 +53,8 @@ while (not isFinished):
 
 #    driver = webdriver.Firefox(firefox_profile=profile)
 #   For imac
-    driver = webdriver.Firefox(service=service, options=fileOptions)
-#   For windows (加上參數service會報錯，不知為何？ -- 20220428 --) 
-#    driver = webdriver.Firefox(options=fileOptions)
+#    driver = webdriver.Firefox(service=service, options=fileOptions)
+    driver = webdriver.Firefox(options=fileOptions)
     driver.get("https://goodinfo.tw/tw/index.asp")
 
     elem = driver.find_element(By.ID, "txtStockCode")
