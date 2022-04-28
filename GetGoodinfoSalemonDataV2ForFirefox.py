@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import time
+import platform
 from time import sleep
 from genericpath import isfile
 from sqlalchemy import false, null
@@ -37,9 +38,9 @@ fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
 # For imac (linux maybe ok); windows needs other style
-#service = Service('geckodriver')
-# For windows
-service = Service('geckodriver.exe')
+service = null
+if not platform.system() == "Windows" :
+    service = Service('geckodriver')
 
 isFinished = False
 retryCnt = 0
@@ -53,9 +54,20 @@ while (not isFinished):
 
 #    driver = webdriver.Firefox(firefox_profile=profile)
 #   For imac
+<<<<<<< HEAD
     driver = webdriver.Firefox(service=service, options=fileOptions)
 #   For windows (加上參數service會報錯，不知為何？ -- 20220428 --) 
 #    driver = webdriver.Firefox(options=fileOptions)
+=======
+#    driver = webdriver.Firefox(service=service, options=fileOptions)
+#   For windows
+#    driver = webdriver.Firefox(options=fileOptions)
+    driver = null
+    if platform.system() == "Windows" :    
+        driver = webdriver.Firefox(options=fileOptions)
+    else :
+        driver = webdriver.Firefox(service=service, options=fileOptions)
+>>>>>>> 6b6ebd17be50241737fe174bc38c18bbbab631dc
     driver.get("https://goodinfo.tw/tw/index.asp")
 
     elem = driver.find_element(By.ID, "txtStockCode")
