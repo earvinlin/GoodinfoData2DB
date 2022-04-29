@@ -68,8 +68,8 @@ try:
 			outfile.write(");\n")
 		insertCnt += 1
 
-		# 預防錯誤，理論上應該不會超過100列
-		if irow > 100 :
+		# 預防錯誤，理論上應該不會超過5000列(1年12筆，100年1200筆；所以約400年的企業才可能有問題)
+		if irow > 5000 :
 			print("i=" + str(irow))
 			isSTOP = True
 		irow += 1
