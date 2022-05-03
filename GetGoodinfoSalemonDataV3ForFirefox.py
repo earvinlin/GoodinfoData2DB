@@ -17,7 +17,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 if len(sys.argv) < 2 :
     print("You need input one parameter(fmt : theStockCode theDate) ")
-    print("syntax : C:\python GetGoodinfoSalemonDataV2ForFirefox.py 20220420")
+    print("syntax : C:\python GetGoodinfoSalemonDataV3ForFirefox.py 20220420")
     sys.exit()
 
 STOCK_LIST = "STOCKS_LIST.txt"
@@ -48,7 +48,6 @@ for line in lines:
     stockCode = line.rstrip()
     print("aa= " + stockCode)
     stockFilename = stockCode + "-salemon-" + tradeDate +".xls"
-
 
     isFinished = False
     retryCnt = 0
@@ -118,11 +117,4 @@ for line in lines:
                 logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " failure.\n")
 
 logFile.close()
-
-
-
-
-
-
 f.close()
-
