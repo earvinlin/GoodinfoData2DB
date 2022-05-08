@@ -15,7 +15,7 @@ try:
 		print("syntax : C:\python FormatStocksDividendData.py 2002 20220420")
 		sys.exit()
 
-	loadFileDir = "Data\\EXCEL\\Tranfer\\dividend\\"
+	loadFileDir = "Data\\EXCEL\\Transfer\\dividend\\"
 	saveFileDir = "Data\\TXT\\dividend\\"
 	stockCode = sys.argv[1]
 	inputFile = stockCode + "-dividend-" + sys.argv[2] + ".xlsx"

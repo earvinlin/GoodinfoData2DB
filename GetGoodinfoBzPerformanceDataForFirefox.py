@@ -27,8 +27,8 @@ if not os.path.isfile(STOCK_LIST) :
 
 tradeDate = sys.argv[1]
 maxRetryCnt = 3
-dividendFilename = "FinDetailRates.xls"
-logFilename = "__errorlogFR.log"
+bzPerformanceFilename = "BzPerformance.xls"
+logFilename = "__errorlogBP.log"
 logFile = open(logFilename, "a")
 
 # 設定profile
@@ -47,7 +47,7 @@ lines = f.readlines()
 for line in lines:
     stockCode = line.rstrip()
     print("aa= " + stockCode)
-    stockFilename = stockCode + "-salemon-" + tradeDate +".xls"
+    stockFilename = stockCode + "-BzPerformance-" + tradeDate +".xls"
 
     isFinished = False
     retryCnt = 0
@@ -109,8 +109,8 @@ for line in lines:
             if retryCnt > 2:
                 isFinished = True
 
-        if os.path.isfile(dividendFilename):
-            os.rename(dividendFilename, stockFilename)
+        if os.path.isfile(bzPerformanceFilename):
+            os.rename(bzPerformanceFilename, stockFilename)
             isFinished = True
         else:
             if retryCnt >= maxRetryCnt:

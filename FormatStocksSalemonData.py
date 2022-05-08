@@ -16,7 +16,7 @@ try:
 		print("syntax : C:\python FormatStocksSaleMonData.py 2002 20220420")
 		sys.exit()
 
-	loadFileDir = "Data\\EXCEL\\Tranfer\\salemon\\"
+	loadFileDir = "Data\\EXCEL\\Transfer\\salemon\\"
 #	loadFileDir = "C:\Users\linea\OneDrive\myStocksPGMs\V2.0\xls2xlsx\transfer_ok\saleMonth\\"
 	saveFileDir = "Data\\TXT\\salemon\\"
 #	inputFile = sys.argv[1] + ".xlsx"

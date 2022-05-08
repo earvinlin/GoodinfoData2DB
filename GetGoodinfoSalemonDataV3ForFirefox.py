@@ -46,7 +46,7 @@ f = open(STOCK_LIST, 'r')
 lines = f.readlines()
 for line in lines:
     stockCode = line.rstrip()
-    print("aa= " + stockCode)
+    print("Processing stockno = " + stockCode)
     stockFilename = stockCode + "-salemon-" + tradeDate +".xls"
 
     isFinished = False
@@ -61,7 +61,7 @@ for line in lines:
 
         # 判斷何種作業系統
         driver = null
-        if platform.system() == "Windows" :    
+        if platform.system() == "Windows" : 
             driver = webdriver.Firefox(options=fileOptions)
         else :
             driver = webdriver.Firefox(service=service, options=fileOptions)
