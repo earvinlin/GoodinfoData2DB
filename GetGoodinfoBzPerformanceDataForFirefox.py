@@ -46,7 +46,7 @@ f = open(STOCK_LIST, 'r')
 lines = f.readlines()
 for line in lines:
     stockCode = line.rstrip()
-    print("aa= " + stockCode)
+    print("Processing stockno = " + stockCode)
     stockFilename = stockCode + "-BzPerformance-" + tradeDate +".xls"
 
     isFinished = False
