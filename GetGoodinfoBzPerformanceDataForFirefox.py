@@ -27,6 +27,7 @@ if not os.path.isfile(STOCK_LIST) :
 
 tradeDate = sys.argv[1]
 maxRetryCnt = 3
+processCnt = 0
 bzPerformanceFilename = "BzPerformance.xls"
 logFilename = "__errorlogBP.log"
 logFile = open(logFilename, "a")
@@ -45,8 +46,9 @@ if not platform.system() == "Windows" :
 f = open(STOCK_LIST, 'r')
 lines = f.readlines()
 for line in lines:
+    processCnt += 1
     stockCode = line.rstrip()
-    print("Processing stockno = " + stockCode)
+    print("Processing stockno (" + str(processCnt) + ") = " + stockCode)
     stockFilename = stockCode + "-BzPerformance-" + tradeDate +".xls"
 
     isFinished = False
