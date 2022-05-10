@@ -29,6 +29,7 @@ if len(sys.argv) < 2 :
 	print("You need input two parameter(fmt : relative-path theFileName)")
 	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\dividend\ 2002.txt")
 	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\salemon\ 2002.txt")
+	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\BzPerformance\ 2002.txt")
 	sys.exit()
 
 try :
