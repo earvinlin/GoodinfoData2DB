@@ -45,7 +45,11 @@ fileOptions.set_preference("browser.download.dir", os.getcwd())
 
 # For imac (linux maybe ok); windows needs other style
 service = null
-if not platform.system() == "Windows" :
+#if not platform.system() == "Windows" :
+#    service = Service('geckodriver')
+if platform.system() == "Linux" :
+    service = Service('./geckodriver')
+elif platform.system() == "Darwin" :
     service = Service('geckodriver')
 
 f = open(STOCK_LIST, 'r')
@@ -68,9 +72,9 @@ for line in lines:
         # 判斷何種作業系統
         driver = null
         if platform.system() == "Windows" : 
-            driver = webdriver.Firefox(options=fileOptions)
+            driver = webdriver.Firefox(options = fileOptions)
         else :
-            driver = webdriver.Firefox(service=service, options=fileOptions)
+            driver = webdriver.Firefox(service = service, options = fileOptions)
         driver.get("https://goodinfo.tw/tw/index.asp")
 
         elem = driver.find_element(By.ID, "txtStockCode")
