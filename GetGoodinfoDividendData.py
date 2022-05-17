@@ -19,7 +19,7 @@ if len(sys.argv) < 2 :
     print("syntax : C:\python getGoodinfoDividendData.py 20220420")
     sys.exit()
 
-STOCK_LIST = "STOCKS_LIST_test.txt"
+STOCK_LIST = "STOCKS_LIST.txt"
 if not os.path.isfile(STOCK_LIST) :
     print("股票清單不存在(STOCK_LIST.txt)，請檢查程式執行目錄是否存在此程式。\n")
     exit()
