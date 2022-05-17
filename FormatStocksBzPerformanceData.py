@@ -12,7 +12,7 @@ try:
 
 	if len(sys.argv) < 3 :
 		print("You need input one parameter(fmt : 股票代號 資料抓取日期)")
-		print("syntax : C:\python FormatStocksBzPerformanceData.py 1101 20220508")
+		print("syntax : C:\python FormatStocksBzPerformanceData.py 1101 20220510")
 		sys.exit()
 	loadFileDir = "Data\\EXCEL\\Transfer\\BzPerformance\\"
 	saveFileDir = "Data\\TXT\\BzPerformance\\"
