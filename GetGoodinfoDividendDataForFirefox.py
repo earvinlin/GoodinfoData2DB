@@ -1,3 +1,7 @@
+"""
+20220517-0935 01. GetGoodinfoDividendData.py 更名為 GetGoodinfoDividendDataForFirefox.py
+              02. 調整輸入檔案可透過參數指定
+"""
 import os
 import re
 import sys
@@ -14,17 +18,19 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-if len(sys.argv) < 2 :
-    print("You need input two parameter(fmt : theStockCode theDate) ")
-    print("syntax : C:\python getGoodinfoDividendData.py 20220420")
+if len(sys.argv) < 3 :
+    print("You need input two parameter(fmt : theStocksList theDate) ")
+    print("syntax(windows)    : C:\python getGoodinfoDividendDataForFirefox.py STOCKS_LIST 20220517")
+    print("syntax(imac/linux) : $python3 getGoodinfoDividendDataForFirefox.py STOCKS_LIST 20220517")
     sys.exit()
 
-STOCK_LIST = "STOCKS_LIST.txt"
+STOCK_LIST = sys.argv[1]
+print("filename: " + STOCK_LIST)
 if not os.path.isfile(STOCK_LIST) :
-    print("股票清單不存在(STOCK_LIST.txt)，請檢查程式執行目錄是否存在此程式。\n")
+    print("股票清單不存在(" + STOCK_LIST + ")，請檢查程式執行目錄是否存在此程式。\n")
     exit()
 
-tradeDate = sys.argv[1]
+theDate = sys.argv[2]
 maxRetryCnt = 3
 processCnt = 0
 dividendFilename = "DividendDetail.xls"
@@ -51,7 +57,7 @@ for line in lines:
     processCnt += 1
     stockCode = line.rstrip()
     print("Processing stockno (" + str(processCnt) + ") = " + stockCode)
-    stockFilename = stockCode + "-dividend-" + tradeDate +".xls"
+    stockFilename = stockCode + "-dividend-" + theDate + ".xls"
 
     isFinished = False
     retryCnt = 0
