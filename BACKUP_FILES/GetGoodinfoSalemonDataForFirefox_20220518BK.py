@@ -1,6 +1,6 @@
 """
-220220518-0901 copy from GetGoodinfoSalemonDataForFirefox.py，本程式是用來修改為可在linux執行
-               測試成功後再併回原程式
+20220517-0935 01. GetGoodinfoSalemonDataV3ForFirefox.py 更名為 GetGoodinfoSalemonDataForFirefox.py
+              02. 調整輸入檔案可透過參數指定
 """
 import os
 import re
@@ -43,7 +43,7 @@ fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
 
-# For imac / linux; windows needs other style
+# For imac (linux maybe ok); windows needs other style
 service = null
 #if not platform.system() == "Windows" :
 #    service = Service('geckodriver')
@@ -69,7 +69,7 @@ for line in lines:
             isFinished = True
             continue
 
-        # 判斷何種作業系統(windows OS不需要使用service object)
+        # 判斷何種作業系統
         driver = null
         if platform.system() == "Windows" : 
             driver = webdriver.Firefox(options = fileOptions)
@@ -83,14 +83,10 @@ for line in lines:
 
         try:
             # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
-#            driver.implicitly_wait(10)
-            time.sleep(10)
+            driver.implicitly_wait(10)
             web_element = driver.find_element(By.LINK_TEXT, '每月營收')
             web_element.click()
-#            driver.implicitly_wait(15)
-            time.sleep(10)
-
-            print("code: " + stockCode + ", 載入第1頁\n")
+            driver.implicitly_wait(15)
 
             ele_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
             selectOptions = Select(ele_select).options
@@ -101,13 +97,9 @@ for line in lines:
             driver.execute_script(js)
             time.sleep(5)
 
-            print("code: " + stockCode + ", 捲動scroll bar\n")
-
 #           options.select_by_value("全部") -- 未測試是否可用…
             selectOptions[2].click()
-            time.sleep(10)
-
-            print("code: " + stockCode + ", 選擇下拉選單「全部」\n")
+            time.sleep(15)
 
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             driver.execute_script("arguments[0].click();", button)

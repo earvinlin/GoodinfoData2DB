@@ -1,6 +1,7 @@
 """
 20220517-0935 01. GetGoodinfoSalemonDataV3ForFirefox.py 更名為 GetGoodinfoSalemonDataForFirefox.py
               02. 調整輸入檔案可透過參數指定
+20220518-0901 程式碼微調及確認程式可運作
 """
 import os
 import re
@@ -21,14 +22,14 @@ from selenium.webdriver.support import expected_conditions as EC
 
 if len(sys.argv) < 3 :
     print("You need input two parameter(fmt : theStocksList theDate) ")
-    print("syntax(windows)    : C:\python GetGoodinfoSalemonDataForFirefox.py STOCKS_LIST 20220517")
-    print("syntax(imac/linux) : $python3 GetGoodinfoSalemonDataForFirefox.py STOCKS_LIST 20220517")
+    print("syntax(windows)    : C:\python GetGoodinfoSalemonDataForFirefox.py STOCKS_LIST.txt 20220517")
+    print("syntax(imac/linux) : $python3 GetGoodinfoSalemonDataForFirefox.py STOCKS_LIST.txt 20220517")
     sys.exit()
 
-STOCK_LIST = sys.argv[1]
-print("filename: " + STOCK_LIST)
-if not os.path.isfile(STOCK_LIST) :
-    print("股票清單不存在(" + STOCK_LIST + ")，請檢查程式執行目錄是否存在此程式。\n")
+theStocksList = sys.argv[1]
+print("filename: " + theStocksList)
+if not os.path.isfile(theStocksList) :
+    print("股票清單不存在(" + theStocksList + ")，請檢查程式執行目錄是否存在此程式。\n")
     exit()
 
 theDate = sys.argv[2]
@@ -43,7 +44,7 @@ fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
 
-# For imac (linux maybe ok); windows needs other style
+# For imac / linux; windows needs other style
 service = null
 #if not platform.system() == "Windows" :
 #    service = Service('geckodriver')
@@ -52,7 +53,7 @@ if platform.system() == "Linux" :
 elif platform.system() == "Darwin" :
     service = Service('geckodriver')
 
-f = open(STOCK_LIST, 'r')
+f = open(theStocksList, 'r')
 lines = f.readlines()
 for line in lines:
     stockCode = line.rstrip()
@@ -69,7 +70,7 @@ for line in lines:
             isFinished = True
             continue
 
-        # 判斷何種作業系統
+        # 判斷何種作業系統(windows OS不需要使用service object)
         driver = null
         if platform.system() == "Windows" : 
             driver = webdriver.Firefox(options = fileOptions)
@@ -83,10 +84,14 @@ for line in lines:
 
         try:
             # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
-            driver.implicitly_wait(10)
+#            driver.implicitly_wait(10)
+            time.sleep(10)
             web_element = driver.find_element(By.LINK_TEXT, '每月營收')
             web_element.click()
-            driver.implicitly_wait(15)
+#            driver.implicitly_wait(15)
+            time.sleep(10)
+
+            print("code: " + stockCode + ", 載入第1頁\n")
 
             ele_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
             selectOptions = Select(ele_select).options
@@ -97,9 +102,13 @@ for line in lines:
             driver.execute_script(js)
             time.sleep(5)
 
+            print("code: " + stockCode + ", 捲動scroll bar\n")
+
 #           options.select_by_value("全部") -- 未測試是否可用…
             selectOptions[2].click()
-            time.sleep(15)
+            time.sleep(10)
+
+            print("code: " + stockCode + ", 選擇下拉選單「全部」\n")
 
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             driver.execute_script("arguments[0].click();", button)
