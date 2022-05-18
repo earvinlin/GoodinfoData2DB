@@ -43,19 +43,18 @@ fileOptions=Options()
 fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
-fileOptions.set_preference("browser.download.dir", os.getcwd())
 #fileOptions.set_preference("dom.webnotifications.enabled", False)
 
 
 
 # For imac / linux; windows needs other style
 service = null
-if not platform.system() == "Windows" :
-    service = Service('geckodriver')
-#if platform.system() == "Linux" :
-#    service = Service('./geckodriver')
-#elif platform.system() == "Darwin" :
+#if not platform.system() == "Windows" :
 #    service = Service('geckodriver')
+if platform.system() == "Linux" :
+    service = Service('./geckodriver')
+elif platform.system() == "Darwin" :
+    service = Service('geckodriver')
 
 f = open(theStocksList, 'r')
 lines = f.readlines()
@@ -105,13 +104,9 @@ for line in lines:
             driver.execute_script(js)
             time.sleep(5)
 
-#            print("code: " + stockCode + ", 捲動scroll bar\n")
-
 #           options.select_by_value("全部") -- 未測試是否可用…
             selectOptions[2].click()
             time.sleep(10)
-
-#            print("code: " + stockCode + ", 選擇下拉選單「全部」\n")
 
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             driver.execute_script("arguments[0].click();", button)
