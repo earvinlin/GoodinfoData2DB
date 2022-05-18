@@ -2,6 +2,15 @@
 20220517-0935 01. GetGoodinfoSalemonDataV3ForFirefox.py 更名為 GetGoodinfoSalemonDataForFirefox.py
               02. 調整輸入檔案可透過參數指定
 20220518-0901 程式碼微調及確認程式可運作
+
+prefs = {
+    'profile.default_content_setting_values' :
+    {
+        'notifications' : 2
+    }
+}
+fileOptions.set_preference('prefs',prefs)
+
 """
 import os
 import re
@@ -43,8 +52,7 @@ fileOptions=Options()
 fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
-fileOptions.set_preference("browser.download.dir", os.getcwd())
-#fileOptions.set_preference("dom.webnotifications.enabled", False)
+fileOptions.set_preference("dom.webnotifications.enabled", False)
 
 
 
