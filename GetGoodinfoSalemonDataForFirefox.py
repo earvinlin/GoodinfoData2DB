@@ -45,7 +45,13 @@ fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
 #fileOptions.set_preference("dom.webnotifications.enabled", False)
 
-
+# 設定檔案存取路徑
+destination_dir = os.path.join("Data", "EXCEL", "Origin", "salemon", str(theDate))
+if platform.system() == "Windows" :
+    destination_dir += "\\"
+else :
+    destination_dir += "/"
+print("destination dir: " + destination_dir)
 
 # For imac / linux; windows needs other style
 service = null
@@ -68,7 +74,8 @@ for line in lines:
 
     while (not isFinished):
         # 先檢查要抓的資料是否已經存在，若存在則跳
-        if os.path.isfile(stockFilename) :
+#        if os.path.isfile(stockFilename) :
+        if os.path.isfile(destination_dir + stockFilename) :
             logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " is exist.\n")
             isFinished = True
             continue
@@ -127,7 +134,7 @@ for line in lines:
                 isFinished = True
 
         if os.path.isfile(dividendFilename):
-            os.rename(dividendFilename, stockFilename)
+            os.rename(dividendFilename, destination_dir + stockFilename)
             isFinished = True
         else:
             if retryCnt >= maxRetryCnt:
