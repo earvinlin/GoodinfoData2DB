@@ -2,6 +2,7 @@
 20220517-0935 01. GetGoodinfoSalemonDataV3ForFirefox.py 更名為 GetGoodinfoSalemonDataForFirefox.py
               02. 調整輸入檔案可透過參數指定
 20220518-0901 程式碼微調及確認程式可運作
+20220519-2235 修正可於linux上執行(需把geckodriver 複製至 /usr/bin 下)
 """
 import os
 import re
@@ -43,6 +44,10 @@ fileOptions=Options()
 fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
+fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
+    'text/csv,application/x-msexcel,application/excel,application/x-excel,\
+    application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
+    application/msword,application/xml')
 #fileOptions.set_preference("dom.webnotifications.enabled", False)
 
 # 設定檔案存取路徑
@@ -54,12 +59,9 @@ else :
 print("destination dir: " + destination_dir)
 
 # For imac / linux; windows needs other style
+# For linux, need put geckodriver in /usr/bin first
 service = null
-#if not platform.system() == "Windows" :
-#    service = Service('geckodriver')
-if platform.system() == "Linux" :
-    service = Service('./geckodriver')
-elif platform.system() == "Darwin" :
+if not platform.system() == "Windows" :
     service = Service('geckodriver')
 
 f = open(theStocksList, 'r')
