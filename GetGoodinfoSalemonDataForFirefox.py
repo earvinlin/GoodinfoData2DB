@@ -88,12 +88,12 @@ for line in lines:
         try:
             # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
 #            driver.implicitly_wait(10)
-            time.sleep(10)
+            time.sleep(5)
 
             web_element = driver.find_element(By.LINK_TEXT, '每月營收')
             web_element.click()
 #            driver.implicitly_wait(15)
-            time.sleep(10)
+            time.sleep(5)
 
             ele_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
             selectOptions = Select(ele_select).options
@@ -106,7 +106,7 @@ for line in lines:
 
 #           options.select_by_value("全部") -- 未測試是否可用…
             selectOptions[2].click()
-            time.sleep(10)
+            time.sleep(5)
 
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             driver.execute_script("arguments[0].click();", button)
