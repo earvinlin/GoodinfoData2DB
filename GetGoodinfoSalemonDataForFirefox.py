@@ -87,7 +87,8 @@ for line in lines:
         if platform.system() == "Windows" : 
             driver = webdriver.Firefox(options = fileOptions)
         else :
-            driver = webdriver.Firefox(service = service, options = fileOptions)
+#            driver = webdriver.Firefox(service = service, options = fileOptions)
+            driver = webdriver.Chrome(service = service, options = fileOptions)
         driver.get("https://goodinfo.tw/tw/index.asp")
 
         elem = driver.find_element(By.ID, "txtStockCode")
