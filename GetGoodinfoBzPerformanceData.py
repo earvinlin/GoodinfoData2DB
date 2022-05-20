@@ -1,6 +1,6 @@
 """
-220220518-0901 copy from GetGoodinfoSalemonDataForFirefox.py，本程式是用來修改為可在linux執行
-               測試成功後再併回原程式
+20220517-0935 調整輸入檔案可透過參數指定
+20220520-1327 更改檔案名稱：GetGoodinfoBzPerformanceDataForFirefox -> GetGoodinfoBzPerformanceData
 """
 import os
 import re
@@ -20,9 +20,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 if len(sys.argv) < 3 :
-    print("You need input two parameter(fmt : theStocksList theDate) ")
-    print("syntax(windows)    : C:\python GetGoodinfoSalemonDataForFirefox.py STOCKS_LIST 20220517")
-    print("syntax(imac/linux) : $python3 GetGoodinfoSalemonDataForFirefox.py STOCKS_LIST 20220517")
+    print("You need input two parameter(fmt : theFilename theDate) ")
+    print("syntax(windows)    : C:\python GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
+    print("syntax(imac/linux) : $python3 GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
     sys.exit()
 
 STOCK_LIST = sys.argv[1]
@@ -33,8 +33,9 @@ if not os.path.isfile(STOCK_LIST) :
 
 theDate = sys.argv[2]
 maxRetryCnt = 3
-dividendFilename = "SaleMonDetail.xls"
-logFilename = "__errorlogSD.log"
+processCnt = 0
+bzPerformanceFilename = "BzPerformance.xls"
+logFilename = "__errorlogBP.log"
 logFile = open(logFilename, "a")
 
 # 設定profile
@@ -43,21 +44,18 @@ fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
 
-# For imac / linux; windows needs other style
+# For imac (linux maybe ok); windows needs other style
 service = null
-#if not platform.system() == "Windows" :
-#    service = Service('geckodriver')
-if platform.system() == "Linux" :
-    service = Service('./geckodriver')
-elif platform.system() == "Darwin" :
+if not platform.system() == "Windows" :
     service = Service('geckodriver')
 
 f = open(STOCK_LIST, 'r')
 lines = f.readlines()
 for line in lines:
+    processCnt += 1
     stockCode = line.rstrip()
-    print("Processing stockno = " + stockCode)
-    stockFilename = stockCode + "-salemon-" + theDate + ".xls"
+    print("Processing stockno (" + str(processCnt) + ") = " + stockCode)
+    stockFilename = stockCode + "-BzPerformance-" + theDate + ".xls"
 
     isFinished = False
     retryCnt = 0
@@ -69,12 +67,12 @@ for line in lines:
             isFinished = True
             continue
 
-        # 判斷何種作業系統(windows OS不需要使用service object)
+        # 判斷何種作業系統
         driver = null
-        if platform.system() == "Windows" : 
-            driver = webdriver.Firefox(options = fileOptions)
+        if platform.system() == "Windows" :    
+            driver = webdriver.Firefox(options=fileOptions)
         else :
-            driver = webdriver.Firefox(service = service, options = fileOptions)
+            driver = webdriver.Firefox(service=service, options=fileOptions)
         driver.get("https://goodinfo.tw/tw/index.asp")
 
         elem = driver.find_element(By.ID, "txtStockCode")
@@ -83,31 +81,15 @@ for line in lines:
 
         try:
             # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
-#            driver.implicitly_wait(10)
-            time.sleep(10)
-            web_element = driver.find_element(By.LINK_TEXT, '每月營收')
+            driver.implicitly_wait(10)
+            web_element = driver.find_element(By.LINK_TEXT, '經營績效')
             web_element.click()
-#            driver.implicitly_wait(15)
-            time.sleep(10)
-
-            print("code: " + stockCode + ", 載入第1頁\n")
-
-            ele_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
-            selectOptions = Select(ele_select).options
-            time.sleep(5)
+            driver.implicitly_wait(15)
 
         #   捲動scrollbar
             js = "var q=document.documentElement.scrollTop=1500"
             driver.execute_script(js)
             time.sleep(5)
-
-            print("code: " + stockCode + ", 捲動scroll bar\n")
-
-#           options.select_by_value("全部") -- 未測試是否可用…
-            selectOptions[2].click()
-            time.sleep(10)
-
-            print("code: " + stockCode + ", 選擇下拉選單「全部」\n")
 
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             driver.execute_script("arguments[0].click();", button)
@@ -127,8 +109,8 @@ for line in lines:
             if retryCnt > 2:
                 isFinished = True
 
-        if os.path.isfile(dividendFilename):
-            os.rename(dividendFilename, stockFilename)
+        if os.path.isfile(bzPerformanceFilename):
+            os.rename(bzPerformanceFilename, stockFilename)
             isFinished = True
         else:
             if retryCnt >= maxRetryCnt:
