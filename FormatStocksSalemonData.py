@@ -1,9 +1,13 @@
+"""
+20220521-2049 (Not Finish)調整資料來源為…
+"""
 from datetime import datetime
 import sys
 import os 
 import time
 import openpyxl
-#import xlrd
+import time
+import platform
 
 NULL_VALUE = "null"
 insertCnt = 0 
@@ -12,17 +16,31 @@ try:
 	print("[FormatFile.py] 開始執行時間：" + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
 
 	if len(sys.argv) < 3 :
-		print("You need input two parameter(fmt : 股票代號 資料抓取日期)")
-		print("syntax : C:\python FormatStocksSaleMonData.py 2002 20220420")
+		print("You need input one parameter(fmt : 資料抓取日期)")
+		print("syntax(windows)    : C:\python GetGoodinfoSalemonData.py 20220517")
+		print("syntax(imac/linux) : $python3 GetGoodinfoSalemonData.py 20220517")
 		sys.exit()
+
+	theDate = sys.argv[1]
 
 	loadFileDir = "Data\\EXCEL\\Transfer\\salemon\\"
 #	loadFileDir = "C:\Users\linea\OneDrive\myStocksPGMs\V2.0\xls2xlsx\transfer_ok\saleMonth\\"
 	saveFileDir = "Data\\TXT\\salemon\\"
-#	inputFile = sys.argv[1] + ".xlsx"
-	stockCode = sys.argv[1]
-	inputFile = stockCode + "-salemon-" + sys.argv[2] + ".xlsx"
-	outputFile = stockCode + ".txt"
+
+	# 設定檔案存取路徑
+	loadFileDir = os.path.join("Data", "EXCEL", "Transfer", "salemon", str(theDate))
+	saveFileDir =  os.path.join("Data", "TXT", "salemon", str(theDate))
+	if platform.system() == "Windows" :
+	   	loadFileDir += "\\"
+		saveFileDir += "\\"
+	else :
+		loadFileDir += "/"
+		saveFileDir += "/"
+	print("loadFile dir: " + loadFileDir)
+	print("saveFile dir: " + saveFileDir)
+
+#	inputFile = stockCode + "-salemon-" + sys.argv[2] + ".xlsx"
+#	outputFile = stockCode + ".txt"
 	
 	outfile = open(saveFileDir + outputFile, 'w')
 
@@ -82,30 +100,3 @@ except IOError as err :
 print("資料處理完成!! 共 " + str(insertCnt) + " 筆。")
 print("[FormatFile.py] 結束執行時間：" + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
 
-"""
-stock_no
-dividend_year
-cash_div_surplus
-cash_div_reserve
-total_cash_div
-stock_div_surplus
-stock_div_reserve
-total_stock_div
-total_dividend
-total_div_cash
-total_div_stocks
-days_fill_cash
-days_fill_stocks
-stock_price_year
-year_high_price
-year_low_price
-year_avg_price
-avg_ann_cash_yield
-avg_ann_stock_yield
-avg_ann_yield
-period_of_dividend
-eps
-div_earnings_dis_ratio
-alo_earnings_dis_ratio
-earnings_dis_ratio
-"""
