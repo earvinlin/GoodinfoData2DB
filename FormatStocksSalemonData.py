@@ -24,10 +24,6 @@ try:
 
 	theDate = sys.argv[1]
 
-#	loadFileDir = "Data\\EXCEL\\Transfer\\salemon\\"
-#	loadFileDir = "C:\Users\linea\OneDrive\myStocksPGMs\V2.0\xls2xlsx\transfer_ok\saleMonth\\"
-#	saveFileDir = "Data\\TXT\\salemon\\"
-
 	# 設定檔案存取路徑
 	loadFileDir = ""
 	saveFileDir = ""

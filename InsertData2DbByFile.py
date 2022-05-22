@@ -19,17 +19,17 @@ insertCnt = 0
 errorCnt = 0
 theInsertCmd = ""
 
-print("[InsertData2DbByFile.py] 開始執行時間：" + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
+print("[InsertData2DbByFile.py] 開始執行時間：" + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
  
-cnx = mysql.connector.connect(user=user, password=pwd, host=host, database=db)
+cnx = mysql.connector.connect(user = user, password = pwd, host = host, database = db)
 cursor = cnx.cursor()
 
 if len(sys.argv) < 2 :
 	# 參數 = 相對路徑 + 檔名 (根目錄程式所在處)
 	print("You need input two parameter(fmt : relative-path theFileName)")
-	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\dividend\ 2002.txt")
-	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\salemon\ 2002.txt")
-	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\BzPerformance\ 2002.txt")
+	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\dividend\22020520\ 2002.txt")
+	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\salemon\22020520\ 2002.txt")
+	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\BzPerformance\22020520\ 2002.txt")
 	sys.exit()
 
 try :
@@ -37,6 +37,7 @@ try :
 	for line in stocks:
 		theInsertCmd = line
 		print(theInsertCmd)
+
 		try :
 			cursor.execute(theInsertCmd) 
 			insertCnt += 1
@@ -51,7 +52,6 @@ except mysql.connector.Error as err:
 	print("Error: {}".format(err.msg))
 	sys.exit()	
 
-#stocks.close()
 cnx.commit()
 cursor.close()
 cnx.close()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
