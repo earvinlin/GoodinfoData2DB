@@ -1,12 +1,10 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+docs/html
+docs/.tadoc.org.html
 
-
-
-*.bak
-*.log
-*.exe
-chromedriver*
-geckodriver*
+*.pyc
+build/
+dist/
+*.so
+.*
+*~
+*.egg-info/
