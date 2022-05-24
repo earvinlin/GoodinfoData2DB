@@ -5,6 +5,9 @@ docs/.tadoc.org.html
 build/
 dist/
 *.so
-.*
 *~
 *.egg-info/
+
+*.log
+geckodriver
+
