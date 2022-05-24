@@ -30,13 +30,14 @@ if len(sys.argv) < 3 :
     sys.exit()
 
 theStocksList = sys.argv[1]
-print("filename: " + theStocksList)
+print("Filename: " + theStocksList)
 if not os.path.isfile(theStocksList) :
     print("股票清單不存在(" + theStocksList + ")，請檢查程式執行目錄是否存在此程式。\n")
     exit()
 
 theDate = sys.argv[2]
 maxRetryCnt = 3
+processCnt = 0
 dividendFilename = "SaleMonDetail.xls"
 logFilename = "__errorlogSD.log"
 logFile = open(logFilename, "a")
@@ -58,7 +59,7 @@ if platform.system() == "Windows" :
     destination_dir += "\\"
 else :
     destination_dir += "/"
-print("destination dir: " + destination_dir)
+print("Destination DIR: " + destination_dir)
 
 # For imac / linux; windows needs other style
 # For linux, need put geckodriver in /usr/bin first
@@ -69,8 +70,9 @@ if not platform.system() == "Windows" :
 f = open(theStocksList, 'r')
 lines = f.readlines()
 for line in lines:
+    processCnt += 1
     stockCode = line.rstrip()
-    print("Processing stockno = " + stockCode)
+    print("Processing StockNo (" + str(processCnt) + ") = " + stockCode)
     stockFilename = stockCode + "-salemon-" + theDate + ".xls"
 
     isFinished = False
@@ -80,9 +82,11 @@ for line in lines:
         # 先檢查要抓的資料是否已經存在，若存在則跳
 #        if os.path.isfile(stockFilename) :
         if os.path.isfile(destination_dir + stockFilename) :
+            print("檔案已存在!!")
             logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " is exist.\n")
             isFinished = True
-            continue
+#            continue
+            break
 
         driver = null
         try:
@@ -132,9 +136,10 @@ for line in lines:
         
             isFinished = True
 
-        except EC.NoSuchElementException as err0 :
-            print(err0)
-            isFinished = True
+#        except EC.NoSuchElementException as err0 :
+#            print(err0)
+#            retryCnt += 1
+#            isFinished = True
 #            logFile.write(print(f"Unexpected {err0=}, {type(err0)=}"))
 
         except BaseException as err1 :
