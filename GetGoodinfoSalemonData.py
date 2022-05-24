@@ -4,6 +4,7 @@
 20220518-0901 程式碼微調及確認程式可運作
 20220519-2235 修正可於linux上執行(需把geckodriver 複製至 /usr/bin 下)
 20220520-1327 更改檔案名稱：GetGoodinfoSalemonDataForFirefox -> GetGoodinfoSalemonData
+20220524-1146 新增個股若查無月營收相關資料，則直接查詢下一個股資料
 """
 import os
 import re
@@ -106,8 +107,15 @@ for line in lines:
 #            driver.implicitly_wait(15)
             time.sleep(5)
 
-            ele_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
-            selectOptions = Select(ele_select).options
+            # 若查無月營收相關資料，則直接查詢下一個股資料
+            elem_notfound = driver.find_element(By.ID, "divSaleMonChartDetail")
+            if elem_notfound.text == "查無月營收相關資料!!" :
+                print("查無月營收相關資料!!")
+                isFinished = True
+                break
+
+            elem_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
+            selectOptions = Select(elem_select).options
             time.sleep(5)
 
         #   捲動scrollbar
@@ -124,10 +132,15 @@ for line in lines:
         
             isFinished = True
 
-        except BaseException as err :
+        except EC.NoSuchElementException as err0 :
+            print(err0)
+            isFinished = True
+#            logFile.write(print(f"Unexpected {err0=}, {type(err0)=}"))
+
+        except BaseException as err1 :
             retryCnt += 1
             logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " excption.\n")
-#            logFile.write(print(f"Unexpected {err=}, {type(err)=}"))
+#            logFile.write(print(f"Unexpected {err1=}, {type(err1)=}"))
 
         finally:
             time.sleep(10)
