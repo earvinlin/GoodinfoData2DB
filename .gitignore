@@ -9,5 +9,6 @@ dist/
 *.egg-info/
 
 *.log
+*.bak
 geckodriver
-
+chromedriver*
