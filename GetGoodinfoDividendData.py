@@ -63,6 +63,14 @@ service = null
 if not platform.system() == "Windows" :
     service = Service('geckodriver')
 
+# 判斷何種作業系統(windows OS不需要使用service object)
+driver = null
+if platform.system() == "Windows" :    
+    driver = webdriver.Firefox(options = fileOptions)
+else :
+#   driver = webdriver.Firefox(service = service, options = fileOptions)
+    driver = webdriver.Chrome(service = service, options = fileOptions)
+
 f = open(theStocksList, 'r')
 lines = f.readlines()
 for line in lines:
@@ -83,14 +91,16 @@ for line in lines:
 #            continue
             break
 
-        # 判斷何種作業系統(windows OS不需要使用service object)
-        driver = null
-        if platform.system() == "Windows" :    
-            driver = webdriver.Firefox(options = fileOptions)
-        else :
-#           用firefox會很常跳出google廣告，用chrome會比較好一些            
-#            driver = webdriver.Firefox(service = service, options = fileOptions)
-            driver = webdriver.Chrome(service = service, options = fileOptions)
+# 20220526 move out to for loop, now in line66
+#        # 判斷何種作業系統(windows OS不需要使用service object)
+#        driver = null
+#        if platform.system() == "Windows" :    
+#            driver = webdriver.Firefox(options = fileOptions)
+#        else :
+##           用firefox會很常跳出google廣告，用chrome會比較好一些            
+##            driver = webdriver.Firefox(service = service, options = fileOptions)
+#            driver = webdriver.Chrome(service = service, options = fileOptions)
+
         driver.get("https://goodinfo.tw/tw/index.asp")
 
         elem = driver.find_element(By.ID, "txtStockCode")
@@ -106,13 +116,6 @@ for line in lines:
             web_element.click()
 #            driver.implicitly_wait(15)
             time.sleep(5)
-
-            # 若查無月營收相關資料，則直接查詢下一個股資料
-#            elem_notfound = driver.find_element(By.ID, "divSaleMonChartDetail")
-#            if elem_notfound.text == "查無月營收相關資料!!" :
-#                print("查無月營收相關資料!!")
-#                isFinished = True
-#                break
 
         #   捲動scrollbar
             js = "var q=document.documentElement.scrollTop=1500"
@@ -134,9 +137,10 @@ for line in lines:
 
         finally:
             time.sleep(10)
-            # 關閉browser
-            driver.close()
-#           driver.quit()
+#           move out for loop, now in line156
+#            # 關閉browser
+#            driver.close()
+##           driver.quit()
 
             if retryCnt > 2 :
                 isFinished = True
@@ -148,6 +152,9 @@ for line in lines:
         else :
             if retryCnt >= maxRetryCnt :
                 logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " failure.\n")
+
+# 關閉browser
+driver.close()
 
 logFile.close()
 f.close()
