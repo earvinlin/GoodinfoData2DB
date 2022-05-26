@@ -5,6 +5,7 @@
 20220519-2235 修正可於linux上執行(需把geckodriver 複製至 /usr/bin 下)
 20220520-1327 更改檔案名稱：GetGoodinfoSalemonDataForFirefox -> GetGoodinfoSalemonData
 20220524-1146 新增個股若查無月營收相關資料，則直接查詢下一個股資料
+20220526-2027 調整程式呼叫webdriver方式，只初始化一次
 """
 import os
 import re
@@ -67,6 +68,14 @@ service = null
 if not platform.system() == "Windows" :
     service = Service('geckodriver')
 
+# 判斷何種作業系統(windows OS不需要使用service object)
+driver = null
+if platform.system() == "Windows" : 
+    driver = webdriver.Firefox(options = fileOptions)
+else :
+#   driver = webdriver.Firefox(service = service, options = fileOptions)
+    driver = webdriver.Chrome(service = service, options = fileOptions)
+
 f = open(theStocksList, 'r')
 lines = f.readlines()
 for line in lines:
@@ -88,14 +97,7 @@ for line in lines:
 #            continue
             break
 
-        driver = null
         try:
-            # 判斷何種作業系統(windows OS不需要使用service object)
-            if platform.system() == "Windows" : 
-                driver = webdriver.Firefox(options = fileOptions)
-            else :
-#               driver = webdriver.Firefox(service = service, options = fileOptions)
-                driver = webdriver.Chrome(service = service, options = fileOptions)
             driver.get("https://goodinfo.tw/tw/index.asp")
 
             elem = driver.find_element(By.ID, "txtStockCode")
@@ -149,9 +151,6 @@ for line in lines:
 
         finally:
             time.sleep(10)
-            # 關閉browser
-            driver.close()
-#           driver.quit()
 
             if retryCnt > 2:
                 isFinished = True
@@ -163,5 +162,7 @@ for line in lines:
             if retryCnt >= maxRetryCnt:
                 logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " failure.\n")
 
+# 關閉browser
+driver.close()
 logFile.close()
 f.close()

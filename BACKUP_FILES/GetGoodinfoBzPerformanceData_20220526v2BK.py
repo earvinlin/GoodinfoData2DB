@@ -2,7 +2,6 @@
 20220517-0935 調整輸入檔案可透過參數指定
 20220520-1327 更改檔案名稱：GetGoodinfoBzPerformanceDataForFirefox -> GetGoodinfoBzPerformanceData
 20220526-1458 微調程式
-20220526-2027 調整程式呼叫webdriver方式，只初始化一次
 """
 import os
 import re
@@ -64,14 +63,6 @@ service = null
 if not platform.system() == "Windows" :
     service = Service('geckodriver')
 
-# 判斷何種作業系統
-driver = null
-if platform.system() == "Windows" :    
-    driver = webdriver.Firefox(options=fileOptions)
-else :
-#   driver = webdriver.Firefox(service = service, options = fileOptions)
-    driver = webdriver.Chrome(service = service, options = fileOptions)
-
 f = open(theStocksList, 'r')
 lines = f.readlines()
 for line in lines:
@@ -90,6 +81,13 @@ for line in lines:
             isFinished = True
             continue
 
+        # 判斷何種作業系統
+        driver = null
+        if platform.system() == "Windows" :    
+            driver = webdriver.Firefox(options=fileOptions)
+        else :
+#            driver = webdriver.Firefox(service = service, options = fileOptions)
+            driver = webdriver.Chrome(service = service, options = fileOptions)
         driver.get("https://goodinfo.tw/tw/index.asp")
 
         elem = driver.find_element(By.ID, "txtStockCode")
@@ -120,6 +118,8 @@ for line in lines:
 
         finally:
             time.sleep(10)
+            # 關閉browser
+            driver.close()
 
             if retryCnt > 2:
                 isFinished = True
@@ -131,7 +131,5 @@ for line in lines:
             if retryCnt >= maxRetryCnt:
                 logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " failure.\n")
 
-# 關閉browser
-driver.close()
 logFile.close()
 f.close()

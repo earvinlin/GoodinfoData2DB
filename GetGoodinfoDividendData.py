@@ -3,6 +3,7 @@
               02. 調整輸入檔案可透過參數指定
 20220520-1327 更改檔案名稱：GetGoodinfoDividendDataForFirefox -> GetGoodinfoDividendData
 20220524-1941 新增個股若查無月營收相關資料，則直接查詢下一個股資料
+20220526-2027 調整程式呼叫webdriver方式，只初始化一次
 """
 import os
 import re
@@ -155,7 +156,6 @@ for line in lines:
 
 # 關閉browser
 driver.close()
-
 logFile.close()
 f.close()
 
