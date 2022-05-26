@@ -1,7 +1,6 @@
 """
 20220517-0935 調整輸入檔案可透過參數指定
 20220520-1327 更改檔案名稱：GetGoodinfoBzPerformanceDataForFirefox -> GetGoodinfoBzPerformanceData
-20220526-1458 微調程式
 """
 import os
 import re
@@ -26,10 +25,10 @@ if len(sys.argv) < 3 :
     print("syntax(imac/linux) : $python3 GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
     sys.exit()
 
-theStocksList = sys.argv[1]
-print("filename: " + theStocksList)
-if not os.path.isfile(theStocksList) :
-    print("股票清單不存在(" + theStocksList + ")，請檢查程式執行目錄是否存在此程式。\n")
+STOCK_LIST = sys.argv[1]
+print("filename: " + STOCK_LIST)
+if not os.path.isfile(STOCK_LIST) :
+    print("股票清單不存在(" + STOCK_LIST + ")，請檢查程式執行目錄是否存在此程式。\n")
     exit()
 
 theDate = sys.argv[2]
@@ -44,32 +43,19 @@ fileOptions=Options()
 fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
 fileOptions.set_preference("browser.download.dir", os.getcwd())
-fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
-    'text/csv,application/x-msexcel,application/excel,application/x-excel,\
-    application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
-    application/msword,application/xml')
 
-# 設定檔案存取路徑
-destination_dir = os.path.join("Data", "EXCEL", "Origin", "bzPerformance", str(theDate))
-if platform.system() == "Windows" :
-    destination_dir += "\\"
-else :
-    destination_dir += "/"
-print("Destination DIR: " + destination_dir)
-
-# For imac / linux; windows needs other style
-# For linux, need put geckodriver in /usr/bin first
+# For imac (linux maybe ok); windows needs other style
 service = null
 if not platform.system() == "Windows" :
     service = Service('geckodriver')
 
-f = open(theStocksList, 'r')
+f = open(STOCK_LIST, 'r')
 lines = f.readlines()
 for line in lines:
     processCnt += 1
     stockCode = line.rstrip()
-    print("Processing StockNo (" + str(processCnt) + ") = " + stockCode)
-    stockFilename = stockCode + "-bzPerformance-" + theDate + ".xls"
+    print("Processing stockno (" + str(processCnt) + ") = " + stockCode)
+    stockFilename = stockCode + "-BzPerformance-" + theDate + ".xls"
 
     isFinished = False
     retryCnt = 0
@@ -86,8 +72,7 @@ for line in lines:
         if platform.system() == "Windows" :    
             driver = webdriver.Firefox(options=fileOptions)
         else :
-#            driver = webdriver.Firefox(service = service, options = fileOptions)
-            driver = webdriver.Chrome(service = service, options = fileOptions)
+            driver = webdriver.Firefox(service=service, options=fileOptions)
         driver.get("https://goodinfo.tw/tw/index.asp")
 
         elem = driver.find_element(By.ID, "txtStockCode")
@@ -95,14 +80,13 @@ for line in lines:
         elem.send_keys(Keys.RETURN)
 
         try:
-            # 這種寫法，有時侯會因為網頁載入太慢(>5秒)而失敗
-            time.sleep(5)
-
+            # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
+            driver.implicitly_wait(10)
             web_element = driver.find_element(By.LINK_TEXT, '經營績效')
             web_element.click()
-            time.sleep(5)
+            driver.implicitly_wait(15)
 
-            # 捲動scrollbar
+        #   捲動scrollbar
             js = "var q=document.documentElement.scrollTop=1500"
             driver.execute_script(js)
             time.sleep(5)
@@ -120,12 +104,13 @@ for line in lines:
             time.sleep(10)
             # 關閉browser
             driver.close()
+#           driver.quit()
 
             if retryCnt > 2:
                 isFinished = True
 
         if os.path.isfile(bzPerformanceFilename):
-            os.rename(bzPerformanceFilename, destination_dir + stockFilename)
+            os.rename(bzPerformanceFilename, stockFilename)
             isFinished = True
         else:
             if retryCnt >= maxRetryCnt:
