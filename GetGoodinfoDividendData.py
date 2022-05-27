@@ -10,6 +10,7 @@ import re
 import sys
 import time
 import platform
+import selenium.webdriver.support.ui as ui
 from time import sleep
 from sqlalchemy import false, null
 from genericpath import isfile
@@ -91,16 +92,8 @@ for line in lines:
             isFinished = True
 #            continue
             break
-
-# 20220526 move out to for loop, now in line66
-#        # 判斷何種作業系統(windows OS不需要使用service object)
-#        driver = null
-#        if platform.system() == "Windows" :    
-#            driver = webdriver.Firefox(options = fileOptions)
-#        else :
-##           用firefox會很常跳出google廣告，用chrome會比較好一些            
-##            driver = webdriver.Firefox(service = service, options = fileOptions)
-#            driver = webdriver.Chrome(service = service, options = fileOptions)
+#       20220527-1704 Add
+#        wait = ui.WebDriverWait(driver, 5)
 
         driver.get("https://goodinfo.tw/tw/index.asp")
 
@@ -113,6 +106,7 @@ for line in lines:
 #            driver.implicitly_wait(10)
             time.sleep(5)
 
+
             web_element = driver.find_element(By.LINK_TEXT, '股利政策')
             web_element.click()
 #            driver.implicitly_wait(15)
@@ -123,25 +117,28 @@ for line in lines:
             driver.execute_script(js)
             time.sleep(5)
 
+#           20220524-1704 Add
+#            driver.until(lambda driver: driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']"))
+
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             driver.execute_script("arguments[0].click();", button)
         
             isFinished = True
 
-#        except EC.NoSuchElementException as err0 :
-#            print(err0)
-#            isFinished = True
+        except EC.NoSuchElementException as err0 :
+#           (ErrNo:-2147012894) �瀅��暹�   
+#           Unable to locate element: 股利政策         
+            print(err0.msg)
+            isFinished = True
+            logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(err0) + " excption.\n")
 
         except BaseException as err1 :
+            print(err1)
             retryCnt += 1
             logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " excption.\n")
 
         finally:
             time.sleep(10)
-#           move out for loop, now in line156
-#            # 關閉browser
-#            driver.close()
-##           driver.quit()
 
             if retryCnt > 2 :
                 isFinished = True
