@@ -69,8 +69,8 @@ driver = null
 if platform.system() == "Windows" :    
     driver = webdriver.Firefox(options = fileOptions)
 else :
-#   driver = webdriver.Firefox(service = service, options = fileOptions)
-    driver = webdriver.Chrome(service = service, options = fileOptions)
+#    driver = webdriver.Chrome(service = service, options = fileOptions)
+    driver = webdriver.Firefox(service = service, options = fileOptions)
 
 f = open(theStocksList, 'r')
 lines = f.readlines()
