@@ -85,7 +85,7 @@ for line in lines:
 
     while (not isFinished):
         # 先檢查要抓的資料是否已經存在，若存在則跳
-        if os.path.isfile(stockFilename) :
+        if os.path.isfile(destination_dir + stockFilename) :
             logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " is exist.\n")
             isFinished = True
             continue
