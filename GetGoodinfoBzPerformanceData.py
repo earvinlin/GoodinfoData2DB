@@ -3,6 +3,7 @@
 20220520-1327 更改檔案名稱：GetGoodinfoBzPerformanceDataForFirefox -> GetGoodinfoBzPerformanceData
 20220526-1458 微調程式
 20220526-2027 調整程式呼叫webdriver方式，只初始化一次
+20220531-0903 新增exception
 """
 import os
 import re
@@ -67,7 +68,7 @@ if not platform.system() == "Windows" :
 # 判斷何種作業系統
 driver = null
 if platform.system() == "Windows" :    
-    driver = webdriver.Firefox(options=fileOptions)
+    driver = webdriver.Firefox(options = fileOptions)
 else :
 #    driver = webdriver.Chrome(service = service, options = fileOptions)
     driver = webdriver.Firefox(service = service, options = fileOptions)
@@ -114,7 +115,13 @@ for line in lines:
         
             isFinished = True
 
-        except BaseException:
+        except EC.NoSuchElementException as err0 :
+            print(err0.msg)
+            isFinished = True
+            logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(err0) + " excption.\n")
+
+        except BaseException as err1:
+            print(err1)
             retryCnt += 1
             logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " excption.\n")
 
