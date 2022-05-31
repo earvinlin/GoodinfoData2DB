@@ -1,5 +1,5 @@
 """
-20220528-2232 修改中 (Program backup-name: FormatStocksDividendData.py_20220530BK)
+20220528-2232 格式化產生寫入Stocks_Dividend的SQL Command
 """
 from datetime import datetime
 import sys
@@ -75,9 +75,11 @@ avg_ann_cash_yield,avg_ann_stock_yield,avg_ann_yield,period_of_dividend,\
 eps,div_earnings_dis_ratio,alo_earnings_dis_ratio,earnings_dis_ratio) values ('" + stockCode + "'")
 			for icol in range(1, 25) :
 				theValue = sheet.cell(row = irow, column = icol).value
-				print("icol= " + str(icol) + ", value= " + str(theValue))
+#				print("icol= " + str(icol) + ", value= " + str(theValue))
+
 				if icol == 1 :
-					print("thePrevValue01= " + str(thePrevValue01))
+#					股利發放年度：因為如果非年配息(如：季配)會有多筆資料，為了後續查詢作業，本欄資料要另外處理
+#					print("thePrevValue01= " + str(thePrevValue01))
 					if thePrevValue01 == '-'  :
 						thePrevValue01 = str(theValue)
 					if str(theValue) == '∟' :
@@ -85,31 +87,25 @@ eps,div_earnings_dis_ratio,alo_earnings_dis_ratio,earnings_dis_ratio) values ('"
 					if str(theValue) != thePrevValue01 :
 						thePrevValue01 = str(theValue)
 
-				if icol == 13 :
+					if theValue == "累計" :
+						isSTOP = True
+						theList.pop()
+						break
+					theList.append(theValue)
+				elif icol == 13 :
+#					股價年度：因為如果非年配息(如：季配)會有多筆資料，為了後續查詢作業，本欄資料要另外處理
 					if thePrevValue13 == '-' :
 						thePrevValue13 = str(theValue)
 					if str(theValue) == '∟' :
 						theValue = thePrevValue13
 					if str(theValue) != thePrevValue13 :
 						thePrevValue13 = theValue
-
-#			print(theValue)
-				if icol == 1 :
-					if theValue == "累計" :
-						isSTOP = True
-						theList.pop()
-						break
-					# 股利發放年度：PKEY欄位，為文字型態
-#					theValue = "'" + str(theValue) +"'"
-					theList.append(theValue)
-				elif icol == 13 :
-#					theValue = "'" + str(theValue) +"'"
+					if theValue == '-' :
+						theValue = NULL_VALUE
+					
 					theList.append(theValue)
 				elif icol == 20 :
-					# (TODO)為了資料排序，「股利所屬期間」需做加工處理：
-					# 「-」    -> 股利發放年度
-					# 「22H1」 -> 股利發放年度 + H1 (ex: 2022H1)
-					# 股價年度(13)、股利所屬期間(20)：PKEY欄位，為文字型態
+# 					股利所屬期間
 					theValue = "'" + str(theValue) +"'"
 					theList.append(theValue)
 				elif type(theValue) == str :
