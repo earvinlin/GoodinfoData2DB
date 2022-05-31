@@ -14,7 +14,7 @@ NULL_VALUE = "null"
 insertCnt = 0 
 isFirstLine = True
 try:
-	print("[FormatFile.py] 開始執行時間：" + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
+	print("[GetGoodinfoSalemonData.py] 開始執行時間：" + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
 
 	if len(sys.argv) < 2 :
 		print("You need input one parameter(資料日期, fmt : yyyymmdd)")
@@ -100,7 +100,7 @@ try:
 
 		outfile.close()
 		print("資料處理完成!! 共 " + str(insertCnt) + " 筆。")
-		print("[FormatFile.py] 結束執行時間：" + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
+		print("[GetGoodinfoSalemonData.py] 結束執行時間：" + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
 
 except IOError as err :
 	print('File error : ' + str(err))
