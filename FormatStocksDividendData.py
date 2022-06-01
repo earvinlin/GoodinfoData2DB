@@ -1,7 +1,6 @@
 """
 20220528-2232 格式化產生寫入Stocks_Dividend的SQL Command
 """
-from datetime import datetime
 import sys
 import os 
 import time
@@ -9,7 +8,7 @@ import openpyxl
 import time
 import platform
 import re
-
+from datetime import datetime
 from sqlalchemy import null
 
 NULL_VALUE = "null"
@@ -23,7 +22,6 @@ try:
 		print("syntax(windows)    : C:\python FormatStocksDividendData.py 20220517")
 		print("syntax(imac/linux) : $python3 FormatStocksDividendData.py 20220517")
 		sys.exit()
-
 
 	theDate = sys.argv[1]
 
