@@ -1,7 +1,6 @@
 """
-20220528-2232 修改中
+20220528-2232 格式化產生寫入Stocks_Dividend的SQL Command
 """
-from datetime import datetime
 import sys
 import os 
 import time
@@ -9,6 +8,8 @@ import openpyxl
 import time
 import platform
 import re
+from datetime import datetime
+from sqlalchemy import null
 
 NULL_VALUE = "null"
 insertCnt = 0 
@@ -21,7 +22,6 @@ try:
 		print("syntax(windows)    : C:\python FormatStocksDividendData.py 20220517")
 		print("syntax(imac/linux) : $python3 FormatStocksDividendData.py 20220517")
 		sys.exit()
-
 
 	theDate = sys.argv[1]
 
@@ -59,6 +59,8 @@ try:
 		isSTOP = False
 		irow = 6
 		icol = 1
+		thePrevValue01 = '-'
+		thePrevValue13 = '-'
 
 		while not isSTOP :
 			theList = []
@@ -71,22 +73,37 @@ avg_ann_cash_yield,avg_ann_stock_yield,avg_ann_yield,period_of_dividend,\
 eps,div_earnings_dis_ratio,alo_earnings_dis_ratio,earnings_dis_ratio) values ('" + stockCode + "'")
 			for icol in range(1, 25) :
 				theValue = sheet.cell(row = irow, column = icol).value
-				if str(theValue) == '∟' :
-					theValue = 'L'
-#			print(theValue)
+#				print("icol= " + str(icol) + ", value= " + str(theValue))
+
 				if icol == 1 :
+#					股利發放年度：因為如果非年配息(如：季配)會有多筆資料，為了後續查詢作業，本欄資料要另外處理
+#					print("thePrevValue01= " + str(thePrevValue01))
+					if thePrevValue01 == '-'  :
+						thePrevValue01 = str(theValue)
+					if str(theValue) == '∟' :
+						theValue = thePrevValue01
+					if str(theValue) != thePrevValue01 :
+						thePrevValue01 = str(theValue)
+
 					if theValue == "累計" :
 						isSTOP = True
 						theList.pop()
 						break
-					# 股利發放年度：PKEY欄位，為文字型態
-					theValue = "'" + str(theValue) +"'"
 					theList.append(theValue)
-				elif icol == 13 or icol == 20 :
-					# (TODO)為了資料排序，「股利所屬期間」需做加工處理：
-					# 「-」    -> 股利發放年度
-					# 「22H1」 -> 股利發放年度 + H1 (ex: 2022H1)
-					# 股價年度(13)、股利所屬期間(20)：PKEY欄位，為文字型態
+				elif icol == 13 :
+#					股價年度：因為如果非年配息(如：季配)會有多筆資料，為了後續查詢作業，本欄資料要另外處理
+					if thePrevValue13 == '-' :
+						thePrevValue13 = str(theValue)
+					if str(theValue) == '∟' :
+						theValue = thePrevValue13
+					if str(theValue) != thePrevValue13 :
+						thePrevValue13 = theValue
+					if theValue == '-' :
+						theValue = NULL_VALUE
+					
+					theList.append(theValue)
+				elif icol == 20 :
+# 					股利所屬期間
 					theValue = "'" + str(theValue) +"'"
 					theList.append(theValue)
 				elif type(theValue) == str :
@@ -106,7 +123,6 @@ eps,div_earnings_dis_ratio,alo_earnings_dis_ratio,earnings_dis_ratio) values ('"
 				outfile.write(",".join([str(_) for _ in theList]))
 				outfile.write(");\n")
 			insertCnt += 1
-
 
 			# 預防錯誤，理論上應該不會超過5000列(1年12筆，100年1200筆；所以約400年的企業才可能有問題)
 			if irow > 100 :
