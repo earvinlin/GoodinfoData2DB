@@ -1,3 +1,0 @@
-python getGoodinfoSaleMonDataV2ForFirefox.py 1101 20220427
-python getGoodinfoSaleMonDataV2ForFirefox.py 1444 20220427
-
