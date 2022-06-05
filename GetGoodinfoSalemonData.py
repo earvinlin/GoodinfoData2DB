@@ -151,12 +151,6 @@ for line in lines:
 
         finally:
             time.sleep(10)
-<<<<<<< HEAD
-            # 關閉browser
-#            driver.close()
-            driver.quit()
-=======
->>>>>>> dd4bcca469f17a195fd632b12d8decb032fbf9e4
 
             if retryCnt > 2:
                 isFinished = True
