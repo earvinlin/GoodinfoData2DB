@@ -1,4 +1,11 @@
 """
+取得Goodinfo網站「每月營收」超連結資料
+執行程式語法：
+<windows>
+python GetGoodinfoSalemonData.py STOCKS_LIST_salemon.txt 20220517
+<imac / linux>
+python3 GetGoodinfoSalemonData.py STOCKS_LIST_salemon.txt 20220517
+
 20220517-0935 01. GetGoodinfoSalemonDataV3ForFirefox.py 更名為 GetGoodinfoSalemonDataForFirefox.py
               02. 調整輸入檔案可透過參數指定
 20220518-0901 程式碼微調及確認程式可運作

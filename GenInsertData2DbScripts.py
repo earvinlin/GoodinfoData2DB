@@ -1,20 +1,25 @@
 """
-20220522 (撰寫中) 產生執行InsertData2DbByFile.py的script
+20220522 產生執行InsertData2DbByFile.py的script
          需要輸入的參數：檔案路徑 
          -------------------------------------------------------------------------
          Content :
          -------------------------------------------------------------------------
-         <dividend> -- Windows (Linux/iMac -> python3 ...) --
+         [windows] -- 可使用相對路徑
+		 <dividend>
          python InsertData2DbByFile.py Data\TXT\dividend\22020520\ 
-         ...
-
-         <salemon> -- Windows (Linux/iMac -> python3 ...) --
+         <salemon>
          python InsertData2DbByFile.py Data\TXT\salemon\22020520\ 
-         ...
-
-         <BzPerformance> -- Windows (Linux/iMac -> python3 ...) --
+         <BzPerformance>
          python InsertData2DbByFile.py Data\TXT\BzPerformance\22020520\ 
          ...
+		 [imac / linux] 這兒是以相對路徑表示，但是好像不行；用絕對路徑可正確執行
+		 <dividend>
+         python3 InsertData2DbByFile.py Data/TXT/dividend/22020520/ 
+         <salemon>
+         python3 InsertData2DbByFile.py Data/TXT/salemon/22020520/ 
+         <BzPerformance>
+         python3 InsertData2DbByFile.py Data/TXT/BzPerformance/22020520/ 
+
 """
 import sys
 import os 
@@ -33,7 +38,7 @@ try:
 	if len(sys.argv) < 2 :
 		print("You need input one parameter : 檔案目錄")
 		print("syntax(windows)    : C:\python GenInsertData2DbScripts.py Data\\TXT\\alemon\\0220522\\")
-		print("syntax(imac/linux) : $python3 GenInsertData2DbScripts.py Data\\TXT\\salemon\\20220522\\")
+		print("syntax(imac/linux) : $python3 GenInsertData2DbScripts.py Data/TXT/salemon/20220522/")
 		sys.exit()
 
 	# 設定檔案存取路徑

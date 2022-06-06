@@ -1,4 +1,11 @@
 """
+取得Goodinfo網站「經營績效」超連結資料
+執行程式語法：
+<windows>
+python GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517
+<imac / linux>
+python3 GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517
+
 20220517-0935 調整輸入檔案可透過參數指定
 20220520-1327 更改檔案名稱：GetGoodinfoBzPerformanceDataForFirefox -> GetGoodinfoBzPerformanceData
 20220526-1458 微調程式
