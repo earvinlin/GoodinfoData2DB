@@ -37,7 +37,7 @@ try:
 
 	if len(sys.argv) < 2 :
 		print("You need input one parameter : 檔案目錄")
-		print("syntax(windows)    : C:\python GenInsertData2DbScripts.py Data\\TXT\\alemon\\0220522\\")
+		print("syntax(windows)    : C:\python GenInsertData2DbScripts.py Data\\TXT\\salemon\\20220522\\")
 		print("syntax(imac/linux) : $python3 GenInsertData2DbScripts.py Data/TXT/salemon/20220522/")
 		sys.exit()
 
