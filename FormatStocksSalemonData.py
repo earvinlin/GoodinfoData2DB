@@ -18,8 +18,8 @@ try:
 
 	if len(sys.argv) < 2 :
 		print("You need input one parameter(資料日期, fmt : yyyymmdd)")
-		print("syntax(windows)    : C:\python GetGoodinfoSalemonData.py 20220517")
-		print("syntax(imac/linux) : $python3 GetGoodinfoSalemonData.py 20220517")
+		print("syntax(windows)    : C:\python FormatGoodinfoSalemonData.py 20220517")
+		print("syntax(imac/linux) : $python3 FormatGoodinfoSalemonData.py 20220517")
 		sys.exit()
 
 	theDate = sys.argv[1]

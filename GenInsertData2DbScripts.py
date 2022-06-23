@@ -12,13 +12,13 @@
          <BzPerformance>
          python InsertData2DbByFile.py Data\TXT\BzPerformance\22020520\ 
          ...
-		 [imac / linux] 這兒是以相對路徑表示，但是好像不行；用絕對路徑可正確執行
+		 [imac / linux] 絕對路徑可正常執行
 		 <dividend>
-         python3 InsertData2DbByFile.py Data/TXT/dividend/22020520/ 
+         python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/dividend/22020520/ 
          <salemon>
-         python3 InsertData2DbByFile.py Data/TXT/salemon/22020520/ 
+         python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/22020520/ 
          <BzPerformance>
-         python3 InsertData2DbByFile.py Data/TXT/BzPerformance/22020520/ 
+         python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/BzPerformance/22020520/ 
 
 """
 import sys
@@ -49,7 +49,7 @@ try:
 		outputFile = "_InsertStocksData2DB.Bat"
 	else :
 		pythonCompiler = "python3"
-		loadFileDir = sys.argv[1]
+		loadFileDir = "/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/" + sys.argv[1]
 		outputFile = "_InsertStocksData2DB.sh"
 	
 	outfile = open(outputFile, 'w')
