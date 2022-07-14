@@ -1299,7 +1299,6 @@ python InsertData2DbByFile.py Data\TXT\salemon\202206\ 5364.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 5371.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 5381.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 5383.txt
-python InsertData2DbByFile.py Data\TXT\salemon\202206\ 5384.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 5386.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 5387.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 5388.txt
@@ -1391,7 +1390,6 @@ python InsertData2DbByFile.py Data\TXT\salemon\202206\ 6015.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 6016.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 6020.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 6021.txt
-python InsertData2DbByFile.py Data\TXT\salemon\202206\ 6022.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 6023.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 6024.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202206\ 6026.txt
