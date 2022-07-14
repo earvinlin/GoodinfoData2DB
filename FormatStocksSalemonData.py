@@ -18,8 +18,8 @@ try:
 
 	if len(sys.argv) < 2 :
 		print("You need input one parameter(資料日期, fmt : yyyymmdd)")
-		print("syntax(windows)    : C:\python FormatGoodinfoSalemonData.py 20220517")
-		print("syntax(imac/linux) : $python3 FormatGoodinfoSalemonData.py 20220517")
+		print("syntax(windows)    : C:\python FormatStocksSalemonData.py 20220517")
+		print("syntax(imac/linux) : $python3 FormatStocksSalemonData.py 20220517")
 		sys.exit()
 
 	theDate = sys.argv[1]
@@ -31,8 +31,9 @@ try:
 		loadFileDir = "Data\\EXCEL\\Transfer\\salemon\\" + str(theDate) + "\\"
 		saveFileDir = "Data\\TXT\\salemon\\" + str(theDate) + "\\"
 	else :
-		loadFileDir = "./Data/EXCEL/Transfer/salemon/" + str(theDate) + "/"
-		saveFileDir = "./Data/TXT/salemon/" + str(theDate) + "/"
+#       iMac下的路徑：「/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB」(目前似乎只能用絕對路徑)
+		loadFileDir = "/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/salemon/" + str(theDate) + "/"
+		saveFileDir = "/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/" + str(theDate) + "/"
 
 	print("loadFile dir: " + loadFileDir)
 	print("saveFile dir: " + saveFileDir)
