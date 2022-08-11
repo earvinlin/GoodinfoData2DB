@@ -6,19 +6,19 @@
          -------------------------------------------------------------------------
          [windows] -- 可使用相對路徑
 		 <dividend>
-         python InsertData2DbByFile.py Data\TXT\dividend\22020520\ 
+         python GenInsertData2DbScripts.py Data\TXT\dividend\22020520\ 
          <salemon>
-         python InsertData2DbByFile.py Data\TXT\salemon\22020520\ 
+         python GenInsertData2DbScripts.py Data\TXT\salemon\22020520\ 
          <BzPerformance>
-         python InsertData2DbByFile.py Data\TXT\BzPerformance\22020520\ 
+         python GenInsertData2DbScripts.py Data\TXT\BzPerformance\22020520\ 
          ...
 		 [imac / linux] 絕對路徑可正常執行
 		 <dividend>
-         python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/dividend/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/dividend/22020520/ 
          <salemon>
-         python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/22020520/ 
          <BzPerformance>
-         python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/BzPerformance/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/BzPerformance/22020520/ 
 
 """
 import sys

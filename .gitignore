@@ -10,5 +10,5 @@ dist/
 
 *.log
 *.bak
-geckodriver
+geckodriver*
 chromedriver*
