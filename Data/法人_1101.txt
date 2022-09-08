@@ -1,0 +1,305 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<script language="JavaScript"><!--
+if (navigator.userAgent.toLowerCase().indexOf('msie') != -1) {
+	if (navigator.userAgent.toLowerCase().match(/msie ([\d.]+)/)[1] <=10) {
+		document.writeln('<script language="JavaScript" src="/z/js/jquery-latest.djjs"></script>\n');
+	} else {
+		document.writeln('<script language="JavaScript" src="/z/js/jquery.djjs"></script>\n');
+	}
+} else {
+document.writeln('<script language="JavaScript" src="/z/js/jquery.djjs"></script>\n');
+}
+// --></script>
+<script language="JavaScript" src="/z/js/jsFunction.djjs"></script>
+<script language="JavaScript" src="/z/js/isSpecialKind.djjs"></script>
+<script language="JavaScript" src="/z/js/mdj.js"></script>
+<script type="text/javascript" src="/z/js/Applet2Canvas.djjs"></script>
+<script type="text/javascript" src="/z/js/DJWebGraph.djjs"></script>
+<script type="text/javascript" src="/z/js/xml2jsonJS.djjs"></script>
+<script type="text/javascript" src="/z/js/json2xmlJS.djjs"></script>
+<script type="text/javascript" src="/z/js/json2.djjs"></script>
+<script type="text/javascript" src="/z/js/GenUpDownJS.djjs"></script>
+<link rel=stylesheet href="/z/js/mdj.css" type="text/css">
+<title>個股法人持股-1101c=2022-09-07</title>
+</head>
+<script language="JavaScript"><!--
+CheckMenu(4, '1101c=2022-09-07');
+function chkSetUpMenu(){ 
+	if (typeof(SetUpMenu) == 'function'){
+		SetUpMenu(4,'1101c=2022-09-07');
+}
+	else
+		setTimeout(function(){chkSetUpMenu();},5000);
+}
+// --></script>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="SysJustIFRAMEDIV">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td colspan="3" valign="top" align="left">
+<script language="javascript" src="/z/js/disableselectionjs.djjs"></script>
+<script language="javascript" src="/z/js/SU.js"></script>
+<script language="javascript"><!--
+ chkSetUpMenu();
+//--></script>
+</td></tr>
+<tr><td valign="top" align="left">
+<script language="javascript" src="/z/js/SL.js"></script>
+<script language="javascript"><!--
+ SetLeftMenu(4,'1101c=2022-09-07')
+//--></script>
+</td><td valign="top" width="99%">
+<script language="javascript"><!--
+if(typeof(ContentCenterBegin) == 'function'){ 	ContentCenterBegin();
+ } 
+//--></script>
+<form name="F">
+<table border="0"><tr><td class="t0">
+<table class="t01" border="0" cellspacing="1" cellpadding="1">
+<tr id="oScrollHead"><td class="t10" colspan="11">(1101c=2022-09-07)法人持股走勢圖</td></tr>
+<tr id="oScrollHead"><td class="t10" colspan="11">(1101c=2022-09-07)法人持股明細</td></tr>
+<tr id="oScrollHead"><td class="t12" colspan="11">
+<select name="D" onChange="goA();">
+<option value="0">請選擇</option>
+<option value="1" selected>近五日</option>
+<option value="2">近十日</option>
+<option value="3">近20日</option>
+<option value="4">近40日</option>
+</select>
+ 自設區間：
+<script language="JavaScript" src="/z/js/month.djjs"></script>
+從　<SELECT name="Y2" onChange="javascript:SetMonthDate(document.F.Y2,document.F.M2,document.F.D2);">
+	<OPTION value="91"></OPTION>
+</SELECT>年 
+<SELECT name="M2" onChange="javascript:SetMonthDate(document.F.Y2,document.F.M2,document.F.D2);">
+	<OPTION value="-1"></OPTION>
+</SELECT>月 
+<SELECT name="D2">
+	<OPTION value="-1"></OPTION>
+</SELECT>日 
+ ～ 
+<SELECT name="Y1" onChange="javascript:SetMonthDate(document.F.Y1,document.F.M1,document.F.D1);">
+	<OPTION value="91"></OPTION>
+</SELECT>年 
+<SELECT name="M1" onChange="javascript:SetMonthDate(document.F.Y1,document.F.M1,document.F.D1);">
+	<OPTION value="-1"></OPTION>
+</SELECT>月 
+<SELECT name="D1">
+	<OPTION value="-1"></OPTION>
+</SELECT>日 
+<input type='hidden' name='bDate'>
+<input type='hidden' name='eDate'>
+<SCRIPT LANGUAGE=javascript><!--
+	var toDay ='2022/9/7'
+	var getYMD1 = '2022/9/6';
+	var getYMD2 = '2021/9/7';
+	PageInit(document.F);
+	function PageInit(obj)
+	{	//在 BODY onLoad 時候的初始化
+		ShowYear(obj.Y1,'2022/9/7',1,'N');
+		ShowYear(obj.Y2,'2022/9/7',1,'N');
+		SetOptionValue(obj.M1,1,12);
+		SetOptionValue(obj.M2,1,12);
+		//設定初始值
+		var YMDary1,Hary1;
+		if (getYMD1.indexOf(' ') > -1 ) {
+			YMDary1 = getYMD1.split(' ')[0].split('/');
+		}else {
+			YMDary1 = getYMD1.split('/');
+		}
+		SetFocus(obj.Y1,YMDary1[0]);
+		SetFocus(obj.M1,YMDary1[1]);
+		var YMDary2,Hary2;
+		if (getYMD2.indexOf(' ') > -1 ) {
+			YMDary2 = getYMD2.split(' ')[0].split('/');
+		}else {
+			YMDary2 = getYMD2.split('/');
+		}
+		SetFocus(obj.Y2,YMDary2[0]);
+		SetFocus(obj.M2,YMDary2[1]);
+		SetMonthDate(obj.Y1,obj.M1,obj.D1);
+		SetMonthDate(obj.Y2,obj.M2,obj.D2);
+		SetFocus(obj.D2,YMDary2[2]);
+		SetFocus(obj.D1,YMDary1[2]);
+		removeToday(obj.Y1,obj.M1,obj.D1,toDay);
+		removeToday(obj.Y2,obj.M2,obj.D2,toDay);
+	}
+	function CheckDate()
+	{
+		var Frm = document.F;
+		var y1 = parseInt(Frm.Y1.options[Frm.Y1.selectedIndex].value);
+		var m1 = parseInt(Frm.M1.options[Frm.M1.selectedIndex].value);
+		var d1 = parseInt(Frm.D1.options[Frm.D1.selectedIndex].value);
+		var y2 = parseInt(Frm.Y2.options[Frm.Y2.selectedIndex].value);
+		var m2 = parseInt(Frm.M2.options[Frm.M2.selectedIndex].value);
+		var d2 = parseInt(Frm.D2.options[Frm.D2.selectedIndex].value);
+		var sEDate = y1 + '-' + m1 + '-' + d1;
+		var sBDate = y2 + '-' + m2 + '-' + d2;
+		Frm.bDate.value = sBDate;
+		Frm.eDate.value = sEDate;
+		return checkBEdate(sBDate,sEDate);
+	}
+	function checkBEdate(sBDate,sEDate)
+	{
+		var aymd1 = sBDate.split(' ')[0].split('-');
+		var aymd2 = sEDate.split(' ')[0].split('-');
+		if (aymd1.length < 3 || aymd2.length < 3 ) {
+			alert ('日期選擇錯誤!!');
+			return false;
+		}
+		var nbdate = parseInt(aymd1[0])*1000000 + parseInt(aymd1[1])*10000 + parseInt(aymd1[2])*100;
+		var nedate = parseInt(aymd2[0])*1000000 + parseInt(aymd2[1])*10000 + parseInt(aymd2[2])*100;
+		if (nbdate > nedate) {
+			alert('您所輸入的起始日期大於結束日期');
+			return false;
+		}
+		return true;
+	}
+//--></SCRIPT>
+<INPUT type="button" name="BB" value="查詢" onclick="javascript:goC();">
+</td></tr>
+<tr id="oScrollHead"><td class="t12" colspan="11" style="text-align:right;">
+<span style='color:#ff0000;'>(自設區間僅提供一年內查詢)</span>
+</td></tr>
+<tr id="oScrollMenu" align="center">
+<td class="t2" nowrap>&nbsp;</td>
+<td class="t2" colspan=4 nowrap>買賣超</td>
+<td class="t2" colspan=4 nowrap>估計持股</td>
+<td class="t2" colspan=2 nowrap>持股比重</td>
+</tr>
+<tr id="oScrollMenu" align="center">
+<td class="t2" nowrap>日期</td>
+<td class="t2" nowrap>外資</td>
+<td class="t2" nowrap>投信</td>
+<td class="t2" nowrap>自營商</td>
+<td class="t2" nowrap>單日合計</td>
+<td class="t2" nowrap>外資</td>
+<td class="t2" nowrap>投信</td>
+<td class="t2" nowrap>自營商</td>
+<td class="t2" nowrap>單日合計</td>
+<td class="t2" nowrap>外資</td>
+<td class="t2" nowrap>三大法人</td>
+</tr>
+<tr><td class="t3n0" colspan="11" align="center">查無(1101c=2022-09-07)法人持股資料</td></tr>
+</table>
+</td></tr></table>
+</form>
+<script language="javascript"><!--
+function goA()
+{
+	var i = document.F.D.selectedIndex;
+	i = document.F.D.options[i].value;
+	if (i > 0) {
+		window.location.href = '/z/zc/zcl/zcl.djhtm?a=1101c=2022-09-07&b='+i ;
+	}
+}
+function goC()
+{
+	if (CheckDate()) {
+		if(checkDateDur(document.F.bDate.value)) {
+			var bDate = document.F.bDate.value;		//起始日期 
+			var eDate = document.F.eDate.value;		//結束日期 
+			sURL = '/z/zc/zcl/zcl.djhtm?a=1101c=2022-09-07&c=' + bDate + '&d=' + eDate ;
+			window.location.href = sURL;
+		}
+	}
+}
+//--></script>
+<table border="0" width=628><tr><td class="t3t1">註：</td></tr><tr><td class="t3t1">１. 外資持股數，除了每日買賣超外，海外公司債轉換普通股、存託憑證發行或兌回普通股、外資配認股數、外資原始股東出售股數、借券、ETF異動等因素也會影響持股數，若兩日間的持股數異動較大，請至<a href="http://www.tse.com.tw" target="_blank">台灣證券交易所</a>與<a href="http://www.otc.org.tw" target="_blank">證券櫃檯買賣中心</a>查詢異動原因。</td></tr><tr><td class="t3t1">２. 持股比重中的「外資」及「三大法人」算式：<BR>外資的持股比重為全體外資持股比率，等於「全體外資持有股數」除以「發行股數」。三大法人的持股比重，為「外資持股比重+(投信與自營商持股佔發行張數的比例)」。</td></tr><tr><td class="t3t1">３. 投信估計庫存，除了依每日買賣超計算外，會利用投信投顧公會公告的基金季持股明細(或半年持股明細，視基金類型)進行個股投信的庫存數值調整（季末的持股值可能會與前一日會有較大的落差）。<BR>估算公式為：季末估計庫存＝季末基金規模×持股比率÷季末當日股價。</td></tr><tr><td class="t3t1">４. 交易所並未公告自營商與股信持股庫存，本表所列數值，皆為估計值，僅供參考，本公司不負任何法律責任，投資人若依此以為買賣依據，須自負盈虧之責。</td></tr><tr><td class="t3t1">５. 上市個股的外資數值自2017/12/18起指「外陸資(不含自營商)」。</td></tr></table>
+
+<SCRIPT LANGUAGE=javascript>
+<!--
+    var $DJWebGraph1;
+    var sRenderTo = 'SysJustWebGraphDIV';
+    
+    $(document).ready(function () {
+        if (!!$DJWebGraph) {
+			$DJWebGraph1 = new $DJWebGraph();
+			$DJWebGraph1.CallBack = GetBcdData;	
+        	
+            $DJWebGraph1.CreateGraphObject({
+					'CanvasClass': 'canvas', //表示為複合式圖形
+					'ID': 'ZCL3',
+					'Width': '600',
+					'Height': '350',
+					'RenderTo': sRenderTo,
+					'Type': [['Trade:R'],['Trade:L','Bar'],['Trade:L','Bar'],['Trade:L','Bar']],
+					'Title': [['股價'], ['外資持股', '外資買賣超'], ['投信持股', '投信買賣超'], ['自營商持股', '自營商買賣超']],
+					'Unit': [['元'],['張'],['張'],['張']],
+					'LineColor': [['0089E9'], ['FF00FF', '13B5B1'], ['8FC31F', '00D2FF'], ['FF1868', '996C33']],
+					'BgColor': 'FFFFFF',
+					'Mark': 'none',
+					'BCDUrl': '/Z/ZC/ZCL/CZCL3.DJBCD?A=1101c=2022-09-07&B=Y'
+            })
+        }
+	});
+		
+    function GetBcdData(data) {
+        if (!!data.length) {
+            var arrData = data.split(' ');
+            var X = arrData[0];
+            var ArrY = [
+				[arrData[1]],
+                [arrData[2], arrData[5]],
+				[arrData[3], arrData[6]],
+                [arrData[4], arrData[7]]
+			];
+
+            $DJWebGraph1.SetGraphBcd({ 'X': X, 'Y': ArrY });
+        }
+    }
+//-->
+</SCRIPT>
+<script language="javascript"><!--
+if(typeof(ContentCenterEnd) == 'function'){ 	ContentCenterEnd();
+ } 
+//--></script>
+</td><td valign="top" align="right">
+<script language="javascript" src="/z/js/SR.js"></script>
+</td></tr>
+<tr><td colspan="3" valign="top">
+<script language="javascript" src="/z/js/SD.js"></script>
+</td></tr></table>
+</div>
+</body>
+</html>
+
+<script language="JavaScript"><!--
+	function changeStkID() {
+		var sUrl;
+		var i = document.F.D.options[document.F.D.selectedIndex].value;
+		if (CheckDate()) {
+			var bDate = document.F.bDate.value;		//起始日期
+			var eDate = document.F.eDate.value;		//結束日期
+		}
+		stk = document.F.stk.options[document.F.stk.selectedIndex].value;
+		if (i>0)
+			sUrl = '/z/zc/zcl/zcl.djhtm?a=' + stk + '&b=' + i ;
+		else
+			sUrl = '/z/zc/zcl/zcl.djhtm?a=' + stk + '&b=' + i + '&c=' + bDate + '&d=' + eDate;
+		self.location = sUrl;
+	}
+
+	function checkDateDur(dd) {
+		var now = new Date();
+		yearAgo = (now.getFullYear() - 1) * 10000 + (now.getMonth() + 1) * 100 + now.getDate() ;
+		//alert('yearAgo = ' + yearAgo);
+
+		daray = dd.split('-');
+		if (daray[1] < 10) { daray[1] = '0' + daray[1] }
+		if (daray[2] < 10) { daray[2] = '0' + daray[2] }
+
+		var Edate = daray[0] + daray[1] + daray[2];
+
+		//alert('Edate = ' + Edate);
+		if (Edate < yearAgo){
+				alert('僅提供一年內查詢。');
+				return false;
+			}
+		else
+			return true;
+	}
+
+// --></script>
