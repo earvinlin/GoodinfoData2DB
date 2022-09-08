@@ -6,11 +6,11 @@
          -------------------------------------------------------------------------
          [windows] -- 可使用相對路徑
 		 <dividend>
-         python GenInsertData2DbScripts.py Data\TXT\dividend\22020520\ 
+         python GenInsertData2DbScripts.py Data\\TXT\\dividend\\22020520\\ 
          <salemon>
-         python GenInsertData2DbScripts.py Data\TXT\salemon\22020520\ 
+         python GenInsertData2DbScripts.py Data\\TXT\\salemon\\20220522\\
          <BzPerformance>
-         python GenInsertData2DbScripts.py Data\TXT\BzPerformance\22020520\ 
+         python GenInsertData2DbScripts.py Data\\TXT\\BzPerformance\\22020520\\ 
          ...
 		 [imac / linux] 絕對路徑可正常執行
 		 <dividend>
@@ -51,11 +51,12 @@ try:
 		pythonCompiler = "python3"
 		loadFileDir = "/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/" + sys.argv[1]
 		outputFile = "_InsertStocksData2DB.sh"
-	
+
+	print("loadFile dir: " + loadFileDir)
+
 	outfile = open(outputFile, 'w')
 
-    # python InsertData2DbByFile.py Data\TXT\salemon\20220522\ 1101.txt
-
+    # python InsertData2DbByFile.py Data\\TXT\\salemon\\0220522\\ 1101.txt
 	# 20220522 取得要處理的檔案資料
 	files = os.listdir(loadFileDir)
 	# 以迴圈處理
