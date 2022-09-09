@@ -24,13 +24,13 @@ document.writeln('<script language="JavaScript" src="/z/js/jquery.djjs"></script
 <script type="text/javascript" src="/z/js/json2.djjs"></script>
 <script type="text/javascript" src="/z/js/GenUpDownJS.djjs"></script>
 <link rel=stylesheet href="/z/js/mdj.css" type="text/css">
-<title>個股法人持股-1101c=2022-09-07</title>
+<title>個股法人持股-6599</title>
 </head>
 <script language="JavaScript"><!--
-CheckMenu(4, '1101c=2022-09-07');
+CheckMenu(4, '6599');
 function chkSetUpMenu(){ 
 	if (typeof(SetUpMenu) == 'function'){
-		SetUpMenu(4,'1101c=2022-09-07');
+		SetUpMenu(4,'6599');
 }
 	else
 		setTimeout(function(){chkSetUpMenu();},5000);
@@ -48,7 +48,7 @@ function chkSetUpMenu(){
 <tr><td valign="top" align="left">
 <script language="javascript" src="/z/js/SL.js"></script>
 <script language="javascript"><!--
- SetLeftMenu(4,'1101c=2022-09-07')
+ SetLeftMenu(4,'6599')
 //--></script>
 </td><td valign="top" width="99%">
 <script language="javascript"><!--
@@ -58,12 +58,12 @@ if(typeof(ContentCenterBegin) == 'function'){ 	ContentCenterBegin();
 <form name="F">
 <table border="0"><tr><td class="t0">
 <table class="t01" border="0" cellspacing="1" cellpadding="1">
-<tr id="oScrollHead"><td class="t10" colspan="11">(1101c=2022-09-07)法人持股走勢圖</td></tr>
-<tr id="oScrollHead"><td class="t10" colspan="11">(1101c=2022-09-07)法人持股明細</td></tr>
+<tr id="oScrollHead"><td class="t10" colspan="11">(6599)法人持股走勢圖</td></tr>
+<tr id="oScrollHead"><td class="t10" colspan="11">(6599)法人持股明細</td></tr>
 <tr id="oScrollHead"><td class="t12" colspan="11">
 <select name="D" onChange="goA();">
-<option value="0">請選擇</option>
-<option value="1" selected>近五日</option>
+<option value="0" selected>請選擇</option>
+<option value="1">近五日</option>
 <option value="2">近十日</option>
 <option value="3">近20日</option>
 <option value="4">近40日</option>
@@ -92,14 +92,14 @@ if(typeof(ContentCenterBegin) == 'function'){ 	ContentCenterBegin();
 <input type='hidden' name='bDate'>
 <input type='hidden' name='eDate'>
 <SCRIPT LANGUAGE=javascript><!--
-	var toDay ='2022/9/7'
-	var getYMD1 = '2022/9/6';
-	var getYMD2 = '2021/9/7';
+	var toDay ='2022/9/9'
+	var getYMD1 = '2022/9/8';
+	var getYMD2 = '2017/9/8';
 	PageInit(document.F);
 	function PageInit(obj)
 	{	//在 BODY onLoad 時候的初始化
-		ShowYear(obj.Y1,'2022/9/7',1,'N');
-		ShowYear(obj.Y2,'2022/9/7',1,'N');
+		ShowYear(obj.Y1,'2022/9/9',1,'N');
+		ShowYear(obj.Y2,'2022/9/9',1,'N');
 		SetOptionValue(obj.M1,1,12);
 		SetOptionValue(obj.M2,1,12);
 		//設定初始值
@@ -182,7 +182,7 @@ if(typeof(ContentCenterBegin) == 'function'){ 	ContentCenterBegin();
 <td class="t2" nowrap>外資</td>
 <td class="t2" nowrap>三大法人</td>
 </tr>
-<tr><td class="t3n0" colspan="11" align="center">查無(1101c=2022-09-07)法人持股資料</td></tr>
+<tr><td class="t3n0" colspan="11" align="center">查無(6599)法人持股資料</td></tr>
 </table>
 </td></tr></table>
 </form>
@@ -192,7 +192,7 @@ function goA()
 	var i = document.F.D.selectedIndex;
 	i = document.F.D.options[i].value;
 	if (i > 0) {
-		window.location.href = '/z/zc/zcl/zcl.djhtm?a=1101c=2022-09-07&b='+i ;
+		window.location.href = '/z/zc/zcl/zcl.djhtm?a=6599&b='+i ;
 	}
 }
 function goC()
@@ -201,7 +201,7 @@ function goC()
 		if(checkDateDur(document.F.bDate.value)) {
 			var bDate = document.F.bDate.value;		//起始日期 
 			var eDate = document.F.eDate.value;		//結束日期 
-			sURL = '/z/zc/zcl/zcl.djhtm?a=1101c=2022-09-07&c=' + bDate + '&d=' + eDate ;
+			sURL = '/z/zc/zcl/zcl.djhtm?a=6599&c=' + bDate + '&d=' + eDate ;
 			window.location.href = sURL;
 		}
 	}
@@ -231,7 +231,7 @@ function goC()
 					'LineColor': [['0089E9'], ['FF00FF', '13B5B1'], ['8FC31F', '00D2FF'], ['FF1868', '996C33']],
 					'BgColor': 'FFFFFF',
 					'Mark': 'none',
-					'BCDUrl': '/Z/ZC/ZCL/CZCL3.DJBCD?A=1101c=2022-09-07&B=Y'
+					'BCDUrl': '/Z/ZC/ZCL/CZCL3.DJBCD?A=6599&B=Y'
             })
         }
 	});
