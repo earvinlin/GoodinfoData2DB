@@ -1,13 +1,15 @@
 import re
 import sys
 import csv
-import urllib.request
-import urllib.parse
 import ssl
+import platform
+import urllib.parse
+import urllib.request
+
 
 if len(sys.argv) < 3 :
     print("You need input two parameter(fmt : theStockNo theDate(yyyymmdd))")
-    print("syntax : C:\python 03_getTaiwanDataTsecVolumeWithParams2.py 20170401 ")
+    print("syntax : C:\python GetTWStocksLegalPersonVolume.py 2014 20220908")
     sys.exit()
 
 theStockNo = sys.argv[1]
@@ -29,12 +31,18 @@ print("url=" + url)
 f = urllib.request.urlopen(url)
 
 try :
-    saveFileDir = "Data\\"
+    saveFileDir = ""
+    if platform.system() == "Windows" :
+        saveFileDir = "Data\\LEGAL\\"
+    else :
+        saveFileDir = "./Data/LEGAL/"
+
     fileName = "法人_" + sys.argv[1] + ".htm"
     print('檔案名稱：' + fileName)
     with open(saveFileDir + fileName, 'w') as out :
 #		f.read()是byte型態，需解碼(decode)儲存成字串
         out.write(f.read().decode('big5'))
+#        out.write(f.read().decode(encoding='UTF-8'))
 
     print('資料儲存完成!!')
 except IOError as err :
