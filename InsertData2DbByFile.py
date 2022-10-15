@@ -1,10 +1,11 @@
 ﻿"""
 在新增資料如果卡住，可能是之前的資料庫異動操作還沒有commit
 解法就是先開toad，然後執行commit、最後再跑程式
-20220524-1046 # 處理新增資料時出現「mysql.connector.errors.ProgrammingError: 1115 (42000):Unknown \
-                character set: 'utf8mb4'」訊息
-				處理方式就是建立connector時增加參數 charset = 'utf8'
-				(目前還是先點掉，因為現行資料庫均可正常執行本程式)
+20220524-1046	處理新增資料時出現「mysql.connector.errors.ProgrammingError: 1115 (42000):Unknown \
+              	character set: 'utf8mb4'」訊息
+			  	處理方式就是建立connector時增加參數 charset = 'utf8'
+			  	(目前還是先點掉，因為現行資料庫均可正常執行本程式)
+20220622-0832	修正print訊息
 """
 import mysql.connector
 import sys
@@ -33,15 +34,16 @@ cursor = cnx.cursor()
 
 if len(sys.argv) < 2 :
 	# 參數 = 相對路徑 + 檔名 (根目錄程式所在處)
+	# imac下，相對路徑不能運作，因為起始路徑與windows不同
 	print("You need input two parameter(fmt : relative-path theFileName)")
 	print("=== Windows ===")
 	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\dividend\22020520\ 2002.txt")
 	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\salemon\22020520\ 2002.txt")
 	print("syntax : C:\python InsertData2DbByFile.py Data\TXT\BzPerformance\22020520\ 2002.txt")
-	print("=== iMac / Linux ===")
-	print("syntax : $python3 InsertData2DbByFile.py Data/TXT/dividend/22020520/ 2002.txt")
-	print("syntax : $python3 InsertData2DbByFile.py Data/TXT/salemon/22020520/ 2002.txt")
-	print("syntax : $python3 InsertData2DbByFile.py Data/TXT/BzPerformance/22020520/ 2002.txt")
+	print("=== iMac / Linux (要寫全路徑) ===")
+	print("syntax : $python3 InsertData2DbByFile.py ~/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/dividend/22020520/ 2002.txt")
+	print("syntax : $python3 InsertData2DbByFile.py ~/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/22020520/ 2002.txt")
+	print("syntax : $python3 InsertData2DbByFile.py ~/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/BzPerformance/22020520/ 2002.txt")
 	sys.exit()
 
 try :
