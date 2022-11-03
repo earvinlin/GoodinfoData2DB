@@ -6,11 +6,11 @@
          -------------------------------------------------------------------------
          [windows] -- 可使用相對路徑
 		 <dividend>
-         python GenInsertData2DbScripts.py Data\TXT\dividend\22020520\
+         python GenInsertData2DbScripts.py Data\TXT\dividend\20220520\
          <salemon>
          python GenInsertData2DbScripts.py Data\TXT\salemon\20220522\
          <BzPerformance>
-         python GenInsertData2DbScripts.py Data\TXT\BzPerformance\22020520\
+         python GenInsertData2DbScripts.py Data\TXT\bzPerformance\20220520\
          ...
 		 [imac / linux] 絕對路徑可正常執行
 		 <dividend>
