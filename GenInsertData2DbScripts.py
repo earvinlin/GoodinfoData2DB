@@ -6,19 +6,19 @@
          -------------------------------------------------------------------------
          [windows] -- 可使用相對路徑
 		 <dividend>
-         python InsertData2DbByFile.py Data\TXT\dividend\22020520\ 
+         python GenInsertData2DbScripts.py Data\TXT\dividend\20220520\
          <salemon>
-         python InsertData2DbByFile.py Data\TXT\salemon\22020520\ 
+         python GenInsertData2DbScripts.py Data\TXT\salemon\20220522\
          <BzPerformance>
-         python InsertData2DbByFile.py Data\TXT\BzPerformance\22020520\ 
+         python GenInsertData2DbScripts.py Data\TXT\bzPerformance\20220520\
          ...
-		 [imac / linux] 這兒是以相對路徑表示，但是好像不行；用絕對路徑可正確執行
+		 [imac / linux] 絕對路徑可正常執行
 		 <dividend>
-         python3 InsertData2DbByFile.py Data/TXT/dividend/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/dividend/22020520/ 
          <salemon>
-         python3 InsertData2DbByFile.py Data/TXT/salemon/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/22020520/ 
          <BzPerformance>
-         python3 InsertData2DbByFile.py Data/TXT/BzPerformance/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/BzPerformance/22020520/ 
 
 """
 import sys
@@ -37,7 +37,7 @@ try:
 
 	if len(sys.argv) < 2 :
 		print("You need input one parameter : 檔案目錄")
-		print("syntax(windows)    : C:\python GenInsertData2DbScripts.py Data\\TXT\\alemon\\0220522\\")
+		print("syntax(windows)    : C:\python GenInsertData2DbScripts.py Data\\TXT\\salemon\\20220522\\")
 		print("syntax(imac/linux) : $python3 GenInsertData2DbScripts.py Data/TXT/salemon/20220522/")
 		sys.exit()
 
@@ -49,13 +49,14 @@ try:
 		outputFile = "_InsertStocksData2DB.Bat"
 	else :
 		pythonCompiler = "python3"
-		loadFileDir = sys.argv[1]
+		loadFileDir = "/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/" + sys.argv[1]
 		outputFile = "_InsertStocksData2DB.sh"
-	
+
+	print("loadFile dir: " + loadFileDir)
+
 	outfile = open(outputFile, 'w')
 
-    # python InsertData2DbByFile.py Data\TXT\salemon\20220522\ 1101.txt
-
+    # python InsertData2DbByFile.py Data\\TXT\\salemon\\0220522\\ 1101.txt
 	# 20220522 取得要處理的檔案資料
 	files = os.listdir(loadFileDir)
 	# 以迴圈處理
