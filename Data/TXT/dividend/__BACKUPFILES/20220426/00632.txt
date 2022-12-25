@@ -1,9 +1,0 @@
-insert into stocks_dividend values ('00632',2022,null,null,null,null,null,null,null,null,null,null,null,2022,5.52,5.01,5.21,null,null,null,null,null,null,null,null);
-insert into stocks_dividend values ('00632',2021,0,0,0,0,0,0,0,0,0,null,null,2021,7.01,5.1,5.77,0,0,0,null,null,null,null,null);
-insert into stocks_dividend values ('00632',2020,0,0,0,0,0,0,0,0,0,null,null,2020,13.94,6.96,9.29,0,0,0,null,null,null,null,null);
-insert into stocks_dividend values ('00632',2019,0,0,0,0,0,0,0,0,0,null,null,2019,13.81,9.9,11.6,0,0,0,null,null,null,null,null);
-insert into stocks_dividend values ('00632',2018,null,null,null,null,null,null,null,null,null,null,null,2018,13.89,11.85,12.7,null,null,null,null,null,null,null,null);
-insert into stocks_dividend values ('00632',2017,null,null,null,null,null,null,null,null,null,null,null,2017,16.14,12.95,14.2,null,null,null,null,null,null,null,null);
-insert into stocks_dividend values ('00632',2016,null,null,null,null,null,null,null,null,null,null,null,2016,21.71,15.81,18,null,null,null,null,null,null,null,null);
-insert into stocks_dividend values ('00632',2015,null,null,null,null,null,null,null,null,null,null,null,2015,23.84,17.64,19.3,null,null,null,null,null,null,null,null);
-insert into stocks_dividend values ('00632',2014,null,null,null,null,null,null,null,null,null,null,null,2014,20,18.93,19.5,null,null,null,null,null,null,null,null);
