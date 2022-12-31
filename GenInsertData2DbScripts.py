@@ -14,11 +14,11 @@
          ...
 		 [imac / linux] 絕對路徑可正常執行
 		 <dividend>
-         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/dividend/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/dividend/20220520/ 
          <salemon>
-         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/20220520/ 
          <BzPerformance>
-         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/BzPerformance/22020520/ 
+         python3 GenInsertData2DbScripts.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/BzPerformance/20220520/ 
 
 """
 import sys
