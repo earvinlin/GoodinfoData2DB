@@ -4,7 +4,7 @@
 <windows>
 python getGoodinfoDividendData.py STOCKS_LIST_dividend.txt 20220517
 <imac / linux>
-python3 getGoodinfoDividendData.py STOCKS_LIST_dividend.txt 20220517
+python3 getGoodinfoDividendData.py STOCKS_LIST_dividend.txt 202205
 
 20220517-0935 01. GetGoodinfoDividendData.py 更名為 GetGoodinfoDividendDataForFirefox.py
               02. 調整輸入檔案可透過參數指定
