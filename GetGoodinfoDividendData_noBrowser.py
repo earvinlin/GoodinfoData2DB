@@ -58,7 +58,7 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
     application/msword,application/xml')
 
-# 20240113 Add 無界面執行 START --
+# 20240209 Add 無界面執行 START --
 #fileOptions.addArgument('--headless')
 fileOptions.add_argument('--headless')
 """
@@ -70,7 +70,7 @@ prefs = {
 }
 fileOptions.add_experimental_option('prefs', prefs)
 """
-# 20240113 -- END --
+# 20240209 -- END --
 
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "dividend", str(theDate))
