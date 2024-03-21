@@ -46,7 +46,7 @@ if not os.path.isfile(theStocksList) :
 theDate = sys.argv[2]
 maxRetryCnt = 3
 processCnt = 0
-dividendFilename = "SaleMonDetail.xls"
+saleMonFilename = "SaleMonDetail.xls"
 logFilename = "__errorlogSD.log"
 logFile = open(logFilename, "a")
 
@@ -154,7 +154,9 @@ for line in lines:
             selectOptions[2].click()
             time.sleep(5)
 
-            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
+# 20240315  配合網站名稱調整
+#            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
+            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
             driver.execute_script("arguments[0].click();", button)
         
             isFinished = True
@@ -176,8 +178,8 @@ for line in lines:
             if retryCnt > 2:
                 isFinished = True
 
-        if os.path.isfile(dividendFilename):
-            os.rename(dividendFilename, destination_dir + stockFilename)
+        if os.path.isfile(saleMonFilename):
+            os.rename(saleMonFilename, destination_dir + stockFilename)
             isFinished = True
         else:
             if retryCnt >= maxRetryCnt:
