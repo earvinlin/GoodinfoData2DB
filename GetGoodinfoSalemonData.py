@@ -140,11 +140,7 @@ for line in lines:
             selectOptions[2].click()
             time.sleep(5)
 
-<<<<<<< HEAD
-# 			20240315 配合網頁調整名稱
-=======
 # 20240315  配合網站名稱調整
->>>>>>> 71a8427dddd167a5b1a80e0d6452c00391a398d2
 #            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
             driver.execute_script("arguments[0].click();", button)
