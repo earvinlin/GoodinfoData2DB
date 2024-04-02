@@ -140,10 +140,10 @@ for line in lines:
             selectOptions[2].click()
             time.sleep(5)
 
-#            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
-            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
-            driver.execute_script("arguments[0].click();", button)
-        
+#            button = driver.find_element(By.XPATH, "//input[@type='button' and 
+@value='匯出XLS']") button = driver.find_element(By.XPATH, "//input[@type='button' 
+and @value='XLS']") driver.execute_script("arguments[0].click();", button)
+
             isFinished = True
 
 #        except EC.NoSuchElementException as err0 :
