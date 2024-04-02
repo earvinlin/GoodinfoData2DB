@@ -2,7 +2,7 @@
 取得Goodinfo網站「每月營收」超連結資料
 執行程式語法：
 <windows>
-python GetGoodinfoSalemonData.py STOCKS_LIST_salemon.txt 20220517
+python GetGoodinfoSalemonData.py STOCKS_LIST_salemon.txt 20240311
 <imac / linux>
 python3 GetGoodinfoSalemonData.py STOCKS_LIST_salemon.txt 20220517
 
@@ -140,10 +140,18 @@ for line in lines:
             selectOptions[2].click()
             time.sleep(5)
 
+<<<<<<< HEAD
 #            button = driver.find_element(By.XPATH, "//input[@type='button' and 
 @value='匯出XLS']") button = driver.find_element(By.XPATH, "//input[@type='button' 
 and @value='XLS']") driver.execute_script("arguments[0].click();", button)
 
+=======
+# 20240315  配合網站名稱調整
+#            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
+            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
+            driver.execute_script("arguments[0].click();", button)
+        
+>>>>>>> 029428a1333866801677586c9f7af878756ac146
             isFinished = True
 
 #        except EC.NoSuchElementException as err0 :
