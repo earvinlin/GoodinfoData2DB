@@ -124,7 +124,7 @@ for line in lines:
 #           以XPATH方式抓取，很容易因為網站調整失效，要注意!!!
             select_element = driver.find_element(By.XPATH, "//html//body//table[2]//tbody//tr//td[3]//table[3]//tbody//tr//td//table//tbody//tr//td[1]//nobr[1]//select")
             select = Select(select_element)
-            print(select.select_by_index(1))
+            select.select_by_index(1)
             time.sleep(4)
 
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
