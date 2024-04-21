@@ -54,7 +54,7 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     'text/csv,application/x-msexcel,application/excel,application/x-excel,\
     application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
     application/msword,application/xml')
-
+fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
 
 # 無界面執行 : 目前只能設為T；不顯示瀏覽器程式無法正常執行 (20240421)
 showBrowser = sys.argv[3]   # value : T / F
