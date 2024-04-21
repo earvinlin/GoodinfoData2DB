@@ -1,16 +1,13 @@
 """
-取得Goodinfo網站「經營績效」超連結資料
+取得Goodinfo網站「經營績效-年增統計」超連結資料
 執行程式語法：
 <windows>
-python GetGoodinfoBzPerformanceDataP_pr.py STOCKS_LIST_bzperformance.txt 20220517
+python GetGoodinfoBzPerformanceData_pr.py STOCKS_LIST_bzperformance.txt 20240421
 <imac / linux>
-python3 GetGoodinfoBzPerformanceData_pr.py STOCKS_LIST_bzperformance.txt 20220517
+python3 GetGoodinfoBzPerformanceData_pr.py STOCKS_LIST_bzperformance.txt 20240421
 
-20220517-0935 調整輸入檔案可透過參數指定
-20220520-1327 更改檔案名稱：GetGoodinfoBzPerformanceDataForFirefox -> GetGoodinfoBzPerformanceData
-20220526-1458 微調程式
-20220526-2027 調整程式呼叫webdriver方式，只初始化一次
-20220531-0903 新增exception
+20240421-14300935 copy from GetGoodinfoBzPerformanceData.py ; 抓取 經營績效-年增統計
+                  最後一個參數"是否顯示瀏覽器(value = T / F)"，要設為T。因為設為F抓不到資料(待處理)
 """
 import os
 import re
@@ -29,10 +26,10 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-if len(sys.argv) < 3 :
-    print("You need input two parameter(fmt : theFilename theDate) ")
-    print("syntax(windows)    : C:\python GetGoodinfoBzPerformanceData.py STOCKS_LIST_test.txt test")
-    print("syntax(imac/linux) : $python3 GetGoodinfoBzPerformanceData.py STOCKS_LIST_test.txt 20220517")
+if len(sys.argv) < 4 :
+    print("You need input two parameter(fmt : theFilename theDate T) ")
+    print("syntax(windows)    : C:\python GetGoodinfoBzPerformanceData_pr.py STOCKS_LIST_bzperformance.txt 20220517")
+    print("syntax(imac/linux) : $python3 GetGoodinfoBzPerformanceData_pr.py STOCKS_LIST_bzperformance.txt 20220517")
     sys.exit()
 
 theStocksList = sys.argv[1]
@@ -44,8 +41,8 @@ if not os.path.isfile(theStocksList) :
 theDate = sys.argv[2]
 maxRetryCnt = 3
 processCnt = 0
-bzPerformanceFilename = "BzPerformance_pr.xls"
-logFilename = "__errorlogBP.log"
+bzPerformanceFilename = "BzPerformance.xls"
+logFilename = "__errorlogBP_pr.log"
 logFile = open(logFilename, "a")
 
 # 設定profile
@@ -58,6 +55,12 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
     application/msword,application/xml')
 
+
+# 無界面執行 : 目前只能設為T；不顯示瀏覽器程式無法正常執行 (20240421)
+showBrowser = sys.argv[3]   # value : T / F
+if showBrowser == "F" :
+    fileOptions.add_argument('--headless')
+
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "bzPerformance", str(theDate))
 if platform.system() == "Windows" :
@@ -69,9 +72,8 @@ print("Destination DIR: " + destination_dir)
 # For imac / linux; windows needs other style
 # For linux, need put geckodriver in /usr/bin first
 service = null
-#if not platform.system() == "Windows" :
-#    service = Service('geckodriver')
-service = Service('geckodriver')
+if not platform.system() == "Windows" :
+    service = Service('geckodriver')
 
 # 判斷何種作業系統
 driver = null
@@ -87,7 +89,7 @@ for line in lines:
     processCnt += 1
     stockCode = line.rstrip()
     print("Processing StockNo (" + str(processCnt) + ") = " + stockCode)
-    stockFilename = stockCode + "-bzPerformance-" + theDate + ".xls"
+    stockFilename = stockCode + "-bzPerformance_pr-" + theDate + ".xls"
 
     isFinished = False
     retryCnt = 0
@@ -107,22 +109,28 @@ for line in lines:
 
         try:
             # 這種寫法，有時侯會因為網頁載入太慢(>5秒)而失敗
-            time.sleep(5)
+            time.sleep(4)
 
             web_element = driver.find_element(By.LINK_TEXT, '經營績效')
             web_element.click()
-            time.sleep(5)
+            time.sleep(4)
 
             # 捲動scrollbar
             js = "var q=document.documentElement.scrollTop=1500"
             driver.execute_script(js)
-            time.sleep(5)
+            time.sleep(4)
 
+# 20240421   抓取「年增統計」資料
+#           以XPATH方式抓取，很容易因為網站調整失效，要注意!!!
+            select_element = driver.find_element(By.XPATH, "//html//body//table[2]//tbody//tr//td[3]//table[3]//tbody//tr//td//table//tbody//tr//td[1]//nobr[1]//select")
+            select = Select(select_element)
+            print(select.select_by_index(1))
+            time.sleep(4)
 
-
+            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
+            driver.execute_script("arguments[0].click();", button)
+        
             isFinished = True
-
-
 
         except EC.NoSuchElementException as err0 :
             print(err0.msg)
@@ -135,7 +143,7 @@ for line in lines:
             logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " " + str(retryCnt) + " excption.\n")
 
         finally:
-            time.sleep(10)
+            time.sleep(6)
 
             if retryCnt > 2:
                 isFinished = True
