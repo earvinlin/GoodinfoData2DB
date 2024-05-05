@@ -59,12 +59,19 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
     application/msword,application/xml')
 
+
+
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "dividend", str(theDate))
 if platform.system() == "Windows" :
     destination_dir += "\\"
+    # 20240505 Add
+    fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
 else :
     destination_dir += "/"
+    # 20240505 Add
+    fileOptions.binary_location =r"/usr/bin/firefox"
+    
 print("Destination DIR: " + destination_dir)
 
 # For imac / linux; windows needs other style
