@@ -11,6 +11,7 @@ python3 getGoodinfoDividendData.py STOCKS_LIST_dividend.txt 202205
 20220520-1327 更改檔案名稱：GetGoodinfoDividendDataForFirefox -> GetGoodinfoDividendData
 20220524-1941 新增個股若查無月營收相關資料，則直接查詢下一個股資料
 20220526-2027 調整程式呼叫webdriver方式，只初始化一次
+20240505-2147 配合網站名稱調整
 """
 import os
 import re
@@ -141,6 +142,8 @@ for line in lines:
 #           20220524-1704 Add
 #            driver.until(lambda driver: driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']"))
 
+#20240505   配合網站名稱調整
+#            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             driver.execute_script("arguments[0].click();", button)
         
