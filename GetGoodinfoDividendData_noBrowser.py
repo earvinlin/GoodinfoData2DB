@@ -144,7 +144,7 @@ for line in lines:
 
 #20240505   配合網站名稱調整
 #            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
-            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
+            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
             driver.execute_script("arguments[0].click();", button)
         
             isFinished = True
