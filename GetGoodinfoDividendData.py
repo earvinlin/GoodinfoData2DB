@@ -119,7 +119,7 @@ for line in lines:
         try:
             # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
 #            driver.implicitly_wait(10)
-            time.sleep(5)
+            time.sleep(10)
 
 
             web_element = driver.find_element(By.LINK_TEXT, '股利政策')
