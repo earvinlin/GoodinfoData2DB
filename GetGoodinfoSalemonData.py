@@ -13,6 +13,7 @@ python3 GetGoodinfoSalemonData.py STOCKS_LIST_salemon.txt 20220517
 20220520-1327 更改檔案名稱：GetGoodinfoSalemonDataForFirefox -> GetGoodinfoSalemonData
 20220524-1146 新增個股若查無月營收相關資料，則直接查詢下一個股資料
 20220526-2027 調整程式呼叫webdriver方式，只初始化一次
+20240512-2005 修正firefox執行路徑及在hpnb上的vmubuntu22不需要service參數
 """
 import os
 import re
@@ -65,8 +66,13 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "salemon", str(theDate))
 if platform.system() == "Windows" :
     destination_dir += "\\"
+    # 20240512 Add
+    fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
 else :
     destination_dir += "/"
+    # 20240512 Add
+    fileOptions.binary_location =r"/usr/bin/firefox"
+
 print("Destination DIR: " + destination_dir)
 
 # For imac / linux; windows needs other style
@@ -81,7 +87,9 @@ if platform.system() == "Windows" :
     driver = webdriver.Firefox(options = fileOptions)
 else :
 #    driver = webdriver.Chrome(service = service, options = fileOptions)
-    driver = webdriver.Firefox(service = service, options = fileOptions)
+# 20240512 在hpnb上的vmubuntu22不需要service參數
+#    driver = webdriver.Firefox(service = service, options = fileOptions)
+    driver = webdriver.Firefox(options = fileOptions)
 
 f = open(theStocksList, 'r')
 lines = f.readlines()
