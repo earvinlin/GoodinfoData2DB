@@ -127,12 +127,12 @@ for line in lines:
 
             # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
 #            driver.implicitly_wait(10)
-            time.sleep(5)
+            time.sleep(8)
 
             web_element = driver.find_element(By.LINK_TEXT, '每月營收')
             web_element.click()
 #            driver.implicitly_wait(15)
-            time.sleep(5)
+            time.sleep(8)
 
             # 若查無月營收相關資料，則直接查詢下一個股資料
             elem_notfound = driver.find_element(By.ID, "divSaleMonChartDetail")

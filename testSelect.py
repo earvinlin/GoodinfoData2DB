@@ -1,9 +1,34 @@
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
+import os
+import re
+import sys
+import time
+import platform
 from time import sleep
+from genericpath import isfile
+from sqlalchemy import false, null
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-# 開啟Chrome瀏覽器
-driver = webdriver.Chrome()
+
+fileOptions=Options()
+fileOptions.set_preference("browser.download.folderList", 2)
+fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
+fileOptions.set_preference("browser.download.dir", os.getcwd())
+fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
+    'text/csv,application/x-msexcel,application/excel,application/x-excel,\
+    application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
+    application/msword,application/xml')
+fileOptions.binary_location =r"/usr/bin/firefox"
+#fileOptions.binary_location =r"/snap/bin/firefox"
+
+
+driver = webdriver.Firefox(options = fileOptions)
 
 # 進入百度高階搜尋頁
 driver.get("http://tieba.baidu.com/f/search/adv")
