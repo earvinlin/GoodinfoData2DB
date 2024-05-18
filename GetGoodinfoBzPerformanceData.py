@@ -99,6 +99,7 @@ for line in lines:
             continue
 
         driver.get("https://goodinfo.tw/tw/index.asp")
+        time.sleep(5)
 
         elem = driver.find_element(By.ID, "txtStockCode")
         elem.send_keys(stockCode)
