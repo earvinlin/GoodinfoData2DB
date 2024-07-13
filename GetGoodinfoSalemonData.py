@@ -135,18 +135,22 @@ for line in lines:
                 isFinished = True
                 break
 
-            elem_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
-            selectOptions = Select(elem_select).options
-            time.sleep(5)
+# 20240712  網頁又有調整
+#            elem_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
+#            selectOptions = Select(elem_select).options
+#            time.sleep(5)
+            button0 = driver.find_element(By.XPATH, "//input[@type='button' and @value='查20年']")
+            driver.execute_script("arguments[0].click();", button0)
+            time.sleep(10)
 
         #   捲動scrollbar
             js = "var q=document.documentElement.scrollTop=1500"
             driver.execute_script(js)
-            time.sleep(10)
+            time.sleep(5)
 
 #           options.select_by_value("全部") -- 未測試是否可用…
-            selectOptions[2].click()
-            time.sleep(8)
+#            selectOptions[2].click()
+#            time.sleep(8)
 
 # 20240315  配合網站名稱調整
 #            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
