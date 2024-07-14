@@ -14,6 +14,7 @@ python3 GetGoodinfoSalemonData.py STOCKS_LIST_salemon.txt 20220517
 20220524-1146 新增個股若查無月營收相關資料，則直接查詢下一個股資料
 20220526-2027 調整程式呼叫webdriver方式，只初始化一次
 20240512-2005 修正firefox執行路徑及在hpnb上的vmubuntu22不需要service參數
+20240712-1243 配合網頁調整修正資料取得方式
 """
 import os
 import re
@@ -152,7 +153,7 @@ for line in lines:
 #            selectOptions[2].click()
 #            time.sleep(8)
 
-# 20240315  配合網站名稱調整
+# 20240315  配合網頁調整修正資料取得方式
 #            button = driver.find_element(By.XPATH, "//input[@type='button' and @value='匯出XLS']")
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
             driver.execute_script("arguments[0].click();", button)
