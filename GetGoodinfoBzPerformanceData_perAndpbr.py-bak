@@ -6,9 +6,8 @@ python GetGoodinfoBzPerformanceData_perAndpbr.py STOCKS_LIST_bzperformance.txt 2
 <imac / linux>
 python3 GetGoodinfoBzPerformanceData_perAndpbr.py STOCKS_LIST_bzperformance.txt 20240501
 
-20240501-0848 copy from GetGoodinfoBzPerformanceData_yearAdd.py ; 抓取經營績效-PER/PBR
+20240501-0848 copy from GetGoodinfoBzPerformanceData_yearAdd.py ; 抓取 經營績效-PER/PBR
                   最後一個參數"是否顯示瀏覽器(value = T / F)"，要設為T。因為設為F抓不到資料(待處理)
-20240830-1702 調整抓取經營績效-PER/PBR資料 (by ID)
 """
 import os
 import re
@@ -43,7 +42,7 @@ theDate = sys.argv[2]
 maxRetryCnt = 3
 processCnt = 0
 bzPerformanceFilename = "BzPerformance.xls"
-logFilename = "__errorlogBP_perAndPbr.log"
+logFilename = "__errorlogBP_perAndpbr.log"
 logFile = open(logFilename, "a")
 
 # 設定profile
@@ -57,7 +56,7 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     application/msword,application/xml')
 
 # HPNB需要此設定才能正確的找到firefox (20240421)
-fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
+#fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
 
 # 無界面執行 : 目前只能設為T；不顯示瀏覽器程式無法正常執行 (20240421)
 showBrowser = sys.argv[3]   # value : T / F
@@ -123,10 +122,9 @@ for line in lines:
             driver.execute_script(js)
             time.sleep(4)
 
-# 20240501  抓取「PER/PBR」資料 : 以XPATH方式抓取，很容易因為網站調整失效，要注意!!!
-# 20240830  抓取「PER/PBR」資料 : 改以ID方式抓取
-# 20240830  select_element = driver.find_element(By.XPATH, "//html//body//table[2]//tbody//tr//td[3]//table[3]//tbody//tr//td//table//tbody//tr//td[1]//nobr[1]//select")
-            select_element = driver.find_element(By.ID, "selSheet")
+# 20240501   抓取「PER/PBR」資料
+#           以XPATH方式抓取，很容易因為網站調整失效，要注意!!!
+            select_element = driver.find_element(By.XPATH, "//html//body//table[2]//tbody//tr//td[3]//table[3]//tbody//tr//td//table//tbody//tr//td[1]//nobr[1]//select")
             select = Select(select_element)
             select.select_by_index(2) # 選擇「PER/PBR」選項
             time.sleep(4)
