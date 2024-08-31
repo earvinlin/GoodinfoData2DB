@@ -57,7 +57,7 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     application/msword,application/xml')
 
 # HPNB需要此設定才能正確的找到firefox (20240421)
-fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
+#fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
 
 # 無界面執行 : 目前只能設為T；不顯示瀏覽器程式無法正常執行 (20240421)
 showBrowser = sys.argv[3]   # value : T / F
@@ -92,7 +92,7 @@ for line in lines:
     processCnt += 1
     stockCode = line.rstrip()
     print("Processing StockNo (" + str(processCnt) + ") = " + stockCode)
-    stockFilename = stockCode + "-bzPerformance_perAndpbr" + theDate + ".xls"
+    stockFilename = stockCode + "-bzPerformance_perAndPbr" + theDate + ".xls"
 
     isFinished = False
     retryCnt = 0
