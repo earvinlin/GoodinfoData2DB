@@ -1,5 +1,5 @@
 """
-20220601-1646 格式化產生寫入Stocks_BzPerformance的SQL Command
+20240901-1018 格式化產生寫入stocks_per_and_pbr的SQL Command
 """
 import sys
 import os 
@@ -19,8 +19,8 @@ try:
 
 	if len(sys.argv) < 2 :
 		print("You need input one parameter(資料日期, fmt : yyyymmdd)")
-		print("syntax(windows)    : C:\python FormatStocksBzPerformanceData.py 20220517")
-		print("syntax(imac/linux) : $python3 FormatStocksBzPerformanceData.py 20220517")
+		print("syntax(windows)    : C:\python FormatStocksBzPerformanceData_perAndPbr.py 20240829PAP")
+		print("syntax(imac/linux) : $python3 FormatStocksBzPerformanceData_perAndPbr.py 20240829PAP")
 		sys.exit()
 
 	theDate = sys.argv[1]
@@ -62,7 +62,7 @@ try:
 
 		while not isSTOP :
 			theList = []
-			for icol in range(1, 22) :
+			for icol in range(1, 18) :
 				theValue = sheet.cell(row = irow, column = icol).value
 				print(theValue)
 			
@@ -81,27 +81,17 @@ try:
 				theList.append(theValue)
 
 			print(theList)
-"""
-insert into stocks_per_and_pbr 
-(stock_no,year,share_capital,		
-fin_report_score,ann_high_price,		
-ann_low_price,ann_end_price,		
-ann_avg_price,ann_price_raf,		
-ann_price_raf_pct,pes_statistics_eps,	
-pes_statistics_high,pes_statistics_low,
-pes_statistics_avg,pbr_statistics_eps,	
-pbr_statistics_high,pbr_statistics_low,	
-pbr_statistics_avg)
-"""				
+	
 			if len(theList) > 0 :		
-				outfile.write("insert into stocks_bz_performance (stock_no, year, \
-share_capital, fin_report_score, ann_stock_end_price, ann_stock_avg_price, \
-ann_stock_ud_price, ann_stock_ud_price_pc, profit_revenue, \
-profit_gross_profit, profit_business_interest, profit_nonop_g_and_l, \
-profit_income_after_taxes, profit_ratio_gp, \
-profit_ratio_business_interest, profit_ratio_nonop_g_and_l, \
-profit_ratio_income_after_taxes, roe, roa, eps_after_taxes, \
-ann_increase_eps, bps) values ('" + stockCode + "',")
+				outfile.write("insert into stocks_per_and_pbr (stock_no, year, \
+share_capital, fin_report_score, ann_high_price, \
+ann_low_price, ann_end_price, \
+ann_avg_price, ann_price_raf, \
+ann_price_raf_pct, pes_statistics_eps, \
+pes_statistics_high, pes_statistics_low, \
+pes_statistics_avg, pbr_statistics_eps, \
+pbr_statistics_high, pbr_statistics_low, \
+pbr_statistics_avg) values ('" + stockCode + "',")
 				outfile.write(",".join([str(_) for _ in theList]))
 				outfile.write(");\n")
 			insertCnt += 1
