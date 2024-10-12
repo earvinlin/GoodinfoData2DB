@@ -140,9 +140,11 @@ for line in lines:
 #            elem_select = driver.find_element(By.ID, "selSaleMonChartPeriod")
 #            selectOptions = Select(elem_select).options
 #            time.sleep(5)
-            button0 = driver.find_element(By.XPATH, "//input[@type='button' and @value='查20年']")
-            driver.execute_script("arguments[0].click();", button0)
-            time.sleep(10)
+
+# 20241009 網頁又有調整 (不用再查詢，使用預設資料集)
+#            button0 = driver.find_element(By.XPATH, "//input[@type='button' and @value='查20年']")
+#            driver.execute_script("arguments[0].click();", button0)
+#            time.sleep(10)
 
         #   捲動scrollbar
             js = "var q=document.documentElement.scrollTop=1500"
