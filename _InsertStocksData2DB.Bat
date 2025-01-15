@@ -225,6 +225,7 @@ python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1796.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1799.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1802.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1805.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1806.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1808.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1809.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1810.txt
@@ -232,6 +233,7 @@ python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1813.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1815.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1817.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1903.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1904.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1905.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1906.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 1907.txt
@@ -474,6 +476,7 @@ python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2536.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2537.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2538.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2539.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2540.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2542.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2543.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2545.txt
@@ -535,9 +538,11 @@ python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2740.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2741.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2743.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2745.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2748.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2750.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2752.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2753.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2754.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2755.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2756.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 2758.txt
@@ -762,6 +767,7 @@ python InsertData2DbByFile.py Data\TXT\salemon\202412\ 3332.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 3338.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 3339.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 3346.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202412\ 3349.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 3354.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 3356.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 3357.txt
@@ -1592,6 +1598,7 @@ python InsertData2DbByFile.py Data\TXT\salemon\202412\ 6575.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 6576.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 6577.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 6578.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202412\ 6579.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 6580.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 6581.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 6582.txt
@@ -1814,6 +1821,7 @@ python InsertData2DbByFile.py Data\TXT\salemon\202412\ 7551.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 7555.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 7556.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 7558.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202412\ 7561.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 7566.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 7584.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202412\ 7590.txt
