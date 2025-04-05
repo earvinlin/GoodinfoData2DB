@@ -105,6 +105,7 @@ for line in lines:
             continue
 
         driver.get("https://goodinfo.tw/tw/index.asp")
+        time.sleep(5)
 
         elem = driver.find_element(By.ID, "txtStockCode")
         elem.send_keys(stockCode)
@@ -112,23 +113,28 @@ for line in lines:
 
         try:
             # 這種寫法，有時侯會因為網頁載入太慢(>5秒)而失敗
-            time.sleep(4)
+            time.sleep(5)
 
             web_element = driver.find_element(By.LINK_TEXT, '經營績效')
             web_element.click()
-            time.sleep(4)
+            time.sleep(5)
 
             # 捲動scrollbar
             js = "var q=document.documentElement.scrollTop=1500"
             driver.execute_script(js)
-            time.sleep(4)
+            time.sleep(5)
 
 # 20240421   抓取「年增統計」資料
+# 20240830  抓取「年增統計」資料 : 改以ID方式抓取
 #           以XPATH方式抓取，很容易因為網站調整失效，要注意!!!
-            select_element = driver.find_element(By.XPATH, "//html//body//table[2]//tbody//tr//td[3]//table[3]//tbody//tr//td//table//tbody//tr//td[1]//nobr[1]//select")
+#            select_element = driver.find_element(By.XPATH, "//html//body//table[2]//tbody//tr//td[3]//table[3]//tbody//tr//td//table//tbody//tr//td[1]//nobr[1]//select")
+#            select = Select(select_element)
+#            select.select_by_index(1)
+#            time.sleep(5)
+            select_element = driver.find_element(By.ID, "selSheet")
             select = Select(select_element)
-            select.select_by_index(1)
-            time.sleep(4)
+            select.select_by_index(1) # 選擇「年增統計」選項
+            time.sleep(5)
 
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
             driver.execute_script("arguments[0].click();", button)
