@@ -130,7 +130,7 @@ for line in lines:
             select_element = driver.find_element(By.ID, "selSheet")
             select = Select(select_element)
             select.select_by_index(2) # 選擇「PER/PBR」選項
-            time.sleep(4)
+            time.sleep(7)
 
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
             driver.execute_script("arguments[0].click();", button)
