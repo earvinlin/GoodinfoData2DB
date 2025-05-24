@@ -77,6 +77,7 @@ print("Destination DIR: " + destination_dir)
 service = null
 if not platform.system() == "Windows" :
     service = Service('geckodriver')
+#    service = Service('/home/earvin/workspaces/GithubProjects/GoodinfoData2DB/geckodriver')
 
 # 判斷何種作業系統
 driver = null
