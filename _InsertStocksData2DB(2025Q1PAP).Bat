@@ -1902,6 +1902,7 @@ python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8176.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8179.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8182.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8183.txt
+python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8201.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8210.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8213.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8215.txt
@@ -1941,6 +1942,7 @@ python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8411.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8415.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8416.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8420.txt
+python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8421.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8422.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8423.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8424.txt
@@ -1971,6 +1973,7 @@ python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8467.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8472.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8473.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8476.txt
+python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8477.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8478.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8480.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8481.txt
@@ -1997,6 +2000,7 @@ python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8929.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8930.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8931.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8932.txt
+python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8933.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8935.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8936.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 8937.txt
@@ -2013,7 +2017,10 @@ python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9906.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9907.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9908.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9910.txt
+python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9911.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9912.txt
+python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9914.txt
+python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9917.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9918.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9919.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9921.txt
@@ -2030,6 +2037,7 @@ python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9934.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9937.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9938.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9939.txt
+python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9940.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9941.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9942.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q1PAP\ 9943.txt
