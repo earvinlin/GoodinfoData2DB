@@ -12,6 +12,7 @@ python3 getGoodinfoDividendData.py STOCKS_LIST_dividend.txt 202205
 20220524-1941 新增個股若查無月營收相關資料，則直接查詢下一個股資料
 20220526-2027 調整程式呼叫webdriver方式，只初始化一次
 20240505-2147 配合網站名稱調整
+20250531-2203 移到迴圈外，以結省時間
 """
 import os
 import re
@@ -99,6 +100,10 @@ for line in lines:
     isFinished = False
     retryCnt = 0
 
+#   20250531 移到迴圈外，以結省時間
+    driver.get("https://goodinfo.tw/tw/index.asp")
+    time.sleep(8)
+
     while (not isFinished):
         # 先檢查要抓的資料是否已經存在，若存在則跳
         if os.path.isfile(destination_dir + stockFilename) :
@@ -109,23 +114,24 @@ for line in lines:
             break
 #       20220527-1704 Add
 #        wait = ui.WebDriverWait(driver, 5)
+        try :
+#           20250531 移到迴圈外，以結省時間 (to line 102 ~ 104)
+#            driver.get("https://goodinfo.tw/tw/index.asp")
+#            time.sleep(8)
+            
+            elem = driver.find_element(By.ID, "txtStockCode")
+            elem.send_keys(stockCode)
+            elem.send_keys(Keys.RETURN)
 
-        driver.get("https://goodinfo.tw/tw/index.asp")
-
-        elem = driver.find_element(By.ID, "txtStockCode")
-        elem.send_keys(stockCode)
-        elem.send_keys(Keys.RETURN)
-
-        try:
             # 這種寫法，有時侯會因為網頁載入太慢(>10秒)而失敗
 #            driver.implicitly_wait(10)
-            time.sleep(10)
+            time.sleep(7)
 
 
             web_element = driver.find_element(By.LINK_TEXT, '股利政策')
             web_element.click()
 #            driver.implicitly_wait(15)
-            time.sleep(5)
+            time.sleep(7)
 
         #   捲動scrollbar
             js = "var q=document.documentElement.scrollTop=1500"
