@@ -68,11 +68,15 @@ if platform.system() == "Windows" :
     destination_dir += "\\"
     # 20240505 Add
     fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
-else :
+elif platform.system() ==  "linux" :
     destination_dir += "/"
     # 20240505 Add
     fileOptions.binary_location =r"/usr/bin/firefox"
-    
+# 20250708 macos要設定firefox啟動路徑
+else :
+    destination_dir += "/"
+    fileOptions.binary_location = "/Applications/Firefox.app/Contents/MacOS/firefox" 
+
 print("Destination DIR: " + destination_dir)
 
 # For imac / linux; windows needs other style
