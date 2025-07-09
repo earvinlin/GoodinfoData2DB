@@ -13,6 +13,7 @@ python3 getGoodinfoDividendData.py STOCKS_LIST_dividend.txt 202205
 20220526-2027 調整程式呼叫webdriver方式，只初始化一次
 20240505-2147 配合網站名稱調整
 20250531-2203 移到迴圈外，以結省時間
+20250708-2100 新增macos firefox啟動路徑
 """
 import os
 import re
@@ -72,7 +73,7 @@ elif platform.system() ==  "linux" :
     destination_dir += "/"
     # 20240505 Add
     fileOptions.binary_location =r"/usr/bin/firefox"
-# 20250708 macos要設定firefox啟動路徑
+# 20250708 新增macos firefox啟動路徑
 else :
     destination_dir += "/"
     fileOptions.binary_location = "/Applications/Firefox.app/Contents/MacOS/firefox" 
