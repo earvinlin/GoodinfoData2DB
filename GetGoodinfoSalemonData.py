@@ -15,6 +15,7 @@ python3 GetGoodinfoSalemonData.py STOCKS_LIST_salemon.txt 20220517
 20220526-2027 調整程式呼叫webdriver方式，只初始化一次
 20240512-2005 修正firefox執行路徑及在hpnb上的vmubuntu22不需要service參數
 20240712-1243 配合網頁調整修正資料取得方式
+20250714-2100 新增macos firefox啟動路徑
 """
 import os
 import re
@@ -65,14 +66,26 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
 
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "salemon", str(theDate))
+#if platform.system() == "Windows" :
+#    destination_dir += "\\"
+#    # 20240512 Add
+#    fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
+#else :
+#    destination_dir += "/"
+#    # 20240512 Add
+#    fileOptions.binary_location =r"/usr/bin/firefox"
 if platform.system() == "Windows" :
     destination_dir += "\\"
-    # 20240512 Add
+    # 20240505 Add
     fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
+elif platform.system() ==  "linux" :
+    destination_dir += "/"
+    # 20240505 Add
+    fileOptions.binary_location =r"/usr/bin/firefox"
+# 20250714 新增macos firefox啟動路徑
 else :
     destination_dir += "/"
-    # 20240512 Add
-    fileOptions.binary_location =r"/usr/bin/firefox"
+    fileOptions.binary_location = "/Applications/Firefox.app/Contents/MacOS/firefox" 
 
 print("Destination DIR: " + destination_dir)
 
