@@ -39,6 +39,7 @@ if not os.path.isfile(theStocksList) :
     exit()
 
 theDate = sys.argv[2]
+# 選擇項目：「股利政策(發放年度)」= 0、「股利政策(所屬年度)」= 1、「除權息日程」= 2
 theSelectOption = sys.argv[3]
 maxRetryCnt = 3
 processCnt = 0
@@ -131,13 +132,12 @@ for line in lines:
             js = "var q=document.documentElement.scrollTop=1500"
             driver.execute_script(js)
             time.sleep(5)
-
-#           選擇項目：「股利政策(發放年度)」= 0、「股利政策(所屬年度)」= 1、「除權息日程」= 2
+  
             dropdown = driver.find_element(By.ID, "selSheet")
             # 建立 Select 物件
             select = Select(dropdown)
 
-            # 選擇方式
+            # 選擇項目：「股利政策(發放年度)」= 0、「股利政策(所屬年度)」= 1、「除權息日程」= 2
             select.select_by_index(theSelectOption)               # 依索引（從 0 開始）
 #            select.select_by_value("股利所屬年度e")  # 依 value 屬性
 #            select.select_by_visible_text("股利政策(所屬年度)") # 依顯示文字
