@@ -65,7 +65,7 @@ if platform.system() == "Windows" :
     destination_dir += "\\"
     # 20240505 Add
     fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
-elif platform.system() ==  "linux" :
+elif platform.system() ==  "Linux" :
     destination_dir += "/"
     # 20240505 Add
     fileOptions.binary_location =r"/usr/bin/firefox"
