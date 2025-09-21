@@ -74,6 +74,8 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
 
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "dividend", str(theDate))
+
+print("OS is: ", platform.system())
 if platform.system() == "Windows" :
     destination_dir += "\\"
     # 20240505 Add
