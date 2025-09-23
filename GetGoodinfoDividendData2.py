@@ -176,6 +176,8 @@ for line in lines:
 
 #           --- END ---
 
+            time.sleep(8)
+
             button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
             driver.execute_script("arguments[0].click();", button)
         
