@@ -56,6 +56,9 @@ theSelectOption = sys.argv[3]
 theSelectOption2 = ""
 if theSelectOption != "2" :
     theSelectOption2 = sys.argv[4]
+
+print("theStocksList= ", theStocksList, ", theDate= ", theDate, ", theSelectOption= ", theSelectOption, ", theSelectOption2= ", theSelectOption2)
+
 maxRetryCnt = 3
 processCnt = 0
 dividendFilename = "DividendDetail.xls"
