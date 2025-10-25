@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q2\ 1101.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q2\ 1102.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q2\ 1103.txt
@@ -2279,3 +2280,7 @@ python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q2\ 9957.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q2\ 9958.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q2\ 9960.txt
 python InsertData2DbByFile.py Data\TXT\bzPerformance\2025Q2\ 9962.txt
+=======
+python InsertData2DbByFile.py Data\TXT\salemon\202509\ 5481.txt
+python InsertData2DbByFile.py Data\TXT\salemon\202509\ 8091.txt
+>>>>>>> 1662da9cfe0a0e4fd375e32c14e8d9c6714281dd
