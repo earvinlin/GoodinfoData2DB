@@ -60,21 +60,6 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
     application/msword,application/xml')
 """
-# 設定 Chrome 下載選項
-options = webdriver.ChromeOptions()
-prefs = {
-    "download.default_directory": download_dir,  # 自動下載到指定資料夾
-    "download.prompt_for_download": False,       # 不顯示下載提示
-    "download.directory_upgrade": True,
-    "safebrowsing.enabled": True
-}
-options.add_experimental_option("prefs", prefs)
-
-### 20251222 END ###
-
-
-
-
 
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "bzPerformance", str(theDate))
@@ -83,6 +68,33 @@ if platform.system() == "Windows" :
 else :
     destination_dir += "/"
 print("Destination DIR: " + destination_dir)
+
+# 設定 Chrome 下載選項
+options = webdriver.ChromeOptions()
+prefs = {
+    "download.default_directory": destination_dir,  # 自動下載到指定資料夾
+    "download.prompt_for_download": False,       # 不顯示下載提示
+    "download.directory_upgrade": True,
+    "safebrowsing.enabled": True
+}
+options.add_experimental_option("prefs", prefs)
+
+
+"""
+# 設定檔案存取路徑
+destination_dir = os.path.join("Data", "EXCEL", "Origin", "bzPerformance", str(theDate))
+if platform.system() == "Windows" :
+    destination_dir += "\\"
+else :
+    destination_dir += "/"
+print("Destination DIR: " + destination_dir)
+"""
+### 20251222 END ###
+
+
+
+
+
 
 # For imac / linux; windows needs other style
 # For linux, need put geckodriver in /usr/bin first
