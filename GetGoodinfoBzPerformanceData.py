@@ -31,7 +31,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 if len(sys.argv) < 3 :
     print("You need input two parameter(fmt : theFilename theDate) ")
-    print("syntax(windows)    : C:\python GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
+    print(r"syntax(windows)    : C:\python GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
     print("syntax(imac/linux) : $python3 GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
     sys.exit()
 
