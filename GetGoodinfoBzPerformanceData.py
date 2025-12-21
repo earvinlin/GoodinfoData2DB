@@ -31,7 +31,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 if len(sys.argv) < 3 :
     print("You need input two parameter(fmt : theFilename theDate) ")
-    print(r"syntax(windows)    : C:\python GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
+    print("syntax(windows)    : C:\\python GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
     print("syntax(imac/linux) : $python3 GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
     sys.exit()
 
@@ -48,7 +48,9 @@ bzPerformanceFilename = "BzPerformance.xls"
 logFilename = "__errorlogBP.log"
 logFile = open(logFilename, "a")
 
-# 設定profile
+### 20251222 START ###
+""" 
+# 設定profile (firefox, 20251222)
 fileOptions=Options()
 fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
@@ -57,6 +59,22 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     'text/csv,application/x-msexcel,application/excel,application/x-excel,\
     application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
     application/msword,application/xml')
+"""
+# 設定 Chrome 下載選項
+options = webdriver.ChromeOptions()
+prefs = {
+    "download.default_directory": download_dir,  # 自動下載到指定資料夾
+    "download.prompt_for_download": False,       # 不顯示下載提示
+    "download.directory_upgrade": True,
+    "safebrowsing.enabled": True
+}
+options.add_experimental_option("prefs", prefs)
+
+### 20251222 END ###
+
+
+
+
 
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "bzPerformance", str(theDate))
@@ -72,13 +90,25 @@ service = null
 if not platform.system() == "Windows" :
     service = Service('geckodriver')
 
+
+
+
+
+### 20251222 START ###
 # 判斷何種作業系統
 driver = null
+"""
 if platform.system() == "Windows" :    
     driver = webdriver.Firefox(options = fileOptions)
 else :
 #    driver = webdriver.Chrome(service = service, options = fileOptions)
     driver = webdriver.Firefox(service = service, options = fileOptions)
+"""
+driver = webdriver.Chrome(options=options)
+### 20251222 END ###
+
+
+
 
 f = open(theStocksList, 'r')
 lines = f.readlines()
