@@ -24,8 +24,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.firefox.options import Options
+#from selenium.webdriver.firefox.service import Service
+#from selenium.webdriver.firefox.options import Options
+#from selenium.webdriver.Chrome.service import Service
+#from selenium.webdriver.ChromeOptions import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -48,6 +50,8 @@ bzPerformanceFilename = "BzPerformance.xls"
 logFilename = "__errorlogBP.log"
 logFile = open(logFilename, "a")
 
+### 20251222 START ###
+""" 
 # 設定profile (firefox, 20251222)
 fileOptions=Options()
 fileOptions.set_preference("browser.download.folderList", 2)
@@ -57,28 +61,7 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     'text/csv,application/x-msexcel,application/excel,application/x-excel,\
     application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
     application/msword,application/xml')
-
-### 20251222 START ###
-# ✅ 關閉推播通知
-fileOptions.set_preference("dom.webnotifications.enabled", False)
-# ✅ 關閉推播 API（類似 Chrome 的 PushMessaging）
-fileOptions.set_preference("dom.push.enabled", False)
-# ✅ 關閉 Service Workers（可減少背景連線）
-fileOptions.set_preference("dom.serviceWorkers.enabled", False)
-# ✅ 關閉預取（prefetch）
-fileOptions.set_preference("network.prefetch-next", False)
-# ✅ 關閉 DNS 預取
-fileOptions.set_preference("network.dns.disablePrefetch", True)
-# ✅ 關閉連線預先建立（類似 Chrome 的 NetworkService）
-fileOptions.set_preference("network.http.speculative-parallel-limit", 0)
-# ✅ 關閉自動更新（避免背景連線）
-fileOptions.set_preference("app.update.enabled", False)
-# ✅ 關閉遙測（telemetry）
-fileOptions.set_preference("toolkit.telemetry.enabled", False)
-fileOptions.set_preference("toolkit.telemetry.unified", False)
-fileOptions.set_preference("datareporting.healthreport.uploadEnabled", False)
-### 20251222 END ###
-
+"""
 
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "bzPerformance", str(theDate))
@@ -88,19 +71,58 @@ else :
     destination_dir += "/"
 print("Destination DIR: " + destination_dir)
 
+# 設定 Chrome 下載選項
+options = webdriver.ChromeOptions()
+prefs = {
+    "download.default_directory": destination_dir,  # 自動下載到指定資料夾
+    "download.prompt_for_download": False,       # 不顯示下載提示
+    "download.directory_upgrade": True,
+    "safebrowsing.enabled": True
+}
+options.add_experimental_option("prefs", prefs)
+
+
+"""
+# 設定檔案存取路徑
+destination_dir = os.path.join("Data", "EXCEL", "Origin", "bzPerformance", str(theDate))
+if platform.system() == "Windows" :
+    destination_dir += "\\"
+else :
+    destination_dir += "/"
+print("Destination DIR: " + destination_dir)
+"""
+### 20251222 END ###
+
+
+
+
+
+
 # For imac / linux; windows needs other style
 # For linux, need put geckodriver in /usr/bin first
 service = null
 if not platform.system() == "Windows" :
     service = Service('geckodriver')
 
+
+
+
+
+### 20251222 START ###
 # 判斷何種作業系統
 driver = null
+"""
 if platform.system() == "Windows" :    
     driver = webdriver.Firefox(options = fileOptions)
 else :
 #    driver = webdriver.Chrome(service = service, options = fileOptions)
     driver = webdriver.Firefox(service = service, options = fileOptions)
+"""
+driver = webdriver.Chrome(options=options)
+### 20251222 END ###
+
+
+
 
 f = open(theStocksList, 'r')
 lines = f.readlines()
