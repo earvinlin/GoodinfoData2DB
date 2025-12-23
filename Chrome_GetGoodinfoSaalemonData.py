@@ -51,7 +51,7 @@ chrome_options.add_argument("--start-maximized")
 
 # 設定 ChromeDriver 路徑（請確認已安裝 chromedriver）
 if platform.system() == "Windows":
-    service = Service("C:\\chromedriver\\chromedriver.exe")
+    service = Service("D:\\workspaces\\GithubProjects\\GoodinfoData2DB\\chromedriver.exe")
 else:
     service = Service("/usr/local/bin/chromedriver")  # Mac/Linux
 
