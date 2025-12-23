@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 python InsertData2DbByFile.py Data\TXT\salemon\202511\ 1101.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202511\ 1102.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202511\ 1103.txt
@@ -2284,4 +2282,3 @@ python InsertData2DbByFile.py Data\TXT\salemon\202511\ 9957.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202511\ 9958.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202511\ 9960.txt
 python InsertData2DbByFile.py Data\TXT\salemon\202511\ 9962.txt
->>>>>>> 5529a91d3e50954e940be242c343d5efee6ec642
