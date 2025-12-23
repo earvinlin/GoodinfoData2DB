@@ -50,13 +50,14 @@ chrome_options.add_argument("--start-maximized")
 # chrome_options.add_argument("--headless")
 
 # 設定 ChromeDriver 路徑（請確認已安裝 chromedriver）
+# Windows放在執行python的目錄
+# Mac / Linux放在 /usr/local/bin的目錄
 if platform.system() == "Windows":
-#    service = Service("D:\\workspaces\\GithubProjects\\GoodinfoData2DB\\chromedriver.exe")
     service = Service("chromedriver.exe")
 else:
     service = Service("/usr/local/bin/chromedriver")  # Mac/Linux
 
-# 啟動 Chrome
+# 啟動 Chrome (Chrome需使用版本143之後)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 # 讀取股票清單
@@ -91,13 +92,15 @@ for idx, stockCode in enumerate(stock_list, start=1):
             elem.clear()
             elem.send_keys(stockCode)
             elem.send_keys(Keys.RETURN)
-
+            
+            time.sleep(5)
+            
             # 點擊「每月營收」
             salemon_link = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.LINK_TEXT, "每月營收"))
             )
             salemon_link.click()
-            time.sleep(3)
+            time.sleep(5)
 
             # 檢查是否有「查無月營收相關資料」
             try:
