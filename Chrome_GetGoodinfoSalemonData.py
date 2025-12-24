@@ -92,7 +92,7 @@ for idx, stockCode in enumerate(stock_list, start=1):
             elem.send_keys(stockCode)
             elem.send_keys(Keys.RETURN)
             
-            time.sleep(5)
+            time.sleep(3)
             
             # 點擊「每月營收」
             salemon_link = WebDriverWait(driver, 10).until(
@@ -113,7 +113,7 @@ for idx, stockCode in enumerate(stock_list, start=1):
 
             # 捲動頁面，確保按鈕可見
             driver.execute_script("window.scrollTo(0, 1500);")
-            time.sleep(2)
+#            time.sleep(2)
 
             # 點擊「匯出 XLS」按鈕
             download_btn = WebDriverWait(driver, 10).until(
