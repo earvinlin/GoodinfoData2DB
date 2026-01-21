@@ -2,12 +2,11 @@
 取得Goodinfo網站「股利政策」超連結資料
 執行程式語法：
 <windows>
-python getGoodinfoDividendData2.py STOCKS_LIST_dividend.txt 20250712 1 2
+python Chrome_GetGoodinfoDividendData2.py STOCKS_LIST_dividend.txt 20250712 1 2
 <imac / linux>
-python3 getGoodinfoDividendData2.py STOCKS_LIST_dividend.txt 20250712 1 2
+python3 Chrome_GetGoodinfoDividendData2.py STOCKS_LIST_dividend.txt 20250712 1 2
 
-20250711-0818 配合該網頁改版，新增抓取「所屬年度」資料
-20250918-0801 配合「股利政策」頁面改版，調整程式
+20260121 Copy from getGoodinfoDividendData2.py，改用chrome抓資料
 """
 import os
 import re
@@ -29,8 +28,14 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
+maxRetryCnt = 3
+processCnt = 0
+dividendFilename = "DividendDetail.xls"
+logFilename = "__errorlogDD.log"
+logFile = open(logFilename, "a")
+
 """
-20250918
 arg[2] : 選擇項目：「股利政策(發放年度)」= 0、「股利政策(所屬年度)」= 1、「除權息日程」= 2
 arg[3] : 
     when arg[2] == 0 or 1
@@ -51,101 +56,58 @@ if not os.path.isfile(theStocksList) :
     print("股票清單不存在(" + theStocksList + ")，請檢查程式執行目錄是否存在此程式。\n")
     exit()
 
+# 目錄名稱(通常我都以執行程式日期命名)
 theDate = sys.argv[2]
 # 選擇項目：「股利政策(發放年度)」= 0、「股利政策(所屬年度)」= 1、「除權息日程」= 2
 theSelectOption = sys.argv[3]
-# 20250918 選擇項目：「股利政策(發放年度)」= 0、「股利政策(所屬年度)」= 1 下，會有另一個選擇項目可選擇
+# 選擇子項目：「股利政策(發放年度)」= 0、「股利政策(所屬年度)」= 1 下，會有另一個選擇項目可選擇
 theSelectOption2 = ""
 if theSelectOption != "2" :
     theSelectOption2 = sys.argv[4]
 
 print("theStocksList= ", theStocksList, ", theDate= ", theDate, ", theSelectOption= ", theSelectOption, ", theSelectOption2= ", theSelectOption2)
 
-maxRetryCnt = 3
-processCnt = 0
-dividendFilename = "DividendDetail.xls"
-logFilename = "__errorlogDD.log"
-logFile = open(logFilename, "a")
+# 設定儲存路徑
+destination_dir = os.path.join("Data", "EXCEL", "Origin", "dividend", str(theDate))
+os.makedirs(destination_dir, exist_ok=True)
+print("Destination DIR:", destination_dir)
 
-"""
-# 設定profile
-fileOptions=Options()
-fileOptions.set_preference("browser.download.folderList", 2)
-fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
-fileOptions.set_preference("browser.download.dir", os.getcwd())
-fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
-    'text/csv,application/x-msexcel,application/excel,application/x-excel,\
-    application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
-    application/msword,application/xml')
-"""
-# 設定 Chrome options
-fileOptions = Options()
-fileOptions.add_argument("--disable-gpu")
-fileOptions.add_argument("--no-sandbox")
-fileOptions.add_argument("--disable-dev-shm-usage")
-# fileOptions.add_argument("--headless=new")  # 若需要無頭模式可開啟
+# 暫存下載資料夾
+download_dir = os.path.join(os.getcwd(), "downloads")
+print("Download DIR:", download_dir)
+os.makedirs(download_dir, exist_ok=True)
 
-fileOptions.add_experimental_option("prefs", {
-    "download.default_directory": os.getcwd(),
+# 設定 Chrome 選項
+chrome_options = Options()
+prefs = {
+    "download.default_directory": download_dir,
     "download.prompt_for_download": False,
     "download.directory_upgrade": True,
     "safebrowsing.enabled": True
-})
-
-
-
-# 設定檔案存取路徑
-destination_dir = os.path.join("Data", "EXCEL", "Origin", "dividend", str(theDate))
+}
+chrome_options.add_experimental_option("prefs", prefs)
+chrome_options.add_argument("--start-maximized")
 
 print("OS is: ", platform.system())
 
-"""
-if platform.system() == "Windows" :
-    destination_dir += "\\"
-    # 20240505 Add
-    fileOptions.binary_location =r"C:/Program Files/Mozilla Firefox/firefox.exe"
-elif platform.system() ==  "Linux" :
-    destination_dir += "/"
-    # 20240505 Add
-    fileOptions.binary_location =r"/usr/bin/firefox"
-# 20250708 macos要設定firefox啟動路徑
-else :
-    destination_dir += "/"
-    fileOptions.binary_location = "/Applications/Firefox.app/Contents/MacOS/firefox" 
-"""
-# 設定 chromedriver 路徑
+# 設定 ChromeDriver 路徑（請確認已安裝 chromedriver）
+# Windows放在執行python的目錄
+# Mac / Linux放在 /usr/local/bin的目錄
 if platform.system() == "Windows":
-    driver_path = r"chromedriver.exe"
-elif platform.system() == "Linux":
-    driver_path = r"/usr/local/bin/chromedriver"
-else:  # macOS
-    driver_path = r"/usr/local/bin/chromedriver"
+    service = Service("chromedriver.exe")
+else:
+    service = Service("/usr/local/bin/chromedriver")  # Mac/Linux
+
+# 啟動 Chrome (Chrome需使用版本143之後)
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
 print("Destination DIR: " + destination_dir)
 
 
 
-"""
-# For imac / linux; windows needs other style
-# For linux, need put geckodriver in /usr/bin first
-service = null
-# Linux /MacNB OS
-if not platform.system() == "Windows" :
-    service = Service('geckodriver')
+### 下面都還沒改 ###
 
-# 判斷何種作業系統(windows OS不需要使用service object)
-driver = null
-if platform.system() == "Windows" :    
-    driver = webdriver.Firefox(options = fileOptions)
-else :
-#    driver = webdriver.Chrome(service = service, options = fileOptions)
-    driver = webdriver.Firefox(service = service, options = fileOptions)
-"""
-service = Service(driver_path)
-driver = webdriver.Chrome(service=service, options=fileOptions)
-
-
-
+# 讀取股票清單
 f = open(theStocksList, 'r')
 lines = f.readlines()
 for line in lines:
@@ -158,18 +120,22 @@ for line in lines:
     retryCnt = 0
 
 #   20250531 移到迴圈外，以結省時間
-    driver.get("https://goodinfo.tw/tw/index.asp")
-    time.sleep(8)
+#    driver.get("https://goodinfo.tw/tw/index.asp")
+#    time.sleep(8)
 
     while (not isFinished):
         # 先檢查要抓的資料是否已經存在，若存在則跳
-        if os.path.isfile(destination_dir + stockFilename) :
-            print("檔案已存在!!")
-            logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " is exist.\n")
-            isFinished = True
-            break
+#        if os.path.isfile(destination_dir + stockFilename) :
+#            print("檔案已存在!!")
+#            logFile.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()) + " " + stockFilename + " is exist.\n")
+#            isFinished = True
+#            break
 
         try :
+            driver.get("https://goodinfo.tw/tw/index.asp")
+            time.sleep(7)
+            driver.execute_script("document.getElementById('ats-interstitial-container').remove();")
+            
             elem = driver.find_element(By.ID, "txtStockCode")
             elem.send_keys(stockCode)
             elem.send_keys(Keys.RETURN)
