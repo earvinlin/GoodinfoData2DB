@@ -20,6 +20,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import WebDriverException
 
 maxRetryCnt = 3
 dividendFilename = "DividendDetail.xls"
@@ -60,6 +61,7 @@ def process_stock(driver, stockCode, destination_dir, theDate, theSelectOption, 
             elem = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.ID, "txtStockCode"))
             )
+            
             elem.clear()
             elem.send_keys(stockCode)
             elem.send_keys(Keys.RETURN)
@@ -95,7 +97,7 @@ def process_stock(driver, stockCode, destination_dir, theDate, theSelectOption, 
             driver.execute_script("arguments[0].click();", button)
 
             # 等待檔案下載完成
-            time.sleep(5)
+            time.sleep(8)
 
             download_path = os.path.join("downloads", dividendFilename)
 #            print("download_path= ", download_path, ", target_path= ", target_path)
@@ -107,6 +109,12 @@ def process_stock(driver, stockCode, destination_dir, theDate, theSelectOption, 
                 print("檔案未下載成功，重試中...")
                 retryCnt += 1
 
+        except WebDriverException:
+            driver.quit()
+            download_dir = os.path.join(os.getcwd(), "downloads")
+            driver = setup_driver(download_dir)
+            return process_stock(driver, stockCode, destination_dir, theDate, theSelectOption, theSelectOption2, logFile)
+        
         except (NoSuchElementException, TimeoutException) as e:
             print(f"錯誤：{e}")
             logFile.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} {stockFilename} {e}\n")
@@ -135,13 +143,11 @@ def main():
     os.makedirs(download_dir, exist_ok=True)
 
     driver = setup_driver(download_dir)
-
     with open(logFilename, "a") as logFile, open(theStocksList, "r") as f:
         for processCnt, line in enumerate(f, start=1):
             stockCode = line.strip()
             print(f"處理第 {processCnt} 檔：{stockCode}")
             process_stock(driver, stockCode, destination_dir, theDate, theSelectOption, theSelectOption2, logFile)
-
     driver.quit()
 
 if __name__ == "__main__":
