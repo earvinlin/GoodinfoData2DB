@@ -42,11 +42,16 @@ try:
 		sys.exit()
 
 	# 設定檔案存取路徑
+	print("platform.system()= ", platform.system())
 	pythonCompiler = ""
 	if platform.system() == "Windows" :
 		pythonCompiler = "python"
 		loadFileDir = sys.argv[1]
 		outputFile = "_InsertStocksData2DB.Bat"
+	elif platform.system() ==  "Linux" :
+		pythonCompiler = "python3"
+		loadFileDir = "/home/earvin/workspaces/GithubProjects/GoodinfoData2DB/" + sys.argv[1]
+		outputFile = "_InsertStocksData2DB_linux.sh"
 	else :
 		pythonCompiler = "python3"
 		loadFileDir = "/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/" + sys.argv[1]
