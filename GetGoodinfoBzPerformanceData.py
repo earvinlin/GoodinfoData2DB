@@ -31,7 +31,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 if len(sys.argv) < 3 :
     print("You need input two parameter(fmt : theFilename theDate) ")
-    print("syntax(windows)    : C:\python GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
+    print("syntax(windows)    : C:\\python GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
     print("syntax(imac/linux) : $python3 GetGoodinfoBzPerformanceData.py STOCKS_LIST_bzperformance.txt 20220517")
     sys.exit()
 
@@ -48,7 +48,7 @@ bzPerformanceFilename = "BzPerformance.xls"
 logFilename = "__errorlogBP.log"
 logFile = open(logFilename, "a")
 
-# 設定profile
+# 設定profile (firefox, 20251222)
 fileOptions=Options()
 fileOptions.set_preference("browser.download.folderList", 2)
 fileOptions.set_preference("browser.download.manager.showWhenStarting", False)
@@ -57,6 +57,28 @@ fileOptions.set_preference('browser.helperApps.neverAsk.saveToDisk', \
     'text/csv,application/x-msexcel,application/excel,application/x-excel,\
     application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,\
     application/msword,application/xml')
+
+### 20251222 START ###
+# ✅ 關閉推播通知
+fileOptions.set_preference("dom.webnotifications.enabled", False)
+# ✅ 關閉推播 API（類似 Chrome 的 PushMessaging）
+fileOptions.set_preference("dom.push.enabled", False)
+# ✅ 關閉 Service Workers（可減少背景連線）
+fileOptions.set_preference("dom.serviceWorkers.enabled", False)
+# ✅ 關閉預取（prefetch）
+fileOptions.set_preference("network.prefetch-next", False)
+# ✅ 關閉 DNS 預取
+fileOptions.set_preference("network.dns.disablePrefetch", True)
+# ✅ 關閉連線預先建立（類似 Chrome 的 NetworkService）
+fileOptions.set_preference("network.http.speculative-parallel-limit", 0)
+# ✅ 關閉自動更新（避免背景連線）
+fileOptions.set_preference("app.update.enabled", False)
+# ✅ 關閉遙測（telemetry）
+fileOptions.set_preference("toolkit.telemetry.enabled", False)
+fileOptions.set_preference("toolkit.telemetry.unified", False)
+fileOptions.set_preference("datareporting.healthreport.uploadEnabled", False)
+### 20251222 END ###
+
 
 # 設定檔案存取路徑
 destination_dir = os.path.join("Data", "EXCEL", "Origin", "bzPerformance", str(theDate))
