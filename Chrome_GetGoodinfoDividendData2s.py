@@ -81,7 +81,7 @@ def close_ads(driver):
                 print(f"  已隱藏廣告元素：{xpath}")
         except:
             pass
-"""
+
     # 3. 處理 iframe 廣告
     try:
         iframes = driver.find_elements(By.TAG_NAME, "iframe")
@@ -93,7 +93,7 @@ def close_ads(driver):
                 pass
     except:
         pass
-"""
+
 
 def wait_for_download(download_path: str, timeout: int = 30) -> bool:
     """輪詢等待檔案出現，最多 timeout 秒。"""
@@ -136,7 +136,7 @@ def process_stock_once(
     clear_old_download(download_path)
 
     driver.get(GOODINFO_URL)
-#   close_ads(driver)
+    close_ads(driver)
 
     # 輸入股票代碼
     elem = WebDriverWait(driver, 20).until(
@@ -145,7 +145,7 @@ def process_stock_once(
     elem.clear()
     elem.send_keys(stockCode)
     elem.send_keys(Keys.RETURN)
-#    close_ads(driver)
+    close_ads(driver)
 
     # 等「股利政策」連結
     web_element = WebDriverWait(driver, 20).until(
@@ -181,7 +181,7 @@ def process_stock_once(
         )
     )
     driver.execute_script("arguments[0].click();", button)
-#    close_ads(driver)
+    close_ads(driver)
 
     # 等待下載完成
     if not wait_for_download(download_path, timeout=40):
