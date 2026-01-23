@@ -52,6 +52,49 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
     return webdriver.Chrome(service=service, options=chrome_options)
 
 
+def close_ads(driver):
+    """關閉 Goodinfo 網站可能出現的廣告、彈窗、alert、iframe 廣告。"""
+
+    # 1. 處理 JavaScript alert
+    try:
+        WebDriverWait(driver, 1).until(EC.alert_is_present())
+        alert = driver.switch_to.alert
+        alert.accept()
+        print("  已關閉 alert 視窗")
+    except:
+        pass
+
+    # 2. 處理常見廣告 DIV
+    ad_selectors = [
+        "//div[contains(@class,'fc-ab-root')]",
+        "//div[@id='divPopMsg']",
+        "//div[contains(@class,'modal-dialog')]",
+        "//div[contains(@class,'fc-dialog-container')]",
+        "//div[contains(@style,'z-index') and contains(@style,'position')]",
+    ]
+
+    for xpath in ad_selectors:
+        try:
+            elems = driver.find_elements(By.XPATH, xpath)
+            for e in elems:
+                driver.execute_script("arguments[0].style.display='none';", e)
+                print(f"  已隱藏廣告元素：{xpath}")
+        except:
+            pass
+"""
+    # 3. 處理 iframe 廣告
+    try:
+        iframes = driver.find_elements(By.TAG_NAME, "iframe")
+        for iframe in iframes:
+            try:
+                driver.execute_script("arguments[0].style.display='none';", iframe)
+                print("  已隱藏 iframe 廣告")
+            except:
+                pass
+    except:
+        pass
+"""
+
 def wait_for_download(download_path: str, timeout: int = 30) -> bool:
     """輪詢等待檔案出現，最多 timeout 秒。"""
     for _ in range(timeout):
@@ -93,6 +136,7 @@ def process_stock_once(
     clear_old_download(download_path)
 
     driver.get(GOODINFO_URL)
+#   close_ads(driver)
 
     # 輸入股票代碼
     elem = WebDriverWait(driver, 20).until(
@@ -101,12 +145,14 @@ def process_stock_once(
     elem.clear()
     elem.send_keys(stockCode)
     elem.send_keys(Keys.RETURN)
+#    close_ads(driver)
 
     # 等「股利政策」連結
     web_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.LINK_TEXT, "股利政策"))
     )
     web_element.click()
+    close_ads(driver)
 
     # 主選單
     dropdown = WebDriverWait(driver, 20).until(
@@ -135,6 +181,7 @@ def process_stock_once(
         )
     )
     driver.execute_script("arguments[0].click();", button)
+#    close_ads(driver)
 
     # 等待下載完成
     if not wait_for_download(download_path, timeout=40):
