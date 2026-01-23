@@ -40,7 +40,8 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
         "safebrowsing.enabled": True,
     }
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.add_argument("--start-maximized")
+#    chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument("--window-size=800,600")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
 
