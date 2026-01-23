@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/202512/ 1101.txt
 python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/202512/ 1102.txt
 python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/202512/ 1103.txt
@@ -2282,3 +2284,4 @@ python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoD
 python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/202512/ 9958.txt
 python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/202512/ 9960.txt
 python3 InsertData2DbByFile.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/TXT/salemon/202512/ 9962.txt
+>>>>>>> b05e1037370611beb05de39b92c576c2168a4acd
