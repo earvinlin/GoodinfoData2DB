@@ -139,6 +139,17 @@ def process_stock_once(
     driver.get(GOODINFO_URL)
     close_ads(driver)
 
+    # 關閉「我知道了」按鈕
+    elems = driver.find_elements(By.XPATH, "//input[@value='我知道了']")
+    if elems:
+        print("按鈕存在")
+        elems[0].click()   # 或 driver.execute_script("arguments[0].click();", elems[0])
+    else:
+        print("按鈕不存在")
+#    button = WebDriverWait(driver, 10).until(
+#       EC.element_to_be_clickable((By.XPATH, "//input[@value='我知道了']")))
+#       button.click()
+
     # 輸入股票代碼
     elem = WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.ID, "txtStockCode"))
@@ -154,6 +165,8 @@ def process_stock_once(
     )
     web_element.click()
     close_ads(driver)
+
+    #time.sleep(5)
 
     # 主選單
     dropdown = WebDriverWait(driver, 20).until(
