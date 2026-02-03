@@ -4,9 +4,9 @@
 
 執行程式語法：
 <windows>
-python Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_dividend.txt 20250712 1 0
+python Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_dividend.txt 20260203 1 0
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_test.txt test 1 0
+python3 Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_test.txt 20260203 1 0
 """
 import os
 import sys
@@ -41,7 +41,7 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
         "safebrowsing.enabled": True,
     }
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.add_argument("--window-size=1200,900")
+    chrome_options.add_argument("--window-size=800,600")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
 
