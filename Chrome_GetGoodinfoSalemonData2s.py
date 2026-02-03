@@ -1,5 +1,6 @@
 """
 取得 Goodinfo 網站「每月營收」超連結資料（高穩定版）
+{ 本版本為舊版，請改用最新版 Chrome_GetGoodinfoSalemonData2sre.py }
 
 執行語法：
 <windows>

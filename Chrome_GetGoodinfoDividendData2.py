@@ -1,12 +1,12 @@
 """
 取得Goodinfo網站「股利政策」超連結資料
+{ 本版本為舊版，請改用最新版 Chrome_GetGoodinfoDividendData2sre.py }
+
 執行程式語法：
 <windows>
-python Chrome_GetGoodinfoDividendData2.py STOCKS_LIST_dividend.txt 20250712 1 2
+python Chrome_GetGoodinfoDividendData2.py STOCKS_LIST_dividend.txt 20250712 1 0
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2.py STOCKS_LIST_test.txt test 2 0
-
-20260121 Copy from getGoodinfoDividendData2.py，改用chrome抓資料
+python3 Chrome_GetGoodinfoDividendData2.py STOCKS_LIST_test.txt test 1 0
 """
 import os
 import sys

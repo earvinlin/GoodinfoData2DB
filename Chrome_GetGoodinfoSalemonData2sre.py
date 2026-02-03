@@ -1,11 +1,12 @@
 """
 取得 Goodinfo 網站「每月營收」超連結資料（高穩定版）
+{ 本版本為舊版，請改用最新版 Chrome_GetGoodinfoSalemonData2sre.py }
 
 執行語法：
 <windows>
-python Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_salemon.txt 202601
+python Chrome_GetGoodinfoSalemonData2sre.py STOCKS_LIST_salemon.txt 202601
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_salemon.txt 202601
+python3 Chrome_GetGoodinfoSalemonData2sre.py STOCKS_LIST_salemon.txt 202601
 """
 import os
 import sys
@@ -234,6 +235,7 @@ def process_stock_with_retry(stockCode, destination_dir, theDate, download_dir, 
 #  Main
 # ------------------------------------------------------------
 def main():
+    print("start")
     if len(sys.argv) < 3:
         print("參數不足：theFilename theDate")
         sys.exit(1)

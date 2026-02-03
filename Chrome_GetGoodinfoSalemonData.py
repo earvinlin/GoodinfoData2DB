@@ -1,3 +1,13 @@
+"""
+取得 Goodinfo 網站「每月營收」超連結資料
+{ 本版本為舊版，請改用最新版 Chrome_GetGoodinfoSalemonData2sre.py }
+
+執行語法：
+<windows>
+python Chrome_GetGoodinfoSalemonData2.py STOCKS_LIST_salemon.txt 202601
+<imac / linux>
+python3 Chrome_GetGoodinfoSalemonData2.py STOCKS_LIST_salemon.txt 202601
+"""
 import os
 import sys
 import time
