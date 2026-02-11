@@ -1,6 +1,6 @@
 """
 取得Goodinfo網站「股利政策」超連結資料 (高穩定版)
-{ 本版本為舊版，請改用最新版 Chrome_GetGoodinfoDividendData2sre.py }
+ -- 20260211 : 尚未完成，依…2res.py來修改
 
 執行程式語法：
 <windows>
