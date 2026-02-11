@@ -186,7 +186,6 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
             print("子選單選取失敗")
             return False
 
-    # 等待 AJAX 載入完成（最關鍵）
     # 等待 AJAX 載入完成：divDetail 內容不為空
     try:
         WebDriverWait(driver, 30).until(
@@ -199,16 +198,21 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
     close_ads(driver)
 
     # Click XLS（使用真正的 DOM click）
-    try:
-        elem = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
-        )
-        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
-        time.sleep(0.3)
-        elem.click()
-    except:
-        print("XLS 按鈕點擊失敗")
-        return False
+#    try:
+#        elem = WebDriverWait(driver, 20).until(
+#            EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
+#        )
+#        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
+#        time.sleep(0.3)
+#        elem.click()
+#    except:
+#        print("XLS 按鈕點擊失敗")
+#        return False
+    elem = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
+    )
+    driver.execute_script("arguments[0].click();", elem)
+
 
     # Wait for download
     if not wait_for_download(download_path):
