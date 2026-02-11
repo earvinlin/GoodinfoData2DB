@@ -144,11 +144,6 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
     close_ads(driver)
     close_iknow(driver)
 
-    # Check page loaded
-    if "Goodinfo" not in driver.title:
-        print("頁面載入異常")
-        return False
-
     # Input stock code
     try:
         box = WebDriverWait(driver, 20).until(
@@ -191,35 +186,30 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
             print("子選單選取失敗")
             return False
 
-
-    print("theDate= ", theDate, ", theSelectOption= ", theSelectOption, ", theSelectOption2= ", theSelectOption2)
-    time.sleep(5)
-    select = Select(dropdown)
-    option_list = select.options
-    selected_option = select.first_selected_option
-    selected_item = selected_option.text
-#   「股利發放年度」、「股利所屬年度」會有第2個選項可供選擇
-    if theSelectOption == "0" or theSelectOption == "1" :
-        dropdown2 = driver.find_element(By.ID, "selSheet2")
-        select2 = Select(dropdown2)
-        select2.select_by_index(theSelectOption2)
-        option_list = select2.options
-        selected_option = select2.first_selected_option
-        print("目前選中的項目是：", selected_item, ", 子項目是：", selected_option.text)
-    else :
-        print("目前選中的項目是：", selected_item)
-
-    # Click XLS
-#    if not safe_click(driver, "//input[@type='button' and @value='XLS']", timeout=20):
-#        print("找不到 XLS 按鈕")
-#        return False
-    elem = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
-    )
-    elem.click()
-
+    # 等待 AJAX 載入完成（最關鍵）
+    try:
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//table[contains(@class,'tbl')]")
+            )
+        )
+    except:
+        print("資料表未載入完成")
+        return False
 
     close_ads(driver)
+
+    # Click XLS
+    try:
+        elem = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
+        time.sleep(0.3)
+        elem.click()
+    except:
+        print("XLS 按鈕點擊失敗")
+        return False
 
     # Wait for download
     if not wait_for_download(download_path):
