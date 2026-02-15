@@ -3,6 +3,7 @@
 { 本版本為舊版，請改用最新版 Chrome_GetGoodinfoDividendData2sre.py }
 
 執行程式語法：
+python3 Chrome_GetGoodinfoDividendData2sre_2.py INPUT_FILE DIRECTORY SELECT_MAIN_OPT SELECT_SUB_OPT
 <windows>
 python Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_dividend.txt 20260203 1 0
 <imac / linux>
@@ -185,7 +186,9 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
         except:
             print("子選單選取失敗")
             return False
-
+    
+    time.sleep(2)
+    
     # 等待 AJAX 載入完成：divDetail 內容不為空
     try:
         WebDriverWait(driver, 30).until(
@@ -196,6 +199,8 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
         return False
 
     close_ads(driver)
+
+    time.sleep(3)
 
     # Click XLS（使用真正的 DOM click）
 #    try:
@@ -213,7 +218,6 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
     )
     driver.execute_script("arguments[0].click();", elem)
 
-
     # Wait for download
     if not wait_for_download(download_path):
         print(f"{stockCode}: 檔案未下載成功")
@@ -227,7 +231,6 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
     except Exception as e:
         print(f"{stockCode}: 檔案搬移失敗：{e}")
         return False
-
 
 
 # ------------------------------------------------------------
