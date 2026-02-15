@@ -1,13 +1,12 @@
 """
 取得Goodinfo網站「股利政策」超連結資料 (高穩定版)
-{ 本版本為舊版，請改用最新版 Chrome_GetGoodinfoDividendData2sre.py }
 
 執行程式語法：
 python3 Chrome_GetGoodinfoDividendData2sre_2.py INPUT_FILE DIRECTORY SELECT_MAIN_OPT SELECT_SUB_OPT
 <windows>
 python Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_dividend.txt 20260203 1 0
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_test.txt test 1 2
+python3 Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_dividend.txt 20260215_1_2 1 2
 """
 import os
 import sys
@@ -42,7 +41,7 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
         "safebrowsing.enabled": True,
     }
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.add_argument("--window-size=800,600")
+    chrome_options.add_argument("--window-size=1000,800")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
 
@@ -175,6 +174,8 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
     except:
         print("主選單選取失敗")
         return False
+ 
+    time.sleep(3)
 
     # Select sub dropdown
     if theSelectOption in ["0", "1"]:
@@ -187,7 +188,7 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
             print("子選單選取失敗")
             return False
     
-    time.sleep(2)
+    time.sleep(3) 
     
     # 等待 AJAX 載入完成：divDetail 內容不為空
     try:
@@ -199,8 +200,6 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
         return False
 
     close_ads(driver)
-
-    time.sleep(3)
 
     # Click XLS（使用真正的 DOM click）
 #    try:
