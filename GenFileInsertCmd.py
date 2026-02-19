@@ -1,3 +1,10 @@
+"""
+-- NOT FIN. --
+GoodinfoData2DB.CheckFileContent 的 Docstring
+CMD : python3 CheckFileContent.py theDirectoryPath theCompareValue thePosition
+Example :
+
+"""
 import pandas as pd
 
 path = "D:\\workspaces\\GithubProjects\\GoodinfoData2DB\\Data\\EXCEL\\Transfer\\dividend\\20260215_1_2\\"

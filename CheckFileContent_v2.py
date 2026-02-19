@@ -6,8 +6,11 @@ Example :
 (mac) python3 CheckFileContent_v2.py M1 現金+股票殖利率 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260215_1_2/ 
 (win-sgo3) python CheckFileContent_v2.py M1 現金+股票殖利率 D:\workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260215_1_2\
 -- 1 4 : M1 除權/息價殖利率
-(mac) python3 CheckFileContent_v2.py M1 除權/息價殖利率 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Origin/dividend/20260216_1_4/ 
+(mac) python3 CheckFileContent_v2.py M1 除權/息價殖利率 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260216_1_4/ 
 (win-sgo3) python CheckFileContent_v2.py M1 除權/息價殖利率 D:\workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260216_1_4\
+-- 1 5 : M1 年均價殖利率
+(mac) python3 CheckFileContent_v2.py M1 年均價殖利率 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260216_1_5/ 
+(win-sgo3) python CheckFileContent_v2.py M1 年均價殖利率 D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260216_1_5\
 
 """
 from openpyxl import load_workbook
