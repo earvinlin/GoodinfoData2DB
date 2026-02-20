@@ -4,7 +4,7 @@
 執行程式語法：
 python3 Chrome_GetGoodinfoDividendData2sre_2.py INPUT_FILE DIRECTORY SELECT_MAIN_OPT SELECT_SUB_OPT
 <windows>
-python Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_dividend.txt 20260219 1 8
+python Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_dividend.txt 20260219_1_8 1 8
 <imac / linux>
 python3 Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_dividend.txt 20260215_1_2 1 2
 """
