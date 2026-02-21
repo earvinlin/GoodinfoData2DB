@@ -7,9 +7,9 @@ Example :
 """
 import pandas as pd
 
-path = "D:\\workspaces\\GithubProjects\\GoodinfoData2DB\\Data\\EXCEL\\Transfer\\dividend\\20260215_1_2\\"
-file_name = "9962-dividend-20260215_1_2.xlsx"
-sheet_name = "9962-dividend-20260215_1_2"
+path = "D:\\workspaces\\GithubProjects\\GoodinfoData2DB\\Data\\EXCEL\\Transfer\\dividend\\test\\"
+file_name = "0050-dividend-20260215_1_2.xlsx"
+sheet_name = "0050-dividend-20260215_1_2"
 df = pd.read_excel(path + file_name, sheet_name=sheet_name)
 
 rows, cols = df.shape
