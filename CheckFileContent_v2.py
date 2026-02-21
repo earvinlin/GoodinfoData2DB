@@ -11,6 +11,12 @@ Example :
 -- 1 5 : M1 年均價殖利率
 (mac) python3 CheckFileContent_v2.py M1 年均價殖利率 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260216_1_5/ 
 (win-sgo3) python CheckFileContent_v2.py M1 年均價殖利率 D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260216_1_5\
+-- 1 6 : M1 成交價殖利率
+(mac) python3 CheckFileContent_v2.py M1 成交價殖利率 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260218_1_6/ 
+(win-sgo3) python CheckFileContent_v2.py M1 成交價殖利率 D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260218_1_6\
+-- 1 8 : M1 盈餘分配率統計
+(mac) python3 CheckFileContent_v2.py M1 盈餘分配率統計 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260219_1_8/ 
+(win-sgo3) python CheckFileContent_v2.py M1 盈餘分配率統計 D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260219_1_8\
 
 """
 from openpyxl import load_workbook
@@ -24,8 +30,8 @@ if len(sys.argv) < 4:
     sys.exit(1)
 
 thePosition = sys.argv[1]
-theDirectoryPath = sys.argv[3]
 theCompareValue = sys.argv[2]
+theDirectoryPath = sys.argv[3]
 
 if not os.path.isdir(theDirectoryPath):
     print(f"目錄不存在：{theDirectoryPath}")
