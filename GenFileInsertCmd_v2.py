@@ -4,6 +4,7 @@ table: stocks_dividend_CAS_dividend_yield
 CMD : python3 GenFileInsertCmd_v2.py theTableName theDirectoryPath
 Example :
 (mac) python3 GenFileInsertCmd_v2.py stocks_dividend_CAS_dividend_yield /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/test/
+(win) python  GenFileInsertCmd_v2.py stocks_dividend_CAS_dividend_yield D:\\Workspaces\\GithubProjects\\GoodinfoData2DB\\Data\\EXCEL\\Transfer\\dividend\\20260215_1_2\\
 """
 
 import sys
@@ -18,12 +19,13 @@ def clean_value(val):
 
 def process_file(table_name, directory, file_name, f):
     """處理單一 Excel 檔案，產生 insert SQL，並回傳處理筆數"""
-    stock_no = file_name[:4]
+#    stock_no = file_name[:4]
+    stock_no = file_name.split("-")[0]
     sheet_name = file_name.rsplit(".", 1)[0]
 #    print("file_name:", file_name, "sheet_name:", sheet_name)
 
     df = pd.read_excel(os.path.join(directory, file_name), sheet_name=sheet_name, 
-                       header=None, engine="openpyxl")
+                       header=None)
     rows, cols = df.shape
 #    print("rows:", rows, "cols:", cols)
 
