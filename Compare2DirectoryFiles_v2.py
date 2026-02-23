@@ -3,8 +3,9 @@ GoodinfoData2DB.Compare2DirectoryFiles 的 Docstring
 CMD : python Compare2DirectoryFiles.py theDirectoryPath1 theDirectoryPath2
 
 Example :
-python Compare2DirectoryFiles.py D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260215_1_2 D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260216_1_4
-python Compare2DirectoryFiles.py D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260215_1_2 D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260216_1_5
+(mac) python3 Compare2DirectoryFiles_v2.py /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260215_1_2 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260215_1_2-0/
+(win) python Compare2DirectoryFiles_v2.py D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260215_1_2 D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260216_1_4
+(win) python Compare2DirectoryFiles_v2.py D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260215_1_2 D:\Workspaces\GithubProjects\GoodinfoData2DB\Data\EXCEL\Transfer\dividend\20260216_1_5
 
 """
 import os
@@ -50,10 +51,10 @@ def main():
     files2_prefix = get_file_prefixes(theDirectoryPath2)
 
     print(f"{theDirectoryPath1} 檔案數量: {len(files1_prefix)}")
-    print(files1_prefix)
+#    print(files1_prefix)
 
     print(f"{theDirectoryPath2} 檔案數量: {len(files2_prefix)}")
-    print(files2_prefix)
+#    print(files2_prefix)
 
     # 比對差異
     diff_a = sorted(list(set(files1_prefix) - set(files2_prefix)))

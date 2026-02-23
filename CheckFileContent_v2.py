@@ -38,11 +38,12 @@ if not os.path.isdir(theDirectoryPath):
     sys.exit(1)
 
 files = os.listdir(theDirectoryPath)
-#print("files= ", files)
+
+print("files= ", files)
 file_count = sum(1 for f in files if os.path.isfile(os.path.join(theDirectoryPath, f)))
 print("檔案數量:", file_count)
 
-
+# files = files.sort()  # 確保檔案順序一致
 # 建立一個紀錄檔案
 output_file = "___compare_result.txt"
 
