@@ -7,7 +7,7 @@ python3 Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py INPUT_FILE DIRECTORY S
 <windows>
 python Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 20260225_0_4 0 4
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 20260225_0_4 0 4
+python3 Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 20260227_0_5 0 5
 """
 import os
 import sys
