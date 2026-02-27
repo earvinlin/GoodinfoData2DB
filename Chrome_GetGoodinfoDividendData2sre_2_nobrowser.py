@@ -1,12 +1,13 @@
 """
 取得Goodinfo網站「股利政策」超連結資料 (不顯示瀏灠器版本)
+copy from Chrome_GetGoodinfoDividendData2sre_2.py，兩者只差這個函式setup_driver(…)
 
 執行程式語法：
 python3 Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py INPUT_FILE DIRECTORY SELECT_MAIN_OPT SELECT_SUB_OPT
 <windows>
-python Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py STOCKS_LIST_dividend_v2.txt 20260225_0_4 0 4
+python Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 20260225_0_4 0 4
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py STOCKS_LIST_dividend_v2.txt 20260225_0_4 0 4
+python3 Chrome_GetGoodinfoDividendData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 20260225_0_4 0 4
 """
 import os
 import sys
@@ -33,6 +34,7 @@ maxRetryCnt = 3
 #  Driver Setup
 # ------------------------------------------------------------
 """
+# 會開啟browser 
 def setup_driver(download_dir: str) -> webdriver.Chrome:
     chrome_options = Options()
     prefs = {
@@ -54,6 +56,7 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
     driver.set_script_timeout(20)
     return driver
 """
+# 不會開啟browser 
 def setup_driver(download_dir: str) -> webdriver.Chrome:
     chrome_options = Options()
 

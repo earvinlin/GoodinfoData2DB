@@ -37,7 +37,13 @@ if not os.path.isdir(theDirectoryPath):
     print(f"目錄不存在：{theDirectoryPath}")
     sys.exit(1)
 
-files = os.listdir(theDirectoryPath)
+#files = os.listdir(theDirectoryPath)
+# 排序檔案名稱
+files = sorted([
+    f for f in os.listdir(theDirectoryPath)
+    if os.path.isfile(os.path.join(theDirectoryPath, f))
+])
+
 
 print("files= ", files)
 file_count = sum(1 for f in files if os.path.isfile(os.path.join(theDirectoryPath, f)))
