@@ -1,11 +1,11 @@
 """
-取得Goodinfo網站「經營績效」超連結資料
+取得Goodinfo網站「經營績效」超連結資料 (不顯示瀏灠器版本)
 執行程式語法：
 <windows>
-python Chrome_GetGoodinfoBzPerformanceData2sre_2.py STOCKS_LIST_v2.txt 20220517
+python Chrome_GetGoodinfoBzPerformanceData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 20220517
 <imac / linux>
-python3 Chrome_GetGoodinfoBzPerformanceData2sre_2.py STOCKS_LIST_v2.txt 20220517
-python3 Chrome_GetGoodinfoBzPerformanceData2sre_2.py STOCKS_LIST_test.txt test
+python3 Chrome_GetGoodinfoBzPerformanceData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 20220517
+python3 Chrome_GetGoodinfoBzPerformanceData2sre_2_nobrowser.py STOCKS_LIST_test.txt test
 """
 import os
 import sys
@@ -40,6 +40,7 @@ def write_log(log_file, msg) :
 # ------------------------------------------------------------
 #  Driver Setup
 # ------------------------------------------------------------
+"""
 def setup_driver(download_dir: str) -> webdriver.Chrome:
     chrome_options = Options()
     prefs = {
@@ -54,6 +55,44 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
     chrome_options.add_argument("--no-sandbox")
 
     service_path = "chromedriver.exe" if platform.system() == "Windows" else "/usr/local/bin/chromedriver"
+    service = Service(service_path)
+
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver.set_page_load_timeout(20)
+    driver.set_script_timeout(20)
+    return driver
+"""
+# 不會開啟browser 
+def setup_driver(download_dir: str) -> webdriver.Chrome:
+    chrome_options = Options()
+
+    # Headless 模式（新版 Chrome 必須使用 new headless）
+    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,1080")
+
+    # 避免 headless 模式下被網站偵測
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+
+    # 下載設定
+    prefs = {
+        "download.default_directory": download_dir,
+        "download.prompt_for_download": False,
+        "download.directory_upgrade": True,
+        "safebrowsing.enabled": True,
+    }
+    chrome_options.add_experimental_option("prefs", prefs)
+
+    # 避免 Linux / macOS sandbox 問題
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    # chromedriver 路徑
+    service_path = (
+        "chromedriver.exe"
+        if platform.system() == "Windows"
+        else "/usr/local/bin/chromedriver"
+    )
     service = Service(service_path)
 
     driver = webdriver.Chrome(service=service, options=chrome_options)
