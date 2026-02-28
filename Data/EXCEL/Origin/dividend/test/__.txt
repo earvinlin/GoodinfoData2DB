@@ -1,0 +1,1 @@
+<button id="ats-interstitial-button" style="display: inline-block;">x</button>

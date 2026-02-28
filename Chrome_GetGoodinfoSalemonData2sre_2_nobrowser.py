@@ -1,12 +1,12 @@
 """
 取得Goodinfo網站「股利政策」超連結資料 (高穩定版)
+ -- 20260211 : 尚未完成，依…2res.py來修改
 
 執行程式語法：
-python3 Chrome_GetGoodinfoDividendData2sre_2.py INPUT_FILE DIRECTORY SELECT_MAIN_OPT SELECT_SUB_OPT
 <windows>
-python Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_v2.txt 20260225_0_4 0 4
+python Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_dividend.txt 20260203 1 0
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_v2.txt 20260225_0_4 0 4
+python3 Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_test.txt 20260203 1 0
 """
 import os
 import sys
@@ -29,11 +29,10 @@ logFilename = "__errorlogDD.log"
 maxRetryCnt = 3
 
 
-
-
 # ------------------------------------------------------------
 #  Driver Setup
 # ------------------------------------------------------------
+"""
 def setup_driver(download_dir: str) -> webdriver.Chrome:
     chrome_options = Options()
     prefs = {
@@ -43,11 +42,50 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
         "safebrowsing.enabled": True,
     }
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.add_argument("--window-size=1000,800")
+    chrome_options.add_argument("--window-size=800,600")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
 
     service_path = "chromedriver.exe" if platform.system() == "Windows" else "/usr/local/bin/chromedriver"
+    service = Service(service_path)
+
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver.set_page_load_timeout(20)
+    driver.set_script_timeout(20)
+    return driver
+"""
+
+# 不會開啟browser 
+def setup_driver(download_dir: str) -> webdriver.Chrome:
+    chrome_options = Options()
+
+    # Headless 模式（新版 Chrome 必須使用 new headless）
+    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,1080")
+
+    # 避免 headless 模式下被網站偵測
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+
+    # 下載設定
+    prefs = {
+        "download.default_directory": download_dir,
+        "download.prompt_for_download": False,
+        "download.directory_upgrade": True,
+        "safebrowsing.enabled": True,
+    }
+    chrome_options.add_experimental_option("prefs", prefs)
+
+    # 避免 Linux / macOS sandbox 問題
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    # chromedriver 路徑
+    service_path = (
+        "chromedriver.exe"
+        if platform.system() == "Windows"
+        else "/usr/local/bin/chromedriver"
+    )
     service = Service(service_path)
 
     driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -80,9 +118,8 @@ def close_ads(driver):
     try:
         WebDriverWait(driver, 1).until(EC.alert_is_present())
         driver.switch_to.alert.accept()
-        print("[LOG] 成功關閉 JS alert")
     except:
-        print("[LOG] 沒有 JS alert")
+        pass
 
     # Hide common ad divs
     ad_xpaths = [
@@ -160,7 +197,7 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
 
     # Load main page
     driver.get(GOODINFO_URL)
-    close_interstitial(driver)
+    close_interstitial(driver)    
     close_ads(driver)
     close_iknow(driver)
 
@@ -196,8 +233,6 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
     except:
         print("主選單選取失敗")
         return False
- 
-    time.sleep(3)
 
     # Select sub dropdown
     if theSelectOption in ["0", "1"]:
@@ -209,35 +244,31 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
         except:
             print("子選單選取失敗")
             return False
-    
-    time.sleep(3) 
-    
-    # 等待 AJAX 載入完成：divDetail 內容不為空
+
+    # 等待 AJAX 載入完成（最關鍵）
     try:
-        WebDriverWait(driver, 30).until(
-            lambda d: d.find_element(By.ID, "divDetail").text.strip() != ""
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//table[contains(@class,'tbl')]")
+            )
         )
     except:
-        print("資料表未載入完成（divDetail 仍為空）")
+        print("資料表未載入完成")
         return False
 
     close_ads(driver)
 
-    # Click XLS（使用真正的 DOM click）
-#    try:
-#        elem = WebDriverWait(driver, 20).until(
-#            EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
-#        )
-#        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
-#        time.sleep(0.3)
-#        elem.click()
-#    except:
-#        print("XLS 按鈕點擊失敗")
-#        return False
-    elem = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
-    )
-    driver.execute_script("arguments[0].click();", elem)
+    # Click XLS
+    try:
+        elem = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
+        time.sleep(0.3)
+        elem.click()
+    except:
+        print("XLS 按鈕點擊失敗")
+        return False
 
     # Wait for download
     if not wait_for_download(download_path):
