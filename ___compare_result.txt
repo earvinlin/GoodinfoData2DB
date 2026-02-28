@@ -1,2 +1,0 @@
-/home/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Origin/dividend/20260227_0_6 多出的項目: []
-/home/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260215_1_2/ 多出的項目: []
