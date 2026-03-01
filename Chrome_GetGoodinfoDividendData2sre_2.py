@@ -4,9 +4,9 @@
 執行程式語法：
 python3 Chrome_GetGoodinfoDividendData2sre_2.py INPUT_FILE DIRECTORY SELECT_MAIN_OPT SELECT_SUB_OPT
 <windows>
-python Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_dividend.txt 20260219_1_8 1 8
+python Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_v2.txt 20260225_0_4 0 4
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_dividend.txt 20260215_1_2 1 2
+python3 Chrome_GetGoodinfoDividendData2sre_2.py STOCKS_LIST_v2.txt 20260225_0_4 0 4
 """
 import os
 import sys
@@ -27,6 +27,8 @@ GOODINFO_URL = "https://goodinfo.tw/tw/index.asp"
 dividendFilename = "DividendDetail.xls"
 logFilename = "__errorlogDD.log"
 maxRetryCnt = 3
+
+
 
 
 # ------------------------------------------------------------
@@ -78,8 +80,9 @@ def close_ads(driver):
     try:
         WebDriverWait(driver, 1).until(EC.alert_is_present())
         driver.switch_to.alert.accept()
+        print("[LOG] 成功關閉 JS alert")
     except:
-        pass
+        print("[LOG] 沒有 JS alert")
 
     # Hide common ad divs
     ad_xpaths = [
@@ -102,6 +105,22 @@ def close_ads(driver):
             driver.execute_script("arguments[0].style.display='none';", iframe)
     except:
         pass
+
+
+# ------------------------------------------------------------
+#  Close Interstitial Ads
+# ------------------------------------------------------------
+def close_interstitial(driver):
+    try:
+        # 等待按鈕出現並可點擊
+        btn = WebDriverWait(driver, 5).until(
+            EC.element_to_be_clickable((By.ID, "ats-interstitial-button"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView(true);", btn)
+        driver.execute_script("arguments[0].click();", btn)
+        print("[LOG] 成功關閉 interstitial 視窗")
+    except Exception as e:
+        print(f"[LOG] 找不到或無法點擊 interstitial 視窗按鈕: {e}")
 
 
 # ------------------------------------------------------------
@@ -141,6 +160,7 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
 
     # Load main page
     driver.get(GOODINFO_URL)
+    close_interstitial(driver)
     close_ads(driver)
     close_iknow(driver)
 
@@ -156,6 +176,7 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
         print("找不到股票輸入框")
         return False
 
+    close_interstitial(driver)
     close_ads(driver)
 
     # Click 股利政策
@@ -163,6 +184,7 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
         print("找不到『股利政策』連結")
         return False
 
+    close_interstitial(driver)
     close_ads(driver)
 
     # Select main dropdown
