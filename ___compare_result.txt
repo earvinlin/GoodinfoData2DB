@@ -1,1 +1,2 @@
-0050-dividend-20260228_0_8 - 複製.xlsx: 盈餘分配率統計111
+/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Origin/dividend/20260307_0_0/ 多出的項目: ['00981A', '3717', '7893']
+/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260215_1_2/ 多出的項目: []
