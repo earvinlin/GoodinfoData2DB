@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 0081-dividend-20260307_0_0 - 複製.xlsx: 現金11殖利率
+=======
+/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Origin/dividend/20260307_0_0/ 多出的項目: ['00981A', '3717', '7893']
+/Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260215_1_2/ 多出的項目: []
+>>>>>>> ecce8b4148ee590a1ff02bcd34c8ba98d3d57d65
