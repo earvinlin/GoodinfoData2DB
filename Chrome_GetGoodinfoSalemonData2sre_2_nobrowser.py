@@ -4,9 +4,9 @@
 
 執行程式語法：
 <windows>
-python Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_dividend.txt 20260203 1 0
+python Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 202602
 <imac / linux>
-python3 Chrome_GetGoodinfoDividendData2sre.py STOCKS_LIST_test.txt 20260203 1 0
+python3 Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 202602
 """
 import os
 import sys
