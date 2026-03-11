@@ -1,5 +1,5 @@
 """
-取得Goodinfo網站「股利政策」超連結資料 (高穩定版)
+取得Goodinfo網站「每月營收」超連結資料 (高穩定版)
  -- 20260211 : 尚未完成，依…2res.py來修改
 
 執行程式語法：
@@ -7,6 +7,7 @@
 python Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 202602
 <imac / linux>
 python3 Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 202602
+python3 Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2_running.txt 202602
 """
 import os
 import sys
@@ -24,15 +25,15 @@ from selenium.common.exceptions import (
 )
 
 GOODINFO_URL = "https://goodinfo.tw/tw/index.asp"
-dividendFilename = "DividendDetail.xls"
-logFilename = "__errorlogDD.log"
+salemonFilename = "SaleMonDetail.xls"
+logFilename = "__errorlogSD.log"
 maxRetryCnt = 3
 
 
 # ------------------------------------------------------------
 #  Driver Setup
 # ------------------------------------------------------------
-"""
+
 def setup_driver(download_dir: str) -> webdriver.Chrome:
     chrome_options = Options()
     prefs = {
@@ -42,7 +43,7 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
         "safebrowsing.enabled": True,
     }
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.add_argument("--window-size=800,600")
+    chrome_options.add_argument("--window-size=1000,800")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
 
@@ -92,7 +93,7 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
     driver.set_page_load_timeout(20)
     driver.set_script_timeout(20)
     return driver
-
+"""
 
 # ------------------------------------------------------------
 #  Utility: Safe Click
@@ -181,12 +182,11 @@ def wait_for_download(download_path, timeout=40):
 # ------------------------------------------------------------
 #  Process one stock
 # ------------------------------------------------------------
-def process_stock_once(driver, stockCode, destination_dir, theDate,
-                       theSelectOption, theSelectOption2, download_dir):
+def process_stock_once(driver, stockCode, destination_dir, theDate, download_dir):
 
-    stockFilename = f"{stockCode}-dividend-{theDate}.xls"
+    stockFilename = f"{stockCode}-salemon-{theDate}.xls"
     target_path = os.path.join(destination_dir, stockFilename)
-    download_path = os.path.join(download_dir, dividendFilename)
+    download_path = os.path.join(download_dir, salemonFilename)
 
     if os.path.isfile(target_path):
         print(f"{stockFilename} 已存在，跳過")
@@ -216,59 +216,54 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
     close_interstitial(driver)
     close_ads(driver)
 
-    # Click 股利政策
-    if not safe_click(driver, "//a[text()='股利政策']", timeout=20):
-        print("找不到『股利政策』連結")
-        return False
+    # Click 每月營收
+#    if not safe_click(driver, "//a[text()='每月營收']", timeout=20):
+#        print("找不到『每月營收』連結")
+#        return False
+    print("查每月營收")
+    driver.find_element(By.LINK_TEXT, "每月營收").click()
 
-    close_interstitial(driver)
-    close_ads(driver)
+#    close_interstitial(driver)
+#    close_ads(driver)
 
-    # Select main dropdown
-    try:
-        dropdown = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.ID, "selSheet"))
-        )
-        Select(dropdown).select_by_index(int(theSelectOption))
-    except:
-        print("主選單選取失敗")
-        return False
+    print("查20年b")
+# //*[@id="divSaleMonChartDetail"]/section/table/tbody/tr/td[1]/nobr[1]/input[4]
 
-    # Select sub dropdown
-    if theSelectOption in ["0", "1"]:
-        try:
-            dropdown2 = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.ID, "selSheet2"))
-            )
-            Select(dropdown2).select_by_index(int(theSelectOption2))
-        except:
-            print("子選單選取失敗")
-            return False
+    button = driver.find_element(By.XPATH, "//input[@value='查20年']")
+    button.click()
+    print("查20年a")
+
+    time.sleep(2)
 
     # 等待 AJAX 載入完成（最關鍵）
-    try:
-        WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//table[contains(@class,'tbl')]")
-            )
-        )
-    except:
-        print("資料表未載入完成")
-        return False
+    #try:
+    #    WebDriverWait(driver, 20).until(
+    #        EC.presence_of_element_located(
+    #            (By.XPATH, "//table[contains(@class,'tbl')]")
+    #        )
+    #    )
+    #except:
+    #    print("資料表未載入完成")
+    #
+    #    return False
 
-    close_ads(driver)
+    #close_ads(driver)
 
     # Click XLS
-    try:
-        elem = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
-        )
-        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
-        time.sleep(0.3)
-        elem.click()
-    except:
-        print("XLS 按鈕點擊失敗")
-        return False
+#    try:
+#        elem = WebDriverWait(driver, 20).until(
+#            EC.element_to_be_clickable((By.XPATH, "//input[@value='XLS']"))
+#        )
+#        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
+#        time.sleep(0.3)
+#        elem.click()
+#    except:
+#        print("XLS 按鈕點擊失敗")
+#        return False
+    
+    button = driver.find_element_by_xpath("//input[@type='button' and @value='匯出XLS']")
+    driver.execute_script("arguments[0].click();", button)
+
 
     # Wait for download
     if not wait_for_download(download_path):
@@ -289,10 +284,9 @@ def process_stock_once(driver, stockCode, destination_dir, theDate,
 #  Retry wrapper
 # ------------------------------------------------------------
 def process_stock_with_retry(stockCode, destination_dir, theDate,
-                             theSelectOption, theSelectOption2,
                              download_dir, logFile):
 
-    stockFilename = f"{stockCode}-dividend-{theDate}.xls"
+    stockFilename = f"{stockCode}-salemon-{theDate}.xls"
 
     for attempt in range(1, maxRetryCnt + 1):
         driver = None
@@ -300,8 +294,7 @@ def process_stock_with_retry(stockCode, destination_dir, theDate,
             print(f"  第 {attempt} 次嘗試：{stockCode}")
             driver = setup_driver(download_dir)
 
-            if process_stock_once(driver, stockCode, destination_dir, theDate,
-                                  theSelectOption, theSelectOption2, download_dir):
+            if process_stock_once(driver, stockCode, destination_dir, theDate, download_dir):
                 return
 
         except Exception as e:
@@ -327,20 +320,18 @@ def process_stock_with_retry(stockCode, destination_dir, theDate,
 #  Main
 # ------------------------------------------------------------
 def main():
-    if len(sys.argv) < 4:
-        print("參數不足：theFilename theDate theSelectOption theSelectOption2")
+    if len(sys.argv) < 3:
+        print("參數不足：theFilename theDate ")
         sys.exit(1)
 
     theStocksList = sys.argv[1]
     theDate = sys.argv[2]
-    theSelectOption = sys.argv[3]
-    theSelectOption2 = sys.argv[4] if theSelectOption != "2" else ""
 
     if not os.path.isfile(theStocksList):
         print(f"股票清單不存在：{theStocksList}")
         sys.exit(1)
 
-    destination_dir = os.path.join("Data", "EXCEL", "Origin", "dividend", str(theDate))
+    destination_dir = os.path.join("Data", "EXCEL", "Origin", "salemon", str(theDate))
     os.makedirs(destination_dir, exist_ok=True)
 
     download_dir = os.path.join(os.getcwd(), "downloads")
@@ -354,7 +345,6 @@ def main():
             print(f"處理第 {processCnt} 檔：{stockCode}")
             process_stock_with_retry(
                 stockCode, destination_dir, theDate,
-                theSelectOption, theSelectOption2,
                 download_dir, logFile
             )
 
