@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Origin/dividend/20260309_1_0/ 多出的項目: ['7849', '7854', '7897']
 /Users/earvin/workspaces/GithubProjects/GoodinfoData2DB/Data/EXCEL/Transfer/dividend/20260307_0_0/ 多出的項目: []
+=======
+>>>>>>> 1f288a3a812e207b9d8528bf08a891f6c76d7c70
