@@ -71,7 +71,6 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
     return driver
 
 
-# safe_click() & stable_click() 找時間整合成一個版本
 def safe_click(driver, xpath, timeout=10):
     try:
         elem = WebDriverWait(driver, timeout).until(
@@ -85,23 +84,6 @@ def safe_click(driver, xpath, timeout=10):
         return False
 
 
-def stable_click(driver, xpath, timeout=12, retries=3):
-    for attempt in range(retries):
-        try:
-            elem = WebDriverWait(driver, timeout).until(
-                EC.element_to_be_clickable((By.XPATH, xpath))
-            )
-            driver.execute_script("arguments[0].scrollIntoView({block:'center'});", elem)
-            driver.execute_script("arguments[0].click();", elem)
-            return True
-        except (ElementClickInterceptedException, StaleElementReferenceException):
-            time.sleep(1)
-        except Exception:
-            time.sleep(1)
-    return False
-
-
-# 下面有 AI 建議更好的版本，有時間試試看
 def close_ads(driver):
     # Close JS alert
     try:
@@ -150,22 +132,16 @@ def close_iknow(driver):
     safe_click(driver, "//input[@value='我知道了']", timeout=3)
 
 
-#def wait_for_download(download_path, timeout=40):
-#    for _ in range(timeout):
-#        if os.path.isfile(download_path):
-#            return True
-#        time.sleep(1)
-#    return False
-def wait_for_download(download_path, timeout=60):
+def wait_for_download(download_path, timeout=40):
     for _ in range(timeout):
         if os.path.isfile(download_path):
-            time.sleep(1)  # 確保寫入完成
             return True
         time.sleep(1)
     return False
 
 
 def process_stock_once(driver, stockCode, destination_dir, theDate, download_dir):
+
     stockFilename = f"{stockCode}-salemon-{theDate}.xls"
     target_path = os.path.join(destination_dir, stockFilename)
     download_path = os.path.join(download_dir, salemonFilename)
@@ -179,7 +155,6 @@ def process_stock_once(driver, stockCode, destination_dir, theDate, download_dir
 
     # Load main page
     driver.get(GOODINFO_URL)
-
     close_interstitial(driver)    
     close_ads(driver)
     close_iknow(driver)
@@ -199,27 +174,26 @@ def process_stock_once(driver, stockCode, destination_dir, theDate, download_dir
     close_interstitial(driver)
     close_ads(driver)
 
-    # 查「每月營收」
-    if not stable_click(driver, "//a[text()='每月營收']", timeout=20):
-        print("找不到『每月營收』")
-        return False
+    # Click 每月營收
+#    if not safe_click(driver, "//a[text()='每月營收']", timeout=20):
+#        print("找不到『每月營收』連結")
+#        return False
+    print("查每月營收")
+    driver.find_element(By.LINK_TEXT, "每月營收").click()
 
-    close_interstitial(driver)
-    close_ads(driver)
+#    close_interstitial(driver)
+#    close_ads(driver)
 
-    # 點「查20年」
-    print("查20年")
-    if not stable_click(driver, "//input[@value='查20年']", timeout=20):
-        print("查20年按鈕失敗")
-        return False
+    print("查20年a")
+    button = driver.find_element(By.XPATH, "//input[@value='查20年']")
+    button.click()
+    print("查20年b")
 
     time.sleep(2)
     
-    # 點「XLS」下載檔案
-    print("下載 XLS")
-    if not stable_click(driver, "//input[@type='button' and @value='XLS']", timeout=20):
-        print("XLS 按鈕失敗")
-        return False
+    button = driver.find_element(By.XPATH, "//input[@type='button' and @value='XLS']")
+    driver.execute_script("arguments[0].click();", button)
+
 
     # Wait for download
     if not wait_for_download(download_path):
@@ -239,7 +213,9 @@ def process_stock_once(driver, stockCode, destination_dir, theDate, download_dir
 # ------------------------------------------------------------
 #  Retry wrapper
 # ------------------------------------------------------------
-def process_stock_with_retry(stockCode, destination_dir, theDate, download_dir, logFile):
+def process_stock_with_retry(stockCode, destination_dir, theDate,
+                             download_dir, logFile):
+
     stockFilename = f"{stockCode}-salemon-{theDate}.xls"
 
     for attempt in range(1, maxRetryCnt + 1):
@@ -305,83 +281,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-"""
-(AI建議更好的寫法，但是加上去程式似無法運作~~")
-# ✅ 2. Driver（更強的 Anti-Bot + 更穩定 Headless）
-def setup_driver(download_dir: str) -> webdriver.Chrome:
-    chrome_options = Options()
-
-    # 新版 Headless
-    chrome_options.add_argument("--headless=new")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--window-size=1920,1080")
-
-    # Anti-bot 偽裝
-    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-    chrome_options.add_argument("--disable-infobars")
-    chrome_options.add_argument("--disable-extensions")
-    chrome_options.add_argument("--disable-popup-blocking")
-    chrome_options.add_argument("--disable-notifications")
-
-    # 下載設定
-    prefs = {
-        "download.default_directory": download_dir,
-        "download.prompt_for_download": False,
-        "download.directory_upgrade": True,
-        "safebrowsing.enabled": True,
-    }
-    chrome_options.add_experimental_option("prefs", prefs)
-
-    # Linux 容器常用
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-
-    # chromedriver 路徑
-    service_path = (
-        "chromedriver.exe"
-        if platform.system() == "Windows"
-        else "/usr/local/bin/chromedriver"
-    )
-    service = Service(service_path)
-
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-    driver.set_page_load_timeout(25)
-    driver.set_script_timeout(25)
-    return driver
-
-
-# ✅ 4. 更強的廣告清除（iframe + modal + z-index）
-def close_ads(driver):
-    # 關閉 alert
-    try:
-        WebDriverWait(driver, 1).until(EC.alert_is_present())
-        driver.switch_to.alert.accept()
-    except:
-        pass
-
-    # 移除 iframe
-    try:
-        for iframe in driver.find_elements(By.TAG_NAME, "iframe"):
-            driver.execute_script("arguments[0].remove();", iframe)
-    except:
-        pass
-
-    # 移除高 z-index 廣告
-    try:
-        divs = driver.find_elements(By.XPATH, "//*[contains(@style,'z-index')]")
-        for d in divs:
-            driver.execute_script("arguments[0].style.display='none';", d)
-    except:
-        pass
-
-    # 移除 modal
-    try:
-        modals = driver.find_elements(By.XPATH, "//*[contains(@class,'modal')]")
-        for m in modals:
-            driver.execute_script("arguments[0].remove();", m)
-    except:
-        pass
-"""
