@@ -65,10 +65,10 @@ with open(output_file, "w", encoding="utf-8") as out:
 
         value = ws[thePosition].value
         theReadValue = str(value).strip()
+        
         print("value=", value, "len=", len(theReadValue))        
         if len(theReadValue) > 10 :
             theReadValue = str(value)[:10]
-
 
         print("theReadValue=", theReadValue, "theCompareValue=", theCompareValue)
 
