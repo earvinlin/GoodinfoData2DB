@@ -1,5 +1,6 @@
 """
-GoodinfoData2DB.CheckFileContent 的 Docstring
+GoodinfoData2DB.CheckFileContent_v2 的 Docstring
+抓取之比對欄位若超過10個字元，只比對前10個字元
 CMD : python3 CheckFileContent.py theDirectoryPath theCompareValue thePosition
 Example :
 -- 1 2 : M1 現金+股票殖利率
@@ -33,6 +34,8 @@ thePosition = sys.argv[1]
 theCompareValue = sys.argv[2]
 theDirectoryPath = sys.argv[3]
 
+print("thePosition=", thePosition, "theCompareValue=", theCompareValue, "theDirectoryPath=",theDirectoryPath)
+
 if not os.path.isdir(theDirectoryPath):
     print(f"目錄不存在：{theDirectoryPath}")
     sys.exit(1)
@@ -44,8 +47,7 @@ files = sorted([
     if os.path.isfile(os.path.join(theDirectoryPath, f))
 ])
 
-
-print("files= ", files)
+#print("files= ", files)
 file_count = sum(1 for f in files if os.path.isfile(os.path.join(theDirectoryPath, f)))
 print("檔案數量:", file_count)
 
@@ -62,9 +64,15 @@ with open(output_file, "w", encoding="utf-8") as out:
         ws = wb.active
 
         value = ws[thePosition].value
-        print(value)
+        theReadValue = str(value).strip()
+        print("value=", value, "len=", len(theReadValue))        
+        if len(theReadValue) > 10 :
+            theReadValue = str(value)[:10]
 
-        if value == theCompareValue:
+
+        print("theReadValue=", theReadValue, "theCompareValue=", theCompareValue)
+
+        if theReadValue == theCompareValue :
             print("OK")
         else:
             print("FAILED")

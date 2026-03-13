@@ -261,9 +261,8 @@ def process_stock_once(driver, stockCode, destination_dir, theDate, download_dir
 #        print("XLS 按鈕點擊失敗")
 #        return False
     
-    button = driver.find_element_by_xpath("//input[@type='button' and @value='匯出XLS']")
+    button = driver.find_element_by_xpath("//input[@type='button' and @value='XLS']")
     driver.execute_script("arguments[0].click();", button)
-
 
     # Wait for download
     if not wait_for_download(download_path):
