@@ -52,7 +52,7 @@ while (not isFinished):
 
         # 這種寫法，有時侯會因為網頁載入太慢(>15秒)而失敗
         driver.implicitly_wait(15)
-        button = driver.find_element_by_xpath("//input[@type='button' and @value='匯出XLS']")
+        button = driver.find_element_by_xpath("//input[@type='button' and @value='XLS']")
         driver.execute_script("arguments[0].click();", button)
         
         isFinished = True
