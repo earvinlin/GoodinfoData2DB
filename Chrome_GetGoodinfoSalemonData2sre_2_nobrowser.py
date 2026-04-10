@@ -181,12 +181,27 @@ def process_stock_once(driver, stockCode, destination_dir, theDate, download_dir
 
     # Load main page
     driver.get(GOODINFO_URL)
+    time.sleep(3)  # 等待彈窗真正出現
 
+    # 20260410 marked
     close_interstitial(driver)    
     close_ads(driver)
     close_iknow(driver)
 
+    time.sleep(3)  # 等待彈窗真正出現
+    print("RESTART GOTO GOODINFO_URL START")
+    driver.get(GOODINFO_URL)
+    time.sleep(2)  # 等待彈窗真正出現
+    print("RESTART GOTO GOODINFO_URL END")
+#    # 再多關一次，因為 Goodinfo 會重複跳
+#    time.sleep(1)
+#    close_interstitial(driver)
+#    close_ads(driver)
+#    close_iknow(driver)
+
     # Input stock code
+    print("START GOTO 股票輸入框")
+#    print("debug= ", driver.page_source)
     try:
         box = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.ID, "txtStockCode"))
@@ -198,16 +213,16 @@ def process_stock_once(driver, stockCode, destination_dir, theDate, download_dir
         print("找不到股票輸入框")
         return False
 
-    close_interstitial(driver)
-    close_ads(driver)
-
+#    close_interstitial(driver)
+#    close_ads(driver)
+    print("START GOTO 「每月營收」")
     # 查「每月營收」
     if not stable_click(driver, "//a[text()='每月營收']", timeout=20):
         print("找不到『每月營收』")
         return False
 
-    close_interstitial(driver)
-    close_ads(driver)
+#    close_interstitial(driver)
+#    close_ads(driver)
 
     # 點「查20年」
     print("查20年")
@@ -317,7 +332,9 @@ def setup_driver(download_dir: str) -> webdriver.Chrome:
     chrome_options = Options()
 
     # 新版 Headless
-    chrome_options.add_argument("--headless=new")
+    # Goodinfo 對 new headless 的偵測比較敏感。
+#    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--window-size=1920,1080")
 
