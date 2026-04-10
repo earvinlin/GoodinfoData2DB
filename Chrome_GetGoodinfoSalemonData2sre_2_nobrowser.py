@@ -4,8 +4,10 @@
 執行程式語法：
 <windows>
 python Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 202602
+python Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2-1.txt 202603
 <imac / linux>
 python3 Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2.txt 202602
+python3 Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2-1.txt 202603
 python3 Chrome_GetGoodinfoSalemonData2sre_2_nobrowser.py STOCKS_LIST_v2_running.txt 202602
 """
 import os
